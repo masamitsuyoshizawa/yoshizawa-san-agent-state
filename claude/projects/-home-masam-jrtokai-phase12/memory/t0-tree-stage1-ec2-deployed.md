@@ -55,3 +55,6 @@ metadata:
 - Dify の state LLM の入力には発話が 2 回入る(prompt_template の user 行 + 末尾の query)= EC2 でも確定。
 
 - 決220(2026-10-09 18:3x): 決218 R(dkg_tree.py b25be2c0)を EC2 kg_api に反映(タグ r218-20261009・退避 pre-r218-20261009)。受入 = openapi 同一・diagnose 33/33・facets 差 0・木 22 の全欄(received・q_numbers・mermaid 含む)同一・soak 1 巡正常。
+- 案 A keep-alive の観測(2026-10-10 00:2x・22.7 h): kg_api 切断 0・DB debug.log 切断なし → 本採用継続(info 20261010-002x)。
+- 決226/227(2026-10-10 01:5x): D-a(状態整理の prompt_template の user の行を外し発話を 1 回に)+ (b)(1 手番目・4 つの保存値が全部空・複数行・event が 1 行目と同じときだけ全文に戻す)を EC2 の D/G に反映(DSL 701792b0 / c648b8af・識別子 0.3.16)。rev R226-1(前の状態の判定が event だけ)→ 是正済み。効き目: 発話の出現 2 → 1・2 回つなぎ 0。turn 1 の event は問いの節を除いた事象の文(規則どおり)。
+- EC2 現行(2026-10-10): kg_api 第 3 段 + R(b25be2c0)・console/shirei mermaid-20261009・プラグイン 0.3.16・DSL 701792b0 / c648b8af・nginx resolver 化(決223)。

@@ -166,7 +166,7 @@
 - [探索木 P2 計画(fed)](dkg-tree-p2-plan-fed.md) — 決169 I2 実装済み(main 5e46ee5c・dkg_tree 998e4abe・プラグイン 0.3.11)…
 - [探索木 第 1 段の受入(bkb)](tree-stage1-acceptance-bkb.md) — 決169〜171・実走(rep 0433)→再走(0519)→受T5 回し直し(0553)で全項目合格→決174 限定再走(2125)も合格→決177 EC2 受入も合格(EC2 再現は設定…
 - [sha16 は名前と対で採る](sha-cut-drops-filename.md) — `sha256sum a b | cut -c1-16` は名前が消え順で読み違える(20261002 dkg_tree と計画の sha16 を入れ替えた…
-- [探索木 EC2 反映(第 1 段〜第 3 段)](t0-tree-stage1-ec2-deployed.md) — 決176〜215・現行 kg_api s3-20261009・プラグイン 0.3.15・所見: 状態整理 LLM が「【観察/試験】」を落とし完全一致に外れる(dkb/fed に計画 req)・Dify 実行記録は会話→メッセージ→run で辿る
+- [探索木 EC2 反映(第 1 段〜決227)](t0-tree-stage1-ec2-deployed.md) — 現行(2026-10-10): kg_api 第 3 段 + R・プラグイン 0.3.16・DSL 701792b0/c648b8af(x003 接頭辞照合・案 A・D-a + (b))・nginx resolver 化・Dify 実行記録は会話→メッセージ→run で辿る
 - [置換子が本文を壊す](placeholder-substitution-collisions.md) — 連絡文の雛形の置換子 C1/DS が rev の C1・DSL・EC2 まで置換した(20261005)・置換子は @@X@@ に・埋めた値の出現数を確かめる・挿入は見出し数を assert
 - [接続設定の作り直しで C が欠けた](env-rebuild-missing-c-masks-as-data-drift.md) — 4 DB を揃えて繋がりを確かめてから比べる・diagnose は C の失敗を握りつぶしデータの変化に見える(20261005 に 62 件を誤って「データ側」と報告)
 - [C の接地は黙って失敗する](c-grounding-silent-failure.md) — diagnose の C 接地は認証失敗でも印なしで grounded_equipment が空・受入の台に KG_C_URI/KG_C_PW・回す前に空でない件数を確かめる(第 1 段の回は 0/2,654 だった)
@@ -181,4 +181,6 @@
 - [諮る直前に peer の推しを現物で確かめる](relay-positions-verify-at-ask-time.md) — coord の伝言で推しが入れ替わり 2 回の諮りが古い前提に(決216)・推しは時刻つきで伝え、取り下げを促す言い方をしない
 - [手元の台は本番の例外の包みを通さない](test-app-lacks-prod-error-envelope.md) — 本番 422 は {"error":…}・手元 R._app は {"detail":…}・合成の応答は EC2 の実物から採る(2026-10-09 E2)
 - [GitHub へ毎日 push](daily-github-push.md) — 最低 1 日 1 回 origin へ(利用者指示 2026-10-09・元 PC 故障で退避が滞っていた)・coord は 1 日の終わりに全ブランチ
-- [手元データの D: 退避](local-backup-setup.md) — 決221・kb_backup.sh(S/P/M/T/K・gpg)・/mnt/d/jrtokai-phase12-backup/v2・タスク 02:00・passphrase は読まない・未了: 私的リポジトリ/dump/bundle/復元手順書
+- [手元データの D: 退避](local-backup-setup.md) — 決221・kb_backup.sh(S/P/M/T/K・gpg)・/mnt/d/jrtokai-phase12-backup/v2・タスク 02:00/日曜 03:00・私的リポジトリ・N/G・復元手順書あり・passphrase は読まない・未了: prune/復元検査の定例化
+- [EC2 nginx は resolver 化済み(決223)](ec2-nginx-reload-after-container-restart.md) — 2026-10-09 に案 A 反映・upstream の restart で reload 不要・新 vhost を足すときだけ -t + reload・conf はコンテナ内(docker cp)・それ以前は 502 の原因
+- [画面の受入は svg の実寸を見る](screen-acceptance-check-svg-size.md) — 閉じた expander 内の iframe は幅 0 で描かれ 16×16 の空になる(shirei 探索木(図)・決224)・要素の有無でなく viewBox/実寸と console error 0 を条件に
