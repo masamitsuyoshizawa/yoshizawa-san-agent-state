@@ -1,0 +1,58 @@
+model = "gpt-6-astra"
+cli_auth_credentials_store = "file"
+personality = "pragmatic"
+model_reasoning_effort = "xhigh"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_layout_blocks_b8914aeb/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_text_saliency_ddaf4c24/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_table_structure_c66cf24e/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_key_value_pairs_86b9eabe/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_diagram_nodes_d2e7d95f/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_connectors_d13633a8/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_line_topology_47efe293/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_relation_overlay_8a41ecdf/codex_bridge"]
+trust_level = "trusted"
+
+[projects."/home/masam/vision_pdf_pipeline/runs/sample/image2_jobs/p0001_symbol_classes_c7d66e4f/codex_bridge"]
+trust_level = "trusted"
+
+
+[projects."/home/masam/eval_gpt55_20260815"]
+trust_level = "trusted"
+
+[projects."/home/masam"]
+trust_level = "trusted"
+
+[projects."/home/masam/jrtokai-phase12"]
+trust_level = "trusted"
+
+[projects."/home/masam/newbiz"]
+trust_level = "trusted"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui]
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 1
+gpt-6-astra = 2
+"gpt-6.1-sol" = 1

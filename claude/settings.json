@@ -1,0 +1,56 @@
+{
+  "env": {
+    "USE_BUILTIN_RIPGREP": "0"
+  },
+  "model": "claude-fable-5-1",
+  "language": "日本語",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
+  },
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(git push:*) targeting stockmarkteam/yoshizawa-san main — require diff summary presentation first per CLAUDE.md",
+      "Write/Edit to accident_kb_v7/proto/ — treated as read-only reference per CLAUDE.md",
+      "Any commit touching accident_kb_v7/data/ or masking_supplement*.json paths"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: AWS (evidence: `deploy/.env.v4.aws`, `deploy/.env.v7.aws`, `deploy/.env.v9.aws` gitignore entries; `saml2aws` and `aws` in shell history)",
+      "**Repository visibility**: not queryable via gh in this session — remote `github.com:stockmarkteam/yoshizawa-san.git` (origin) assumed private pending confirmation; personal remote `github.com:masamitsuyoshizawa/jrtokai-phase12.git` also assumed private pending confirmation",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured — repo uses local `.env`-style files (`deploy/.env`, `deploy/.env.v3`, `deploy/.env.v4`, `deploy/.env.v4.aws`, `deploy/.env.v7`, `deploy/.env.v7.aws`, `deploy/.env.v9.aws`, `deploy/secrets/*.json`) which are gitignored — never commit these",
+      "**Default / protected branches**: not queryable via gh in this session; CLAUDE.md states force-push to main is forbidden and a diff summary must be presented before committing to main",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo (jrtokai-phase12, working dir) and its two remotes — origin (github.com:stockmarkteam/yoshizawa-san.git) and personal-origin (github.com:masamitsuyoshizawa/jrtokai-phase12.git) — no additional orgs configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: neo4j-kb-v6 (bolt 9790 / http 9577, container for V6 — frozen, read-only, do not modify) and neo4j-accident-v7 (bolt 9890 / http 9677 planned, container for V7, `deploy/docker-compose.v7.yml`)",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: `accident_kb_v7/data/` (PDFs, extracted text, masked text, Stage1/Stage2 JSON) and any `**/masking_supplement*.json` — contain personal data and must never be committed; verify with `git status` before committing and avoid blind `git add -A`",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment; also treat neo4j-kb-v6 (bolt 9790 / http 9577) as frozen/read-only per CLAUDE.md — no modifications",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (railway accident-record knowledge base engineering, V7 work under `accident_kb_v7/`)",
+      "**Trusted repo**: jrtokai-phase12 (this working directory) and its remotes origin (stockmarkteam/yoshizawa-san) and personal-origin (masamitsuyoshizawa/jrtokai-phase12); visibility unconfirmed for both — treat as private pending confirmation, and regardless of visibility, personal/sensitive data under `accident_kb_v7/data/` and `masking_supplement*.json` is never cleared for commit",
+      "**Org-specific CLIs**: saml2aws (AWS SAML federation, seen 31× in shell history)",
+      "routine under accident_kb_v7/proto/ prefix: read-only reference for porting into V7, not a target for direct edits per CLAUDE.md"
+    ]
+  },
+  "voiceEnabled": true
+}

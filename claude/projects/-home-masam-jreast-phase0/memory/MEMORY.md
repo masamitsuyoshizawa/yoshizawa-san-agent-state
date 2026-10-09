@@ -1,0 +1,7 @@
+- [PDF CIDフォント復元](pdf-cid-font-recovery.md) — ToUnicode欠落PDFはWindowsフォントcmap逆引きで決定論復元(連動図表PDFで実証)
+- [NFKC全角チルダの罠](nfkc-tilde-pitfall.md) — NFKCは～(U+FF5E)をASCII~に写像、区間名照合0件化に注意(T5で実証)
+- [xlsxオートシェイプ解析](xlsx-drawingml-shape-analysis.md) — セル格子はアンカー↔xfrm対応から逆算+LIS、線は区間包含でスナップ(T7で実証)
+- [横スライドPDFの決定論構造化](doc06-slide-pdf-layout-rules.md) — 影付き重複・縦書き1字スパン・行頭記号・棒グラフ分割の規則(Doc06で実証)
+- [中央揃えセルの帯境界復元](doc05-centered-cell-band-recovery.md) — 罫線なし表は b_i=2c_i−b_(i−1) で境界復元、税区分縦伸びは事例群ブロック内外で割当(Doc05で実証)
+- [赤字差分と2段見出しマトリクス](doc05-red-text-diff-and-header-matrix.md) — 現改差分は span color で決定論、○表は款行+項行の2段見出し/列見出し由来の項ノードに注意(Doc05で実証)
+- [PPT由来フロー図PDFの決定論構造化](doc07-flowchart-vector-rules.md) — 接続線=黒塗り細長ポリゴン・矢頭=端点外形の広がり・吹き出し=矩形+くさび・丸数字でA/B頁対応(Doc07で実証)
