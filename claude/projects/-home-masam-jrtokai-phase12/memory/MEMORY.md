@@ -191,3 +191,4 @@
 - [件数を判定に入れる](count-side-effects-in-judgement.md) — logger 7 回が証跡に在ったのに二値で見て R230-1 を見逃した・数えられる量は期待を件数で書く
 - [参考記事: 判断特化型 GraphRAG(Jev)](ref-judgment-graphrag-jev-article.md) — Qiita 2026-10-08・0〜1 の判断モデルで登録と 3 ホップ探索・本 PJ では候補提案か固定 cross-encoder として読み替え(2026-10-12 検討)
 - [語彙の別名の B:N は出現数](vocab-alias-source-b-is-count.md) — Alias.source の B:N は事故 ID でない・支持事故は本文一致の推定しか無い・B 由来だけの別名 1,380(2026-10-13)
+- [2 台の PC の切替(handoff)](pc-handoff-mechanism.md) — handoff.json の active_host で門・pc_handoff_out/in・dockerd は Ubuntu 側ディストロ(export は 2 本)・退避タスクは電池設定で 2 日飛んだ・手順書 20261013 承認待ち
