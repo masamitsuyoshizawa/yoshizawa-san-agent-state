@@ -1,0 +1,51 @@
+{
+ "active_host": "LAPTOP-15FQI8C9",
+ "backups": {
+  "G": {
+   "latest": "20261009-2212_jrtokai-phase12.bundle",
+   "sha256": "0716a24857b697d3545aeb37d7ea5bed6b590cf443eda1d44437c319300f6464"
+  },
+  "K": {
+   "latest": "20261010-0200_K_incr.tar.zst",
+   "sha256": "c3220ff9d898c4a01ed05d55e55f8a5fc112d73ac1d9b35fa1142fae392d2ee8"
+  },
+  "M": {
+   "latest": "20261010-0200_M.tar.zst",
+   "sha256": "49d0a949dce034e6d830263964339a6349d3cabbc2932638b60f3fcdaceaab2d"
+  },
+  "N": {
+   "latest": "20261009-2212_neo4j-accident-v7.dump.zst",
+   "sha256": "ae74254ce6b5aa94afa90ec48163606038f8469b1ff18f6f644003b066ce930c"
+  },
+  "P": {
+   "latest": "20261009-2023_P.tar.zst.gpg",
+   "sha256": "3bf1e337cf3f8cb5542085aad2606dd113cfd321e2cb54428d43b8dd9ada90db"
+  },
+  "S": {
+   "latest": "20261010-0200_S.tar.zst.gpg",
+   "sha256": "d801645fc0e0d87058cc7306ea8df63d0927f4a2f9fcf764940930f58dda79e4"
+  },
+  "T": {
+   "latest": "20261010-0200_T.tar.zst.gpg",
+   "sha256": "51351384b9fedbe613775a20c8db17631a9304abed48e0f5ce7f59c4d7217c75"
+  },
+  "U": {
+   "latest": "20261013-0112_U.tar.zst.gpg",
+   "sha256": "01bf7fa9537735436d78959a67e06107f1c8f6cdbaa728ec99abdff79246b9b6"
+  }
+ },
+ "by": "LAPTOP-15FQI8C9",
+ "distro": "Ubuntu-oldpc",
+ "heads": {
+  "jrtokai-phase12": "main@f15cd6ce1039",
+  "jrtokai-phase12-agy": "agy@35f5591980ba",
+  "jrtokai-phase12-bkb": "bkb@bbe32432b74a",
+  "jrtokai-phase12-ckb": "ckb@b415a90e8dca",
+  "jrtokai-phase12-coord": "coord@f15cd6ce1039",
+  "jrtokai-phase12-dkb": "dkb@86e9b1493631",
+  "jrtokai-phase12-fed": "fed@855bac08827f",
+  "jrtokai-phase12-pla": "pla@bb1f942a9896",
+  "jrtokai-phase12-rev": "rev@f15cd6ce1039"
+ },
+ "updated": "2026-10-13 01:15"
+}

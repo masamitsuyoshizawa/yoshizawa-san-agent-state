@@ -166,7 +166,7 @@
 - [探索木 P2 計画(fed)](dkg-tree-p2-plan-fed.md) — 決169 I2 実装済み(main 5e46ee5c・dkg_tree 998e4abe・プラグイン 0.3.11)…
 - [探索木 第 1 段の受入(bkb)](tree-stage1-acceptance-bkb.md) — 決169〜171・実走(rep 0433)→再走(0519)→受T5 回し直し(0553)で全項目合格→決174 限定再走(2125)も合格→決177 EC2 受入も合格(EC2 再現は設定…
 - [sha16 は名前と対で採る](sha-cut-drops-filename.md) — `sha256sum a b | cut -c1-16` は名前が消え順で読み違える(20261002 dkg_tree と計画の sha16 を入れ替えた…
-- [探索木 EC2 反映(第 1 段〜決227)](t0-tree-stage1-ec2-deployed.md) — 現行(2026-10-10): kg_api 第 3 段 + R・プラグイン 0.3.16・DSL 701792b0/c648b8af(x003 接頭辞照合・案 A・D-a + (b))・nginx resolver 化・Dify 実行記録は会話→メッセージ→run で辿る
+- [探索木 EC2 反映(第 1 段〜決231)](t0-tree-stage1-ec2-deployed.md) — 現行(2026-10-10 15:00): kg_api bo230-20261010(第 3 段 + R + 戊-d/_field_checks/接頭辞の後ろ盾/D-3)・プラグイン 0.3.16・DSL 701792b0/c648b8af・nginx resolver 化・Dify 実行記録は会話→メッセージ→run で辿る
 - [置換子が本文を壊す](placeholder-substitution-collisions.md) — 連絡文の雛形の置換子 C1/DS が rev の C1・DSL・EC2 まで置換した(20261005)・置換子は @@X@@ に・埋めた値の出現数を確かめる・挿入は見出し数を assert
 - [接続設定の作り直しで C が欠けた](env-rebuild-missing-c-masks-as-data-drift.md) — 4 DB を揃えて繋がりを確かめてから比べる・diagnose は C の失敗を握りつぶしデータの変化に見える(20261005 に 62 件を誤って「データ側」と報告)
 - [C の接地は黙って失敗する](c-grounding-silent-failure.md) — diagnose の C 接地は認証失敗でも印なしで grounded_equipment が空・受入の台に KG_C_URI/KG_C_PW・回す前に空でない件数を確かめる(第 1 段の回は 0/2,654 だった)
@@ -184,3 +184,10 @@
 - [手元データの D: 退避](local-backup-setup.md) — 決221・kb_backup.sh(S/P/M/T/K・gpg)・/mnt/d/jrtokai-phase12-backup/v2・タスク 02:00/日曜 03:00・私的リポジトリ・N/G・復元手順書あり・passphrase は読まない・未了: prune/復元検査の定例化
 - [EC2 nginx は resolver 化済み(決223)](ec2-nginx-reload-after-container-restart.md) — 2026-10-09 に案 A 反映・upstream の restart で reload 不要・新 vhost を足すときだけ -t + reload・conf はコンテナ内(docker cp)・それ以前は 502 の原因
 - [画面の受入は svg の実寸を見る](screen-acceptance-check-svg-size.md) — 閉じた expander 内の iframe は幅 0 で描かれ 16×16 の空になる(shirei 探索木(図)・決224)・要素の有無でなく viewBox/実寸と console error 0 を条件に
+- [X13 の範囲分け(決229)](x13-profile-split.md) — profile c は C の道具だけ・profile all は coord が週 1 回(日曜 03:30・x13_weekly.sh)・初回 96 件(bkb 74・dkb 21・fed 1)は所有者が処理
+- [X13 の bkb 分(決229)](x13-bkb-scope-split.md) — 直す 2(既定値で正本へ落とさない)・許容 70(33 ファイル・ファイル単位)・消す 0・新しい道具は base_env から URI を取る
+- [戊-d の受入(bkb)](bo-d-vocab-retry-acceptance-bkb.md) — 決230 fed 分 合格(1235)・dkb 分 3 件 合格(1322・R230 1429)・EC2 受入 合格(1502・EC2 は logger の INFO が出ない)・試行は受け付け数で数える
+- [写しの比較は健康と予定集合を検査してから](snapshot-compare-needs-health-and-plan.md) — 両側同じ壊れ方でも「N 件同じ」と出る(決230 で台帳を置き忘れ 56/56 根の停止)・snapshot_verify.py で検査・写しは kg_api の外も揃える
+- [件数を判定に入れる](count-side-effects-in-judgement.md) — logger 7 回が証跡に在ったのに二値で見て R230-1 を見逃した・数えられる量は期待を件数で書く
+- [参考記事: 判断特化型 GraphRAG(Jev)](ref-judgment-graphrag-jev-article.md) — Qiita 2026-10-08・0〜1 の判断モデルで登録と 3 ホップ探索・本 PJ では候補提案か固定 cross-encoder として読み替え(2026-10-12 検討)
+- [語彙の別名の B:N は出現数](vocab-alias-source-b-is-count.md) — Alias.source の B:N は事故 ID でない・支持事故は本文一致の推定しか無い・B 由来だけの別名 1,380(2026-10-13)

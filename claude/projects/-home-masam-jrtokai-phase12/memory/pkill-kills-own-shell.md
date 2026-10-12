@@ -12,3 +12,5 @@ metadata:
 **How to apply:** プロセスを止めるときは `pgrep -x ssh` で PID を取り、`/proc/<pid>/cmdline` を読んで引数で選んでから `kill` する。`pgrep -af` の結果から自分を除くか、`-x` で実行名を限定する。止める命令と、その後の確認は別の呼び出しに分ける。[[criterion-not-tool-output]]
 
 - 2026-09-30 再発: `pgrep -f "<ssh の引数>"` が自分の bash(コマンド文字列に同じ語を含む)にも当たり、ループ内の kill で自分のシェルが落ちた(exit 144)。トンネルは先に kill できていたので実害なし。**`pgrep -x ssh` + /proc/<pid>/cmdline で選ぶ**、を今度こそ守る。
+
+- 2026-10-09〜12 に 2 回: Monitor の待ちの条件に `pgrep -f <スクリプト名>` を書き、**監視のコマンド自身の文字列に当たって終わらなかった**。待つときは、対象を起こした手番で PID(`pgrep -x python3` + `/proc/<pid>/cmdline` で選ぶ)か完了の印のファイルを採り、`while kill -0 <PID>` か印のファイルで待つ。
