@@ -13,7 +13,10 @@ metadata:
 - 退避タスクが 10-11・10-12 に走らなかった原因 = 電池の制限と StartWhenAvailable 無し(XML を直した版をリポに置いた)。
 - `cd` を含む複合コマンドで cd が効かず `cp ../` が home に落ちた(絶対パスで書く)。
 
+- **元 PC(DESKTOP-OCT2024・2026-10-13 18:31 claim)**: 作業ディストロ `Ubuntu`・docker は **Docker Desktop**(Ubuntu-docker は使わず unregister)・USB SSD は **F:**(`~/.kb_backup.conf` KB_BACKUP_DEST=/mnt/f/...)・Neo4j の volume 名は元 PC のもの(dump は /data マウントから volume を取る)・DB は 10-13 dump とノード数一致・RTX 4070 Ti SUPER・古い環境の写し F:\wsl-export\Ubuntu-20261006-backup.vhdx 315 GB(数日後に消す)。
+
 **Why:** 元 PC 復活で環境を戻す。眠っていた PC の予定タスクが古い内容で上書きする事故を防ぐ。
 **How to apply:** 移行は利用者の合図で §2→§3。切替は out --run → in --claim。[[local-backup-setup]] [[env-replacement-pc-20261009]]
 - `bash script.sh` はスラッシュ無しだと PATH から探され `$0` も裸の名になる → `readlink -f "$0"` が cwd 相対で壊れる(command -v で先に解く)。複合コマンドの cd は効かないことがあるので絶対パスで呼ぶ。
 - 2026-10-13 実施: docker 側ディストロ Ubuntu は wsl セッションが無いと止まる(dump 前に `wsl -d Ubuntu -- sleep` で起こす・out.sh に組み込み済み)。kb_backup のログ名は分単位で衝突していた(pid を足した)。
+- 再起動後に USB SSD が未マウントだと /mnt/f が空ディレクトリのまま → kb_backup.sh に未マウントなら書かない門(rc 3)・/etc/fstab に F: を nofail で追加(2026-10-13)。

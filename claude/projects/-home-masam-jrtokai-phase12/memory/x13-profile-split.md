@@ -10,3 +10,5 @@ metadata:
 - 道具 = `scripts/x13_static_check.py`(共有・窓口 coord・dkb と ckb の合意で変更)・`scripts/x13_allowlist.json`。
 - coord の定例 = `scripts/backup/x13_weekly.sh` → Windows タスク `x13_profile_all_weekly`(日曜 03:30)。記録 = `knowledge_kb_v8/data/audit/x13_all/<日時>_<commit>.json/.log`(git 外)。月曜に所有者別の件数を info。
 - 2026-10-10 初回: profile all 未許容 96(bkb 74・dkb 21・fed 1)・各所有者の許容/直すは ckb が取りまとめ。coord の 5 件(kb_backup.sh)は退避の道具として許容(決221)。
+- 決237(2026-10-13 20:1x): profile c の範囲から kg_api/ の C 以外を外す(決229 A の穴・fed の道具 2 本が C に落ちて FAIL した)+ bkb の許容 35 項目(74 件)を取り込む。ckb 実装・dkb 合意・LOCKS。fed の道具は fed が是正済み(rep 2004・移行前後の M1 は丸め 50/50・bit 10/50)。
+- 決237 実装完了(ckb 2026-10-13 20:12・ed25a83c): profile c 449/未許容 0・all 未許容 21(dkb のみ)・G0 相当 190/0・許容表 117 項目・audit_c PASS 8。dkb の部品 5 本はファイル単位で dkb に数える。
