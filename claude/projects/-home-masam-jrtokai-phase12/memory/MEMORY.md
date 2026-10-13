@@ -191,4 +191,6 @@
 - [件数を判定に入れる](count-side-effects-in-judgement.md) — logger 7 回が証跡に在ったのに二値で見て R230-1 を見逃した・数えられる量は期待を件数で書く
 - [参考記事: 判断特化型 GraphRAG(Jev)](ref-judgment-graphrag-jev-article.md) — Qiita 2026-10-08・0〜1 の判断モデルで登録と 3 ホップ探索・本 PJ では候補提案か固定 cross-encoder として読み替え(2026-10-12 検討)
 - [語彙の別名の B:N は出現数](vocab-alias-source-b-is-count.md) — Alias.source の B:N は事故 ID でない・支持事故は本文一致の推定しか無い・B 由来だけの別名 1,380(2026-10-13)
-- [2 台の PC の切替(handoff)](pc-handoff-mechanism.md) — handoff.json の active_host で門・pc_handoff_out/in・dockerd は Ubuntu 側ディストロ(export は 2 本)・退避タスクは電池設定で 2 日飛んだ・手順書 20261013 承認待ち
+- [2 台の PC の切替(handoff)](pc-handoff-mechanism.md) — handoff.json の active_host で門・pc_handoff_out/in・dockerd は Ubuntu 側ディストロ(export は 2 本)・退避タスクは電池設定で 2 日飛んだ・手順書 改訂 1・決233 承認(2026-10-13)・合図待ち・退避先は ~/.kb_backup.conf で可変
+- [explore 試作(決232/234)](explore-proto-item.md) — /v1/explore の B/D ホップ探索・M0/M1/M2・設計 改訂 6 合格・Q-1〜Q-12 承認・段 1 完了 2026-10-13: M1 13 < M0 24 < 基準 35〜37(49 問)・決236 段 2 は始めない・改善案は後日・rev/bkb は元 PC で
+- [単価を Web で調べない](no-web-search-for-prices.md) — 単価表に無いモデルは調べに行かず、トークン数で報告し dec の仮定の単価を「仮定」と明記して使う(2026-10-13 拒否)

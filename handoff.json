@@ -6,12 +6,12 @@
    "sha256": "0716a24857b697d3545aeb37d7ea5bed6b590cf443eda1d44437c319300f6464"
   },
   "K": {
-   "latest": "20261013-0838_K_incr.tar.zst",
-   "sha256": "71a5e1ab12c190adce9ab5402a2d466ed9d56f3c9787f4001ae778b6f37616e9"
+   "latest": "20261013-1440_K_incr.tar.zst",
+   "sha256": "94e6527f41f6b36d8fd3915abd90252e9e9345093fe430ab4ecf1d1bc8343a67"
   },
   "M": {
-   "latest": "20261013-0838_M.tar.zst",
-   "sha256": "f20ed76117f4e34f1103631dcf45e7a46e57c71750e681b104c21e0b6de971b8"
+   "latest": "20261013-1440_M.tar.zst",
+   "sha256": "52fae8da639dbaf667f30f08e0129b1f925cf087428ee75e231c0da770df5e45"
   },
   "N": {
    "latest": "20261009-2212_neo4j-accident-v7.dump.zst",
@@ -22,12 +22,12 @@
    "sha256": "3bf1e337cf3f8cb5542085aad2606dd113cfd321e2cb54428d43b8dd9ada90db"
   },
   "S": {
-   "latest": "20261013-0838_S.tar.zst.gpg",
-   "sha256": "90f91f497fa4760c103262654d00d5b36f7df76df4643aaa69a55c183a2fe6b8"
+   "latest": "20261013-1440_S.tar.zst.gpg",
+   "sha256": "5ef33bb8d43d7129dd780d68f406e1791ef7e2e19a4a294db285553f2901457a"
   },
   "T": {
-   "latest": "20261013-0838_T.tar.zst.gpg",
-   "sha256": "367f2358e7776921e51fdc6bcdccc94e0d979aab22ad88ed0c6f20c935d1c959"
+   "latest": "20261013-1440_T.tar.zst.gpg",
+   "sha256": "3eece98da4bd04cff9a18978a43dfd35560e813bf81db857f131c150b919b6f0"
   },
   "U": {
    "latest": "20261013-0112_U.tar.zst.gpg",
@@ -37,15 +37,15 @@
  "by": "LAPTOP-15FQI8C9",
  "distro": "Ubuntu-oldpc",
  "heads": {
-  "jrtokai-phase12": "main@60c7c530a823",
+  "jrtokai-phase12": "main@b2ff5432eac5",
   "jrtokai-phase12-agy": "agy@35f5591980ba",
-  "jrtokai-phase12-bkb": "bkb@bbe32432b74a",
+  "jrtokai-phase12-bkb": "bkb@974324ed1349",
   "jrtokai-phase12-ckb": "ckb@b415a90e8dca",
-  "jrtokai-phase12-coord": "coord@60c7c530a823",
-  "jrtokai-phase12-dkb": "dkb@86e9b1493631",
-  "jrtokai-phase12-fed": "fed@855bac08827f",
+  "jrtokai-phase12-coord": "coord@b2ff5432eac5",
+  "jrtokai-phase12-dkb": "dkb@ed24468f6ea1",
+  "jrtokai-phase12-fed": "fed@1909815bc96c",
   "jrtokai-phase12-pla": "pla@bb1f942a9896",
-  "jrtokai-phase12-rev": "rev@f15cd6ce1039"
+  "jrtokai-phase12-rev": "rev@54a68e12bfd9"
  },
- "updated": "2026-10-13 08:39"
+ "updated": "2026-10-13 14:41"
 }

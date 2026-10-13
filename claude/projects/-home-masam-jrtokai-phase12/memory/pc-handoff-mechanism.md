@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-2026-10-13 に用意(手順書 `docs/手順_元PCへの移行と2台切替_coord_20261013.md`・承認待ち H-1〜H-4)。
+2026-10-13 に用意(手順書 `docs/手順_元PCへの移行と2台切替_coord_20261013.md` 改訂 1・決233 で H-1〜H-4 承認・元 PC では Ubuntu/Ubuntu-docker の名・C: 348 GB 空きなので 2 回に分けて import・USB SSD の文字が変わるので `~/.kb_backup.conf` に KB_BACKUP_DEST)。
 
 - **dockerd は作業ディストロ `Ubuntu-oldpc` でなく別ディストロ `Ubuntu` に在る**(shared-socket.conf・context `shared`)。Neo4j 4 本の volume も `Ubuntu` 側。`Ubuntu-oldpc` だけ export しても DB は運ばれない。
 - 切替の記録 = 私的リポジトリ `yoshizawa-san-agent-state` の `handoff.json`(active_host / heads / backups)。`handoff_lib.sh` の門で、活動中でない PC の `kb_backup.sh daily` と `agent_state_push.sh` は exit 2(否定例を実測)。
@@ -15,3 +15,4 @@ metadata:
 
 **Why:** 元 PC 復活で環境を戻す。眠っていた PC の予定タスクが古い内容で上書きする事故を防ぐ。
 **How to apply:** 移行は利用者の合図で §2→§3。切替は out --run → in --claim。[[local-backup-setup]] [[env-replacement-pc-20261009]]
+- `bash script.sh` はスラッシュ無しだと PATH から探され `$0` も裸の名になる → `readlink -f "$0"` が cwd 相対で壊れる(command -v で先に解く)。複合コマンドの cd は効かないことがあるので絶対パスで呼ぶ。

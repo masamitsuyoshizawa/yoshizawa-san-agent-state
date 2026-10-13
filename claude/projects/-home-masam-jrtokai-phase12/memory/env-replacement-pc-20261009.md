@@ -19,4 +19,5 @@ metadata:
 - **python3(/usr/bin/python3)は neo4j を持たない**。driver 6.1.0 は `/home/masam/jrtokai-phase12/venv/bin/python3` で使える(fed が 2026-10-09 に確かめた)。道具はそちらで回す。
 - 語彙 DB(10190)は旧 PC の 10/06 の正本と E1〜E3 で全項目一致(束 ec5a3ade・全件 9e36fa44・fed info 20261009-0119)。
 - 2026-10-09: 利用者が saml2aws で再認証。有効なのは profile saml だけ(default は失効)。Bedrock は `AWS_PROFILE=saml`・大阪 ap-northeast-3・global.anthropic.claude-sonnet-5 で手元から届く(bkb 実測)。期限は認証のたびに変わる。
+- 2026-10-13: coord の指示で元 PC へ移行(fed の段 1 本走行の後)。bkb は未コミット 0・bkb を push 済み(974324ed = GitHub と一致)。再開は元 PC で。次の手番 = 決234 explore 試作の採点の独立照合(req 待ち・設計 docs/設計_explore_ホップ探索_fed_20261012.md 改訂 6 §8)。
 
