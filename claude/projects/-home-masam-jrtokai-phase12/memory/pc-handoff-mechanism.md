@@ -16,3 +16,4 @@ metadata:
 **Why:** 元 PC 復活で環境を戻す。眠っていた PC の予定タスクが古い内容で上書きする事故を防ぐ。
 **How to apply:** 移行は利用者の合図で §2→§3。切替は out --run → in --claim。[[local-backup-setup]] [[env-replacement-pc-20261009]]
 - `bash script.sh` はスラッシュ無しだと PATH から探され `$0` も裸の名になる → `readlink -f "$0"` が cwd 相対で壊れる(command -v で先に解く)。複合コマンドの cd は効かないことがあるので絶対パスで呼ぶ。
+- 2026-10-13 実施: docker 側ディストロ Ubuntu は wsl セッションが無いと止まる(dump 前に `wsl -d Ubuntu -- sleep` で起こす・out.sh に組み込み済み)。kb_backup のログ名は分単位で衝突していた(pid を足した)。

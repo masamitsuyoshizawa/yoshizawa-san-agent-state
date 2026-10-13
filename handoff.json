@@ -37,15 +37,15 @@
  "by": "LAPTOP-15FQI8C9",
  "distro": "Ubuntu-oldpc",
  "heads": {
-  "jrtokai-phase12": "main@b2ff5432eac5",
+  "jrtokai-phase12": "main@16c1709d2c35",
   "jrtokai-phase12-agy": "agy@35f5591980ba",
   "jrtokai-phase12-bkb": "bkb@974324ed1349",
   "jrtokai-phase12-ckb": "ckb@b415a90e8dca",
-  "jrtokai-phase12-coord": "coord@b2ff5432eac5",
+  "jrtokai-phase12-coord": "coord@16c1709d2c35",
   "jrtokai-phase12-dkb": "dkb@ed24468f6ea1",
   "jrtokai-phase12-fed": "fed@1909815bc96c",
   "jrtokai-phase12-pla": "pla@bb1f942a9896",
   "jrtokai-phase12-rev": "rev@54a68e12bfd9"
  },
- "updated": "2026-10-13 14:45"
+ "updated": "2026-10-13 14:47"
 }
