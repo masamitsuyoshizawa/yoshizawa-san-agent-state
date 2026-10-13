@@ -1,5 +1,5 @@
 {
- "active_host": "in-transit",
+ "active_host": "DESKTOP-OCT2024",
  "backups": {
   "G": {
    "latest": "20261013-1442_jrtokai-phase12.bundle",
@@ -34,18 +34,18 @@
    "sha256": "01bf7fa9537735436d78959a67e06107f1c8f6cdbaa728ec99abdff79246b9b6"
   }
  },
- "by": "LAPTOP-15FQI8C9",
- "distro": "Ubuntu-oldpc",
+ "by": "DESKTOP-OCT2024",
+ "distro": "Ubuntu",
  "heads": {
-  "jrtokai-phase12": "main@16c1709d2c35",
+  "jrtokai-phase12": "main@e837d4d174dc",
   "jrtokai-phase12-agy": "agy@35f5591980ba",
   "jrtokai-phase12-bkb": "bkb@974324ed1349",
   "jrtokai-phase12-ckb": "ckb@b415a90e8dca",
-  "jrtokai-phase12-coord": "coord@16c1709d2c35",
+  "jrtokai-phase12-coord": "coord@e837d4d174dc",
   "jrtokai-phase12-dkb": "dkb@ed24468f6ea1",
   "jrtokai-phase12-fed": "fed@1909815bc96c",
   "jrtokai-phase12-pla": "pla@bb1f942a9896",
   "jrtokai-phase12-rev": "rev@54a68e12bfd9"
  },
- "updated": "2026-10-13 14:47"
+ "updated": "2026-10-13 18:31"
 }
