@@ -1,9 +1,9 @@
 {
- "active_host": "LAPTOP-15FQI8C9",
+ "active_host": "in-transit",
  "backups": {
   "G": {
-   "latest": "20261009-2212_jrtokai-phase12.bundle",
-   "sha256": "0716a24857b697d3545aeb37d7ea5bed6b590cf443eda1d44437c319300f6464"
+   "latest": "20261013-1442_jrtokai-phase12.bundle",
+   "sha256": "ce73fd2aea4585f65944db5914a12d27976c3c2c74e26e006a670f141d417b96"
   },
   "K": {
    "latest": "20261013-1440_K_incr.tar.zst",
@@ -47,5 +47,5 @@
   "jrtokai-phase12-pla": "pla@bb1f942a9896",
   "jrtokai-phase12-rev": "rev@54a68e12bfd9"
  },
- "updated": "2026-10-13 14:41"
+ "updated": "2026-10-13 14:43"
 }
