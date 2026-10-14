@@ -117,7 +117,6 @@
 - [足す先の仕組みが何を全件見るか](check-what-the-target-mechanism-scans.md) — 統制/門に項目を足す前に読み手が全件走査するかを現物で確かめ、効かせる場面が違えば鍵を分ける(G0 の files と…
 - [値がどこから読めるかを確かめる](check-where-a-value-can-be-read-from.md) — 「台帳から集合を read transaction で読む」は台帳がファイルで最大 1 つしか持たず不成立(202609…
 - [同じ札でも中身を並べる](same-label-compare-contents.md) — 投3 が fed=比べる/bkb=対象外で逆の意味・「同じ札に置いた」は一致の証拠でない・揃える先を名指しし中身の表で突き合わせる(20260924)
-
 - [等式には時点を持たせる](equality-checks-need-a-timepoint.md) — A==B==C と時点抜きで書くと正常な運用を落とす(三者一致で R1 の束が不合格に)
 - [同じ札でも意味は違う](same-label-different-meaning.md) — 名前が揃うほど中身を並べるまで食い違いが見えない(投3 の逆転・未収録の欄)
 - [先に計算して sha を出す](precommit-hash-for-independence.md) — 相手が先に出す順のとき、自分の値は hash だけ先出しして独立性を担保する
@@ -192,9 +191,12 @@
 - [参考記事: 判断特化型 GraphRAG(Jev)](ref-judgment-graphrag-jev-article.md) — Qiita 2026-10-08・0〜1 の判断モデルで登録と 3 ホップ探索・本 PJ では候補提案か固…
 - [語彙の別名の B:N は出現数](vocab-alias-source-b-is-count.md) — Alias.source の B:N は事故 ID でない・支持事故は本文一致の推定しか無い・B 由来だけの別名 1,380(2026…
 - [2 台の PC の切替(handoff)](pc-handoff-mechanism.md) — 元 PC DESKTOP-OCT2024 へ移行完了 2026-10-13・Docker Desktop・F:・handoff.json の…
-- [explore 試作(決232/234)](explore-proto-item.md) — /v1/explore の B/D ホップ探索・M0/M1/M2・設計 改訂 6 合格・Q-1〜Q-12 承認・段 1 完了 2026-10-13…
+- [explore 試作(決232〜241)](explore-proto-item.md) — /v1/explore の B/D ホップ探索・段 1 完了・改訂 14 は G1 不合格で段 2 停止(2026-10-14)・再設計の要否を諮り中
 - [単価を Web で調べない](no-web-search-for-prices.md) — 単価表に無いモデルは調べに行かず、トークン数で報告し dec の仮定の単価を「仮定」と明記して使う(2026-10-13 拒否)
-- [explore 採点の照合(bkb)](explore-proto-item.md) — 2026-10-13 決234/236 段 1 の採点を独立照合・全項目一致(rep 1920)・49 問の sha16 は昇順
-- [MVP1 最終報告 吉澤分スライド](mvp1-final-report-slides.md) — 5 枚版 3 案(10-10)+ ロング版 11 枚(10-13・build_yoshizawa_slides_long)・元デッキのマスター・題名 38 字以内の作法
+- [MVP1 最終報告・提出物](mvp1-final-report-slides.md) — 吉澤分スライド 5 枚版/ロング 11 枚・パイプライン仕様書 B/C/D(e94faaa51b6166a7・2026-10-13)
 - [4 DB の Excel 書き出し](kb-excel-export.md) — export_kb_excel.py・説明/一覧/ラベル別/関係型別・件数照合 OK・出力は git 外(2026-10-13 顧客提出)
-- [提出用 パイプライン仕様書 B/C/D](mvp1-final-report-slides.md) — docs/提出_構造化データ抽出パイプライン仕様書_BCD_20261013.md(e94faaa51b6166a7・第 1 版・基礎資料 3 を提出用に整形・2026-10-13)
+- [作業ツリーの data/dkb 欠け](worktree-data-symlink-gap.md) — 照合表が 380 組に黙って縮み、起点の数を 207→221 と誤った(正 210→224)・計測の前に件数の指紋を本体と照らす
+- [import の順で同名モジュールが替わる](import-order-swaps-same-name-module.md) — run_fed_vs_dkb を先に読むと federation が kg_api 側に替わる・入口で固定し __file__ を照らす
+- [原因特定の手法の調査(agy/pla)](root-cause-methods-survey.md) — explore 閉鎖後の別手法調査(agy 改訂 1・pla 第 1 版・rev 比較)→ 段 0 を M01/M03/M02 の 3 件で実施・全部不成立(第一報の情報不足)→ 決247 で閉じ → 第 2 弾(agy 5 案・pla 4 案・rev 比較)→ 決248 N2 段 0 = 処理の不整合 0(入力不足 11/13)→ 決249 N3 段 0 合格 → 決250 表示契約の設計(fed・4 点・設計書 → rev → 承認)2026-10-15
+- [「無い」は経路を全部たどってから](absence-claim-read-whole-path.md) — freq_* の LOO 差し引き(_apply_loo_exclusion)を見落とし決244 (3) を誤らせた・値を作る/書き換える/出す所を grep で全部
+- [M02 段 0 の B 側](m02-stage0-b-side.md) — 決246・両方 21/50 だが 2 軸の類似は選別にならず 3 軸で 0・既存 b-3a と同じではない(2026-10-14)

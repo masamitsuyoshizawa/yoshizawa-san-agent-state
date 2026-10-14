@@ -18,4 +18,8 @@ metadata:
 
 - 提出用 チューニング記録(2026-10-14): `docs/提出_チューニング記録_試行と精度改善_20261014.{md,docx}`(md bd0f8892ec883860)。記憶ファイル群(eval-improvement-progress・ckb-remediation-waves・fed/dkb 系)の実測値を時系列表に。撤回した試行も記載。
 
+- **最終版 第 2 版(2026-10-14・利用者指示)**: `吉澤部分_スライド案_final_20261014.{pptx(a62feb111fa56ae7),md,pdf(未追跡)}`・build_yoshizawa_slides_final_20261014.py は旧 final を import して p7〜p10 だけ差し替え。③ を ② へ統合・p7 = C/D 同じ高さ(C 208 問の出し方と判定・D LOO700 の手順/正答＋部分の意味/内部指標の注意)・B は補足 1 行・p8〜p10 は技術用語を平易化、エンドポイントは「機能」・小字の名称は「機能名」(利用者指示 2026-10-14・「口」は不適切)。md は scripts/export/pptx_to_md.py で pptx から起こす。目視は soffice → pdftoppm(venv = /home/masam/jrtokai-phase12/venv)。
+
+- p1〜p6 の平易化(2026-10-14): 新スクリプトの PLAIN 表(74 規則)で旧関数の出力を生成後に置換(p.text の改行は別 run になるので規則は行ごとに分ける)。最新 pptx sha16 235f2b4eabbcde6d。
+
 **How to apply:** 利用者のコメント反映は md のコメント → ビルダー修正 → 再生成。[[tech-talk-materials-20260928]]
