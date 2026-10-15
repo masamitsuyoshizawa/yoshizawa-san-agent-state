@@ -17,3 +17,5 @@ metadata:
 - 写しを `git archive` や `git ls-files` で作るときは、コードが読む git 外・kg_api の外の参照(`kg_api/kb/data`・`kb/index`・`kg_api/data`・`knowledge_kb_v8/config`・`knowledge_kb_v8/data`)を揃え、回す前に健康の件数(根の停止 0・C の接地あり・項目の選択あり)を見る。
 - 変異の検出は「期待した試験が FAIL で落ちた」で数え、表(置換・試験・理由)をリポジトリの実行器に置く(`mutate_bo230.py`)。
 関連: [[hash-match-not-completeness]]・[[criterion-not-tool-output]]・[[c-grounding-silent-failure]]・[[negative-test-check-reason]]
+
+**追記(2026-10-15・dkb 表示契約 D 側 T1)**: 固定の作業ツリーに `kg_api/kb/data` が無く、前後とも意味照合が黙って失敗して「同一」と出た(同じ壊れ方は差分に出ない)。**意味照合の失敗 0 行を合格の条件に入れる**。snapshot_verify の健康の検査は意味照合の失敗の印を見ていない(道具の改善候補)。関連 [[gpu-contention-silent-semantic-failure]] [[silent-path-drift-masks-cause]]

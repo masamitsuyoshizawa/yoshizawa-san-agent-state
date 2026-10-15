@@ -197,6 +197,6 @@
 - [4 DB の Excel 書き出し](kb-excel-export.md) — export_kb_excel.py・説明/一覧/ラベル別/関係型別・件数照合 OK・出力は git 外(2026-10-13 顧客提出)
 - [作業ツリーの data/dkb 欠け](worktree-data-symlink-gap.md) — 照合表が 380 組に黙って縮み、起点の数を 207→221 と誤った(正 210→224)・計測の前に件数の指紋を本体と照らす
 - [import の順で同名モジュールが替わる](import-order-swaps-same-name-module.md) — run_fed_vs_dkb を先に読むと federation が kg_api 側に替わる・入口で固定し __file__ を照らす
-- [原因特定の手法の調査(agy/pla)](root-cause-methods-survey.md) — explore 閉鎖後の別手法調査(agy 改訂 1・pla 第 1 版・rev 比較)→ 段 0 を M01/M03/M02 の 3 件で実施・全部不成立(第一報の情報不足)→ 決247 で閉じ → 第 2 弾(agy 5 案・pla 4 案・rev 比較)→ 決248 N2 段 0 = 処理の不整合 0(入力不足 11/13)→ 決249 N3 段 0 合格 → 決250 表示契約の設計(fed・4 点・設計書 → rev → 承認)2026-10-15
+- [原因特定の手法の調査(agy/pla)](root-cause-methods-survey.md) — explore 閉鎖後の別手法調査(agy 改訂 1・pla 第 1 版・rev 比較)→ 段 0 を M01/M03/M02 の 3 件で実施・全部不成立(第一報の情報不足)→ 決247 で閉じ → 第 2 弾(agy 5 案・pla 4 案・rev 比較)→ 決248 N2 段 0 = 処理の不整合 0(入力不足 11/13)→ 決249 N3 段 0 合格 → 決250 設計 → rev 4 巡(R250-1〜9)→ 決251 実装 = 決定論 合格・T5(LLM)不合格 → 決252 切り分け = LLM の補完が原因 → 決253 a2(受付を決定論)→ 改訂 8・T5 不合格(shift 1 回・番号表の無い台の現象)→ 決255 案 C → 番号表つき E11 合格 → 決256 読み手 3 人の紙を用意(読み手は利用者が指定)・EC2 は別承認 2026-10-15
 - [「無い」は経路を全部たどってから](absence-claim-read-whole-path.md) — freq_* の LOO 差し引き(_apply_loo_exclusion)を見落とし決244 (3) を誤らせた・値を作る/書き換える/出す所を grep で全部
 - [M02 段 0 の B 側](m02-stage0-b-side.md) — 決246・両方 21/50 だが 2 軸の類似は選別にならず 3 軸で 0・既存 b-3a と同じではない(2026-10-14)

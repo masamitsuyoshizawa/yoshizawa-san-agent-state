@@ -29,3 +29,5 @@ metadata:
 ## 追記(2026-10-09)
 - **scratchpad の道具は新しいセッションで消える**。`git merge X || (python3 $SP/resolve.py && git add -u && git commit)` の形で解消スクリプトが無いと、`||` の後の `git add -u` が **競合マーカーごとステージして commit し push まで通る**(10/09 に 2 件・数分間 main に載った)。守り = 解消スクリプトはリポジトリ内(scripts/)に置くか、merge の後に `git status --short | grep ^UU` と `grep -l '^<<<<<<< ' docs/comms/*.md` を **commit の前に** 止まる形で入れる。
 - 連絡文の本文に例としてマーカーを引用した便(20260919-0452)があるので、全体 grep の 0 件を期待せず、対象を merge で触った便に限る。
+
+**2026-10-15 にも同型(ckb)**: 競合を解消する Python が assert で止まったのに、**同じ Bash 呼び出しの次の行の `git add … && git commit --no-edit` が走り、競合マーカーごと merge コミットを作った**(push 前に気づき amend で直した)。原因 = 検査と後段を改行で並べると、前段の失敗で後段が止まらない。**How to apply: 解消のスクリプトとコミットは別の呼び出しに分けるか、`python3 … && git add … && git commit …` と && でつなぐ。コミットの前に `git grep -n "^<<<<<<<"` で 0 件を確かめる。**
