@@ -12,3 +12,5 @@ metadata:
 - 2026-10-10 初回: profile all 未許容 96(bkb 74・dkb 21・fed 1)・各所有者の許容/直すは ckb が取りまとめ。coord の 5 件(kb_backup.sh)は退避の道具として許容(決221)。
 - 決237(2026-10-13 20:1x): profile c の範囲から kg_api/ の C 以外を外す(決229 A の穴・fed の道具 2 本が C に落ちて FAIL した)+ bkb の許容 35 項目(74 件)を取り込む。ckb 実装・dkb 合意・LOCKS。fed の道具は fed が是正済み(rep 2004・移行前後の M1 は丸め 50/50・bit 10/50)。
 - 決237 実装完了(ckb 2026-10-13 20:12・ed25a83c): profile c 449/未許容 0・all 未許容 21(dkb のみ)・G0 相当 190/0・許容表 117 項目・audit_c PASS 8。dkb の部品 5 本はファイル単位で dkb に数える。
+
+追記(2026-10-16・決263-B の演習で発見): **B/D-KG の投入の G0 は、`knowledge_kb_v8/scripts/dkg` などの `.py`(test_ 以外)を全部 X13 で照らす。** dkb が 10-15 00:18 に入れた集計の台本 `n2_stage0_breakdown.py` の閉じた口の URI(`bolt://127.0.0.1:1`)が未許容で、それから本番の投入の G0 が止まる状態だった。気づいたのは 1 日半後の演習。**dkg/ などの G0 の走査の範囲に台本を足したら、その場で X13 の未許容を数える**(`scripts/x13_static_check.py` と `x13_allowlist.json`・本体ツリーで)。許容は理由と dec 番号を書いて足し、ckb と coord に info。

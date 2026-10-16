@@ -9,7 +9,7 @@ B を読む照会の順の明示(決98〜112)が完了した直後、監査 X3r 
 
 **Why:** 安全区分の印は顧客への表示に直接効く。決定論の規則。
 
-**How to apply:** B と同じ型で進める(dkb が D-KG を読む照会を洗い出す: ORDER BY 無しの上位 N・collect・set/dict の反復・浮動小数点の加算 → 鍵の規則は D-KG の照会ごとに決める(合意済みの鍵は変えない・新規は統一の向き・答えの変化を先に数える)→ 受入 = 正本対戻した D-KG・種・陽性対照 → rev → 承認 → 実装 → EC2)。X3r-restored は `--all` に含めない(bkb の限定)。[[storage-order-dependent-responses]] [[same-label-different-meaning]]
+**How to apply:** B と同じ型で進める(dkb が D-KG を読む照会を洗い出す: ORDER BY 無しの上位 N・collect・set/dict の反復・浮動小数点の加算 → 鍵の規則は D-KG の照会ごとに決める(合意済みの鍵は変えない・新規は統一の向き・答えの変化を先に数える)→ 受入 = 正本対戻した D-KG・種・陽性対照 → rev → 承認 → 実装 → EC2)。X3r-restored は `--all` に含めない(bkb の限定)。[[storage-order-dependent-responses]] [[same-label-compare-contents]]
 
 **計画 改訂 0(2026-09-27 19:24・c5ea2500f0075033)**: 照会 28 本・順に依る 24・実測で差 5 か所。鍵 = D-KG ノード id 昇順・collect 前に ORDER BY・和は足す前に並べる。試作 646/646・変化 昇順 588(1 位 0・判定器入力 0)・降順 620。**決115 = rev へ(req 2030)・昇順・表示の見本は不要(利用者)・判定 LLM 0・実装承認は rev 後。** dkb の道具の誤り(パスワード先頭「-」・パイプで失敗が隠れた)は所管で直す。
 

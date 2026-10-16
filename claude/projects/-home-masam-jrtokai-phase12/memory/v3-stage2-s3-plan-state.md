@@ -28,7 +28,7 @@ metadata:
 **Why:** 承認前に道具を書くと「実装計画の承認」の意味が消える。入力の形は現物が出てから欄名を取る(§0 の 4)。
 **How to apply:** 承認の dec が出たら §3 の 6 本を書き、§4 の否定の例 9 つを実走して落ちた理由まで読む。
 `comms_unread.py` の [2/6] は re: で判定するので、返信不要の dec/info は注記しても要対応に残る(INBOX 側は注記で判定)。
-[[v3-stage1-design-approved]] [[same-label-different-meaning]] [[equality-checks-need-a-timepoint]]
+[[v3-stage1-design-approved]] [[same-label-compare-contents]] [[equality-checks-need-a-timepoint]]
 
 **rev の限定確認(2026-09-24 09:12・決36)**: 是正版 3 本(dkb febee490beeecc48・fed d0a9e8a43920866e・bkb edd33635ea44d578)に要是正 高 1・中 3。S3R2-1 既存束の継続が F では S5-4 送り(B の交4 と不一致)→ 試験側で保持した束で見る / S3R2-2 vocab を必須対象にした初回の空 DB・未登録で G0 が通らない(P:289〜295 の Fail)→ --init-vocab 明示 + DB に公開版 0 件の二重条件で初期化・公開済み未登録は異常 / S3R2-3 受6 が内1・内2 と辺属性のみ → 内1〜7 全体・b_freq 変異 / S3R2-4 2 出力の再 hash は第 3 の投影でない → B:108 から作る。是正 9/25 → coord 確認 → rev 最終確認(4 件のみ)→ 実装計画の承認。
 
