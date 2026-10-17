@@ -76,3 +76,11 @@ dkb の受入の条件:
 **How to apply:** 承認の連絡が来たら、条件 1 の設計の確認から始める。実装の前に LOCKS を取って dkb へ info を出す。演習の環境の外では回さない。[[ingest-pipeline-enforcement]] [[v7-demo-ui-bypass-and-ner-raw]]
 
 **受入 合格(2026-10-17 01:42・rep 20261017-0142)**: 対象 bkb-a263 31eba4a9。同値性は案 B(決263-A 追補 5: 全件の経路の DB に決95 の是正を当て直してから厳密比較)で合格・変異は不合格。**途中の発見**: 全件の再構築は data/ から作る欄だけを巻き戻す(Accident.summary などは是正の後のまま)ので、DB は「一部だけ巻き戻った」状態になり、表の全部を前提にする unmask_fields.plan(G16)は止まる。dkb が `select_rewound`(巻き戻った文書と欄だけに表を絞る・別の変化は止める)を足した(main 4c4539b4)。巻き戻りの機械の守り = `unmask_fields.py --check-rewind`・監査 X9b・基準は本体ツリー private の unmask_post_counts.json(欄 529・印 5,199)。独立の比較の台本は scratchpad の indep_diff.py(多重集合・値を出さない)。残り: main への取り込み(bkb)・LLM を呼ぶ演習は決264。
+- rev 0309 = 要是正 R263A-1〜5(決263-A 追補 10)。bkb 分(R263A-1 上界違反の永続停止・R263A-4 工程の G2/G4 本文の契約)を bkb-r263a 4fce667e で是正・LOCKS 保持・dkb に確認の req 1040・fed に契約の req 1040・coord に rep 1040。→ dkb 確認 合格(rep 1044・別プロセスで送信 修正前 3→後 1)→ main 1855dc2a・LOCKS 解放・req 1037 閉じ(2026-10-17)。残りは fed の R263A-2〜5 と rev の再確認・決264 は coord。
+- 決264 の材料 rep 1200(2026-10-17): 新しい PDF は無い(未登録の PDF 1 件は登録済みの写し)・候補 2 件(推し 方向回線 stem 71fe19d263cf6446・候補 1 = E 650b6b53855ae2ee)・名目 3 回で最悪 0.966 USD・stage1 のやり直しは COST_CAP・開始前に直す点 = rehearsals の置き場 0755 で names_proposal 0644(coord の可否待ち・dkb 所有)。
+
+**2026-10-17 12:xx**: rev R263A-1〜5 是正済み(bkb 1855dc2a・fed e0d91076)・rev 再確認 1150 = 条件付き(残件 R263A-4a = 非空例の漏れ 0 の検査範囲・fed req 1155)。決264 の材料(bkb rep 1200): 新しい PDF は無く既存の写しを別名で・候補 2(方向回線・過去 NER 氏名 3)推し・費用 0.9663 USD(仮定)・rehearsals 置き場 0755 の是正が開始前。付議は 4a と是正の後。
+- 決264 の開始前条件(rehearsals の写し先 0700/0600)を bkb-r264p 6c0a04b2 で是正 → dkb 確認 合格(rep 1206)→ main ebe5a62a・LOCKS 解放・coord に rep 1207(2026-10-17)。既存の記録 55 は dkb が絞った。bkb の手番なし。決264 は fed の R263A-4a が閉じてから coord が諮る(候補 2 件・推し 方向回線)。
+
+**決264(2026-10-17 12:3x 承認)**: LLM を呼ぶ隔離演習を開始・候補 2(方向回線・eb746c0de18c1615)・本人 1 名が全段・版 main 6e1adf82・上限 1 USD(仮定単価・上界 0.965485・再試行は通り得る)・手順書を bkb(工程)/fed(窓口)に req → coord が 1 本に → 利用者が手元で回す。
+- 決264 承認(dec 20261017-1356・候補 2・利用者本人が全段・版 main 6e1adf82)。工程側の手順書 docs/手順_LLM隔離演習_工程側_bkb_20261017.md(0b0df43ad0e4f099・16b21a43・rep 1402)。本体ツリーで回す(rehearse_guard が固定ツリー不可)→ 演習の間はコードの取り込み停止を開始前条件に。対象の写し = private/dec264/dec264_hoko_c2.pdf。coord が fed の窓口側と 1 本に揃えて利用者へ。
