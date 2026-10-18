@@ -84,3 +84,6 @@ dkb の受入の条件:
 
 **決264(2026-10-17 12:3x 承認)**: LLM を呼ぶ隔離演習を開始・候補 2(方向回線・eb746c0de18c1615)・本人 1 名が全段・版 main 6e1adf82・上限 1 USD(仮定単価・上界 0.965485・再試行は通り得る)・手順書を bkb(工程)/fed(窓口)に req → coord が 1 本に → 利用者が手元で回す。
 - 決264 承認(dec 20261017-1356・候補 2・利用者本人が全段・版 main 6e1adf82)。工程側の手順書 docs/手順_LLM隔離演習_工程側_bkb_20261017.md(0b0df43ad0e4f099・16b21a43・rep 1402)。本体ツリーで回す(rehearse_guard が固定ツリー不可)→ 演習の間はコードの取り込み停止を開始前条件に。対象の写し = private/dec264/dec264_hoko_c2.pdf。coord が fed の窓口側と 1 本に揃えて利用者へ。
+- **2026-10-18 17:28〜 決264 の LLM 隔離演習の間は、本体ツリーへの取り込み(`git -C /home/masam/jrtokai-phase12 merge --ff-only`・checkout)と main への merge を止める**(coord info 20261018-1728・本体 HEAD c7ffb6d4)。自分のブランチと origin への push は可。→ **解除済み**(2026-10-18 19:3x・演習 20261018-185646-1757e8a0 完了・rc 0・canonical_unchanged True・guard PASS・費用 0.142315 USD 仮定単価)。
+
+**決264 演習 完了(2026-10-18 19:2x)**: 20261018-185646-1757e8a0・候補 2・停止点 5 回を窓口で承認(台帳 40〜44)・G8 は決265 で追加なし(端末で dict_resolved.json を置き --resume-session)・rc 0・canonical_unchanged True・compare PASS・費用 0.142315 USD(仮定単価・予約上界の 15%)・所要 約 1 時間 50 分(自動部分 27 分)。限定 = 氏名候補 0・G4 null・実ブラウザ。コードの取り込み停止は info 1728〜解除 info で運用(他セッションは自ブランチ push のみ)。

@@ -201,4 +201,4 @@
 - [表の行の並びは照らす順でない](table-row-order-is-not-check-order.md) — 束が表示の sha を含むと表示を先に照らさないと負例が成り立たない(決263-A 改訂 12)・順は別に明記
 - [変異を戻しても pyc が残る](mutation-restore-stale-pyc.md) — 同じ大きさの変異を同じ秒で戻すと __pycache__ の変異版が使われる・PYTHONDONTWRITEBYTECODE=1 か pyc を消して正例を回す
 - [試験で本物の docker を呼ばない](test-must-not-call-real-docker.md) — 片付けの関数を通り演習の neo4j-rehearse-b を消した・setUp で docker を見張り陽性の対照も
-- [薄い窓口 A の状態](thin-plan-a-window-state.md) — 通しの受入 84/0(2026-10-17)・rev 確認→決264 待ち・通しは正本の接続の環境変数を渡す
+- [薄い窓口 A の状態](thin-plan-a-window-state.md) — 決264 の LLM 演習 完了(2026-10-18・不整合なし)・手順書・通しは正本の接続の環境変数を渡す

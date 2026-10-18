@@ -8,7 +8,7 @@ metadata:
   modified: 2026-10-16T17:02:12.832Z
 ---
 
-決263-A の fed 分(承認窓口 `knowledge_kb_v8/scripts/fed/thin_window/`: ledger・core・app・launch・e2e_thin_window)は、実装と通しの受入まで完了(rep 20261017-0200・合格 84/0・コミット fbfdb9b3・main 161a91ed)。設計書 改訂 12(db9a804f78f665b8)。名簿 operators.json 初版 e3b74e9d48fb2ff1(masam@DESKTOP-OCT2024・G2/G3_SPAN/G3_BUNDLE/G4/G5)。coord の決263-A 追補 9 に記録済み。次は rev の実装確認 → 決264(LLM を呼ぶ演習)。rev rep 0309 の R263A-2〜5 は是正済み(rep 20261017-1107・main e0d91076・単体 66・画面 AppTest 32・通し 84・画面からの架空の氏名の通し 11)・rev の再確認待ち。
+決263-A の fed 分(承認窓口 `knowledge_kb_v8/scripts/fed/thin_window/`: ledger・core・app・launch・e2e_thin_window)は、実装と通しの受入まで完了(rep 20261017-0200・合格 84/0・コミット fbfdb9b3・main 161a91ed)。設計書 改訂 12(db9a804f78f665b8)。名簿 operators.json 初版 e3b74e9d48fb2ff1(masam@DESKTOP-OCT2024・G2/G3_SPAN/G3_BUNDLE/G4/G5)。coord の決263-A 追補 9 に記録済み。次は rev の実装確認 → 決264(LLM を呼ぶ演習)。rev rep 0309 の R263A-2〜5 は是正済み(rep 20261017-1107・main e0d91076・単体 66・画面 AppTest 32・通し 84・画面からの架空の氏名の通し 11)・R263A-4a も是正(rep 20261017-1205・17/0)。**決264 の LLM 隔離演習は 2026-10-18 に利用者が実ブラウザで完了**(演習 20261018-185646-1757e8a0・rc 0・正本不変・台帳 seq 45 93dee2cc1e88bc95・承認 5・G8 は決265・費用 0.142315 USD)。fed の読み合わせ = 不整合なし(rep 20261018-1930・G2 候補 0 件で漏れ照合は対象 0・G4 の「双子でない」は別名の写しなので判定結果として読まない)。窓口側の手順書 docs/手順_LLM隔離演習_窓口側_fed_20261017.md(venv の Python で起動)。
 
 **Why:** 再開時に、どこまで済んで何が待ちかを取り違えないため。
 
