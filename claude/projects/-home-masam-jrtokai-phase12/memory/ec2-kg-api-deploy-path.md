@@ -15,3 +15,7 @@ EC2 コンテナ `jrtokai-v9-kg-api` は `WorkingDir=/app/kg_api`、CMD=`uvicorn
 `docker restart` → `curl http://172.31.4.27:8600/docs` が200 → `docker commit jrtokai-v9-kg-api jrtokai-v9-kg-api:latest-persisted`。
 **Why**: 反映確認は「回答が変わったか」ではなく `docker exec ... grep -c <新規シンボル> /app/kg_api/app.py` で行う。
 プロンプト調整が効かないときは、まずこの反映先を疑う。[[eval-improvement-progress]]
+
+
+(索引から移した説明・2026-11-07)
+- [EC2 kg_api反映先](ec2-kg-api-deploy-path.md) / [EC2 nginx conf正本](ec2-nginx-conf-canonical.md)(11-03 訂正: 動いている版はコンテナの中だけ・ディスクは 9/4 の古い版) — 実体は/app/kg_api/app.py(/app/app.pyは無効)

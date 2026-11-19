@@ -17,3 +17,7 @@ Dify(EC2・CE 1.16.1)の Bedrock プラグイン 0.0.79 は、Claude 5 系(Sonne
 **How to apply:** Dify 経由の Claude 5 系で「答えの質が急に違う」「例外でエラー終了」を見たら、まずこの切り替えを疑う。関連 [[direct-path-content-filtered-item]] [[dify-demo-ec2]]
 
 **決131(2026-09-28 12:05)= (c) 現状維持・閉じ**: 切り替え先 global.anthropic.claude-opus-4-8 はローカル資格情報で呼べた(EC2 未確認)。(b1) 節点実行記録の usage 単価は全件モデル定義値(0.003/0.015)で一定 → 切り替えは数えられない。見直しは Bedrock プラグイン更新時。
+
+
+(索引から移した説明・2026-11-07)
+- [Dify refusal_fallback(決131 閉じ)](dify-refusal-fallback-item.md) / [Dify 状態整理の後ろ盾(案 A)](dify-state-fallback-plan-a.md) — Bedrock プラグイン 0.0.79 は Claude 5 系の拒否を本文前なら / 決123〜132 で閉じた・EC2 反映済み・空白入力と拒否は LLM の例外で後ろ盾に届かない

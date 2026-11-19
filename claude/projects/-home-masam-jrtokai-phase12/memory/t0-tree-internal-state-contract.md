@@ -16,3 +16,7 @@ metadata:
 **改訂 3(2026-10-02・決168・rev R167):** sha16 43e2a46a5c155aa9・コミット 60cc5258。stops = {code, scope root|item|branch, at, on_value, reason, keys_kind?}(fed P2 改訂 3 00220f00 と同じ)。aggregate の安全 = 既知 A2〜A4 → 未確認 1 つで未確認 → 全承認 A0/A1 だけ確認済み → 判定不能は見通しも止める。台帳は承認 manifest dkg_safety_class_approvals.json の行内容 digest に照合(自己申告 hash と区別)。E1 比較は正規形/既知別名/不明に分ける。再測定: 枝の停止率 189/2,994 = 6.3%(11.3% は事故率)・文→id 2+ 15・0 件 0・aggregate 選択 3。B10(R167-1 条件)・B11 承認。教訓: 率は分母の単位(事故・枝・鍵)を併記する(rev に指摘された)。
 
 **I1 実装(2026-10-02・決169/170):** main 67ea553d。dkg_backend.py cde88d22b2a0e068(diagnose → _diagnose_core → _diagnose_impl・13 箇所に ContextVar 収集器 _WHY・追加 67 行のみ)・新規 kg_api/sources/dkg_tree_state.py 61f4b384ba82dac7・台帳(見出しだけ)と承認 manifest(決170・行 0・rows_digest = sha256("[]"))。E2: diag_snapshot.py で 4 群 1,636 件 byte 同一。E1(a)647/647・E1(c)2,988/2,988・公開上位 5 一致・E5 100/100・E7 warm p95 1.57 秒・cold 10 秒台は予算切れ。試験 単体 30・実機 8。残: fed I2(warmup の置き場・口)・bkb 受入・EC2(別承認)・KG_DKG_GRAPH_DIGEST の値の渡し方。教訓: 応答の dict に欄を足すと漏れる → 収集器は候補 dict の外(ContextVar)に置いた。
+
+
+(索引から移した説明・2026-11-07)
+- 探索木: [内部状態の契約 P1](t0-tree-internal-state-contract.md) / [P2 計画 fed](dkg-tree-p2-plan-fed.md) / [第 1 段の受入 bkb](tree-stage1-acceptance-bkb.md) / [EC2 反映〜決231](t0-tree-stage1-ec2-deployed.md) — I1/I2 実装・受入合格・2026-10-10 kg_api bo230

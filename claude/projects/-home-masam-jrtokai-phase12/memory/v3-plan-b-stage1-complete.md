@@ -35,4 +35,4 @@ metadata:
 
 **How to apply:** 再開時は `docs/comms/INDEX.md` の fed 宛 open と上の版を突き合わせる。EC2・`app.py`・段 8 に触る前に利用者の承認を確かめる。
 
-関連: [[v3-stage1-design-approved]]・[[v3-stage5-api-state]]・[[session-comms-protocol]]
+関連: [[v3-stage1-design-approved]]・[[v3-stage5-api-state]]・[[session-comms-worktree]]

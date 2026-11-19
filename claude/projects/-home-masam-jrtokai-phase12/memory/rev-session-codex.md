@@ -17,4 +17,4 @@ metadata:
 - 注意: `~/.codex/config.toml` は本体ツリー(個人情報データあり)を trusted 登録済 → rev は本体ツリーで起動しない。追跡中 `kb_demo_v3/docker/neo4j_v3.env` に非既定パスワードあり(rev ツリーに含まれる・利用者へ報告済)。
 
 **Why:** 同一モデル同士のレビューは盲点を共有しやすい(fed が見つけた "\n\n" 差のような別視点の指摘を得る)。**顧客提示物では特に有効**: 自分で作った資料の数値は、元報告の母集団まで遡って検算されない。
-**How to apply:** rev への依頼は coord が req を置き、利用者が `! python3 scripts/rev_dispatch.py new <req>` で起動(dec 20260919-0800)。req は冒頭に (a) 今回の差分 (b) 対象版 (c) 判断してほしい一点 (d) 期限の有無 を置く(rev 指摘)。**対外資料は提示前に必ず rev へ回す**。指摘を受けたら rev の引用に頼らず coord 自身が元報告・生成コード・実データで再確認してから採否を決める。rev ブランチ取り込み時の競合自動解消は docs/comms/*.md に限る。関連 [[session-comms-protocol]] [[session-comms-worktree]]。
+**How to apply:** rev への依頼は coord が req を置き、利用者が `! python3 scripts/rev_dispatch.py new <req>` で起動(dec 20260919-0800)。req は冒頭に (a) 今回の差分 (b) 対象版 (c) 判断してほしい一点 (d) 期限の有無 を置く(rev 指摘)。**対外資料は提示前に必ず rev へ回す**。指摘を受けたら rev の引用に頼らず coord 自身が元報告・生成コード・実データで再確認してから採否を決める。rev ブランチ取り込み時の競合自動解消は docs/comms/*.md に限る。関連 [[session-comms-worktree]] [[session-comms-worktree]]。

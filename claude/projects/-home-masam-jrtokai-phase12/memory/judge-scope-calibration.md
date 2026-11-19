@@ -12,7 +12,7 @@ metadata:
 
 **Why:** KG_SCOPE は judge プロンプト内のハードコード文字列。2026-08-03時点で警報機精密抽出・特発装柱方式・信号装柱/主信号/進行定位・制御子電路種別/型式・TCトポロジー・所属駅・区間・中継/遠方信号・踏切図信号種別 を追加したのに、scope は依然これらを未収録と宣言していた(014が正答なのに incorrect 判定 → C誤分類)。
 
-**How to apply:** グラフ/ルールに項目を足したら、同時に3箇所の KG_SCOPE を較正する: `docs/eval/snapshot_c208.py`、`docs/eval/judge_c208.py`(両者同一テキスト)、`kg_api/app.py` `_JUDGE_SCOPE`(/v1/eval/judge 用、要API再起動)。較正前に必ずグラフで実在検証(プロパティ名・件数)し、過大主張を避ける。真に未収録(設置理由・なぜ/故障時挙動・論理演算/枝番転てつ器51イ51ロ種別/隣接駅記号解決/標識WB構造型式)は維持。凡例は先行して較正済(c43b9c0)。[[eval-and-table-comprehension]] [[eval-improvement-progress]]
+**How to apply:** グラフ/ルールに項目を足したら、同時に3箇所の KG_SCOPE を較正する: `docs/eval/snapshot_c208.py`、`docs/eval/judge_c208.py`(両者同一テキスト)、`kg_api/app.py` `_JUDGE_SCOPE`(/v1/eval/judge 用、要API再起動)。較正前に必ずグラフで実在検証(プロパティ名・件数)し、過大主張を避ける。真に未収録(設置理由・なぜ/故障時挙動・論理演算/枝番転てつ器51イ51ロ種別/隣接駅記号解決/標識WB構造型式)は維持。凡例は先行して較正済(c43b9c0)。[[eval-improvement-progress]] [[eval-improvement-progress]]
 
 較正後の再評価(2026-08-03): correct 76→82、C(外部要)84→70。38問再分類(うちC→A/Bが約18問は較正由来、残りはBedrock±ノイズ)。
 

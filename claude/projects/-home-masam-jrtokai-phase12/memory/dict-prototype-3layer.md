@@ -29,4 +29,4 @@ metadata:
   EC2の/app/kg_api/kb/data/dkbはホスト/home/ubuntu/jrtokai-v9abc/dkbのROマウント(更新はホスト側へcp)
 
 **Why:** vocab_gapの核心は正解側語彙。入力照合(v5)でなく候補生成側に辞書を効かせるdict_eqが+5.3ptの主因。
-**How to apply:** 顧客レビュー返却後: レビューCSVのconfirm=y分を確定→グラフ加法投入→再測定。関連 [[dkg-cause-kg]] [[eval-and-table-comprehension]]
+**How to apply:** 顧客レビュー返却後: レビューCSVのconfirm=y分を確定→グラフ加法投入→再測定。関連 [[dkg-cause-kg]] [[eval-improvement-progress]]

@@ -14,4 +14,4 @@ interlocking-028/034(着手保留分)を正答化した(2026-08-03、コミッ�
 
 **interlocking-028**(河原田 鎖錠転てつ器なし信号=イ・ロ、閉そくとの違い): パート1(イ・ロ抽出)は既に正答。パート2の違いを、app.py SCHEMA_HINTS + glossary『場内・出発信号機と閉そく信号機の違い(信号てこ)』で正答化: 場内/出発(イ・ロ含む)は信号てこで扱い者が停止/進行を制御可、閉そく信号機は軌道回路で自動、が本質(転てつ器鎖錠の有無でない)。
 
-**重要な設計知見**: `SCHEMA_HINTS` は cypher生成にのみ渡り、`format_answer`(回答合成)には届かない。回答生成には強い『なぜ/理由は注記が無ければ説明禁止』ガード(ハルシネーション抑止)がある。よって概念的説明を回答させるには **glossary.json に出典付き用語を追加**する(glossary_lookupがgctx経由でformat_answerに届く)のが正解。aliasは過剰発火を避け特異的に。関連: [[eval-and-table-comprehension]] [[added-data-integration-2026-07]] [[crossing-tc-topology]]。
+**重要な設計知見**: `SCHEMA_HINTS` は cypher生成にのみ渡り、`format_answer`(回答合成)には届かない。回答生成には強い『なぜ/理由は注記が無ければ説明禁止』ガード(ハルシネーション抑止)がある。よって概念的説明を回答させるには **glossary.json に出典付き用語を追加**する(glossary_lookupがgctx経由でformat_answerに届く)のが正解。aliasは過剰発火を避け特異的に。関連: [[eval-improvement-progress]] [[added-data-integration-2026-07]] [[crossing-tc-topology]]。

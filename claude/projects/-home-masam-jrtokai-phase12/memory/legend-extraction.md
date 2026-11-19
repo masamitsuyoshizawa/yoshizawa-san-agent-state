@@ -21,4 +21,4 @@ metadata:
 
 **結果**: try7 = correct **77/208(37.0%、過去最高)**、correct+partial 146(70.2%)、incorrect 14(最低)。凡例系 056/058/077/036/075 が実出典でcorrect化。crossing-050(A: sr.鳴動条件直接読取=CT)も別途正答化(8d0d31c)。
 
-**重要な設計知見**: 概念/凡例説明は SCHEMA_HINTS(cypher生成のみ)でなく glossary(gctx経由でformat_answerに届く)。ただし fabricated 出典はNG、**実出典(索引済マニュアル)必須**。[[section-and-028-034]] [[eval-and-table-comprehension]] 参照。
+**重要な設計知見**: 概念/凡例説明は SCHEMA_HINTS(cypher生成のみ)でなく glossary(gctx経由でformat_answerに届く)。ただし fabricated 出典はNG、**実出典(索引済マニュアル)必須**。[[section-and-028-034]] [[eval-improvement-progress]] 参照。

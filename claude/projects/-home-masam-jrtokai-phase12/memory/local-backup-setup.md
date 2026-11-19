@@ -17,3 +17,9 @@ metadata:
 - 復元手順書 = docs/手順_復元_新PCで0から戻す_coord_20261009.md。D: は 1 TB SSD(2026-10-09 入替)。D: が stale のときは `wsl.exe -d Ubuntu-oldpc -u root -- mount -t drvfs D: /mnt/d`。
 - prune(weekly の最後・残す最新の sha を照らしてから消す)・restore-test(月 1 日 04:00 のタスク kb_backup_monthly・初回 2026-10-10 全合格・7 分)。未了 = ログオン時タスクだけ(管理者権限・任意)。
 - 関連 [[daily-github-push]] [[env-replacement-pc-20261009]]。
+
+追記(2026-11-01・決342 追補 17): 組 N に暗黙知 DB neo4j-tacit-v1(volume jrtokai_neo4j_tacit_v1_data)を追加。**この DB の dump だけ gpg で暗号化**(.dump.zst.gpg・NEO4J_ENC)・空でも止まらないよう下限 1,000 バイト(NEO4J_SMALL_OK)・片付けの名の形は n_ext・`KB_BACKUP_NEO4J_DBS` で対象を絞って試せる。実際に dump → 復号 → 一時 DB に load → 節点 0 一致を確認。既存 4 DB の dump は従来どおり暗号化なし。
+
+
+(索引から移した説明・2026-11-07)
+- [手元データの D: 退避](local-backup-setup.md) — 決221・kb_backup.sh(S/P/M/T/K・gpg・N に暗黙知 DB を gpg で 11-01)・/mnt/d/jrtokai-phase12-backup/v2

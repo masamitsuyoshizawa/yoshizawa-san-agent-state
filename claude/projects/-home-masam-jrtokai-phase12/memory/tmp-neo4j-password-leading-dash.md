@@ -14,3 +14,7 @@ dkb が D-KG の順の試作中に、戻した D-KG の一時コンテナが起�
 **直し済み(2026-09-27 20:35 dkb・main 5b9a8b42)**: rehearse_env.py 98d000d2・rehearse_vocab_scenarios.py a6f75fe6・vocab_dump.py b096131f(+7 −7・test_tmp_password 3 件)。ckb の rehearse_env_c.py は ckb 待ち。
 
 **ckb 分も直し済み(2026-09-28 09:02・affe2d11)**: rehearse_env_c.py 5e17b77e99778e7d(cypher-shell -p の別引数に渡す型も同じ穴・試験 45・演習 rc 0)。C 正本 9990 = 台帳 c(95ddf4a6c5047b5b・8,055/16,585)一致を再確認。
+
+
+(索引から移した説明・2026-11-07)
+[一時コンテナのパスワード先頭「-」](tmp-neo4j-password-leading-dash.md)(token_hex にする)/ [Python 3.12 の sum は補正付き](python312-sum-compensated.md)(+= ループでは順依存が出る)

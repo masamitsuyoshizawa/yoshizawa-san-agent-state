@@ -1,0 +1,14 @@
+{
+  "userSettings": {
+    "globalPermissionGrants": {
+      "allow": [
+        "read_file(/home/masam/jrtokai-mcp-server/src/kg_mcp_server/formatters.py)",
+        "read_file(/home/masam/tmp/指示文_jrtokai-mcp-server.md)",
+        "read_file(/home/masam/tmp/spec_261111/spec_table.py)",
+        "read_file(/home/masam/tmp/spec_261111/rows.json)",
+        "read_file(/home/masam/jrtokai-mcp-server/README.md)",
+        "read_file(/home/masam/jrtokai-mcp-server/docs/ARCHITECTURE_AND_USER_MANUAL.md)"
+      ]
+    }
+  }
+}

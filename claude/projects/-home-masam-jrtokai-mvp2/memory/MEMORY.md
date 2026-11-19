@@ -1,0 +1,59 @@
+- [Hyper-V ポート予約の記録の在り処](hyperv-port-memo-location.md) — 実体は phase12 の memory・動的範囲は既定のまま(2026-10-29)
+- [連絡文を書く前に main を取り込み直す](remerge-main-before-writing-comms.md) — 規則は数分おきに足される・受入の独立の規則を知らずに値を書いた件(2026-10-29・dcr と kgb)・他セッションの値も写さない
+- [写した道具は決め打ちを grep してから回す](grep-hardcoding-before-running-copied-tools.md) — phase12 の INBOX 7 つを上書きした事故(2026-10-29)・mvp2 は 2bf900f で修正済み
+- [dec の前に節を終わりまで読む](read-whole-section-before-dec.md) — 設計書の節を head で切り、決9 で細部を 1 つ落とした件(追補の決10)・決13 で区分を行の数で数え違えた件(決14 で訂正)
+- [確かめに exit を使わない](no-exit-in-bash-guards.md) — 持続するシェルが終わって時間切れになる・確かめは別の呼び出しで(2026-10-30・kgb)
+- [Bedrock の Sonnet 5 は既定で思考が有効](bedrock-sonnet5-thinking-default-on.md) — 抽出・転記では thinking disabled を送る・dgr が写し落として段 B の 5/15 回が空で止まった(2026-10-30)
+- [検査の違反の件数も種類ごとの内訳は書かない](check-counts-by-type-leak-acceptance.md) — 実の入力の K2 の Section の件数が受入の節の数の下限を示した件(2026-10-30・kgb・53e2698 を置き換え)・括弧の「参照が無い」も接続の値(K4・追補)
+- [検査をつなぐ前に pipefail](pipefail-before-chaining-checks.md) — tail で終了の値が消え、漏れの検査が一致ありのままコミットに進んだ件(2026-10-30・coord・決22)・`;` でつないで一致 2 のまま進んだ再発(2026-11-14・dgr・置き換えた)
+- [status の注記の区切りは前後に空白](status-note-separator-spaces.md) — 「)/ 」で comms_unread が次の略号を拾えなかった件(2026-10-30・coord・dgr が直した)・「  # 」は最初の注記だけ・区切りは書く時点の行を見て決める(2026-11-05・kgb・決50)
+- [渡す物は道具をコミットしてから書き出す](commit-tool-before-writing-handoff.md) — 試しはメモリの上で・dcr が _meta.tool.commit を食い違わせた件(2026-10-30)
+- [凍結の前の図の A 層の値は書かない](acc-a-layer-values-before-freeze.md) — 検出の有無と件数の形だけ・dgr が合わせられる逆の向きの独立(2026-10-30・acc §23 の線の比)
+- [凍結の前は合否と当たり 0 だけ](acceptance-independence-no-element-kinds.md) — 要素の種類の有無や 0 の理由も受入の件数の形になる(2026-10-30・dcr の info 2344 を kgb が指摘)
+- [票の見本は写されても当たらない書き方に](form-example-copied-literally.md) — 記入票の見本の「名」が写され関係のない字を置き換えた件・結果は人の言葉で返す(2026-10-31・dcr)
+- [漏れの検査は新しいファイルを git add -N してから](leak-check-new-files-intent-to-add.md) — worktree は追跡の対象だけを見る・rep 0214 で一致 0 と見誤った件(2026-10-31・kgb)・coord と同じ形は diff <ブランチ> --base main
+- [acc の review サーバーは dcr と共用](acc-review-server-shared-with-dcr.md) — /judge の形・配るパスを変えるときは先に dcr へ・8732〜8734 は dcr 用・acc は 8731 と 8735 から上(2026-10-31)
+- [acc の図面 3 枚の凍結と残り](acc-2a8c-freeze-resume.md) — 3 枚とも凍結済み(b08e は 2026-11-04・info 0145)・T1 は独立を外した・A1 の外れは調べ済み(検出の側)・残りは自己点検の直しを諮る・f12fc の B4(C 層は決48 0-8 で済み)
+- [acc の物差しと旧方式の基準線](acc-yardstick-phase0.md) — 第 19 版 §11・venv で回す・M1 は第 17 版(rep 0028・正本)・決67 で第 19 版・決69 で 2a8c と b08e は段ごとの工程・第 20 版を作ると決めた(rep 1751・止めと中の照らし・端の名は出力の側・種類を足しただけの版の違いを許す・決92 の数え方)・**f12fc の M2 は第 19 版で測り終えた(rep 1506・2026-11-13)**・連絡文は区分の母数だけ
+- [取り込みは merge を単独で回す](merge-alone-before-closing-steps.md) — 競合で && の先が飛び、; の先のコミットが取り込みのコミットになった件(2026-11-01・coord・6dd946c)・merge を tail に通して && でつなぎ、競合のまま取り込みのコミットになった件(2026-11-13・kgb・e3da77f → 1223585)・dgr も ; でつないで競合の印を残した(2026-11-19・36d7cf4 → feac5ae)
+- [dcr の再開の状態(2026-11-18 02:58 更新)](dcr-resume-state-20261031.md) — 社名の表 第 2 版・正本の照らし 0(解く条件 (c) の数え)・次は誤読の確かめの回を諮る・説明書と事例報告 eef4 は acc の凍結待ち・立て直し方
+- [デモの試作と公開物の状態](kb-demo-prototype-state.md) — kb_demo.py は build_plan と _synthetic に依る・8741 は LOCKS で保持中・説明とスライドの URL(2026-11-02・決42)・段の台帳 progress.json は取り込みの時に直す(2026-11-04)
+- [協力の担当との打ち合わせ資料](meeting-material-doc.md) — Claude Docs の URL・5 章のヒヤリング A〜I・別紙(資料名との対応)は未作成・デモには触れない(2026-11-02)・スライドは data/private/meeting/(PoC はこれからの見せ方・2026-11-04)・第 4 版は 4 枚で文書を強めた(2026-11-10)・開発の状況の 4 枚(2026-11-18・進み具合と数を書いた)
+- [形の確かめで dict の鍵を出さない](shape-check-prints-keys.md) — 鍵が eid などの値になる・数と型だけ(2026-11-02・coord・b08e の eid_map)
+- [文書系の凍結の前は正本のグラフを読まない](acc-no-read-canonical-graph-before-doc-freeze.md) — 決34 §4・正本の中身・K8 の書き出し・状態ファイル・ダイジェストは可・決35 §4 で b08e の凍結までは図面の kgb_input と図面の分も・決37 で演習の記録の図面の分も(2026-11-01)
+- [凍結の前の図も真偽は自分で確かめる](verify-unfrozen-drawing-by-boolean.md) — 値は出さず真偽だけを出して確かめる・b08e の eid_map を推して「3 枚とも空」と書いた件(2026-11-02・dgr・決38・info 0011)
+- [渡した物の出所を書き直す前に _prev へ](backup-before-overwriting-handoff-sources.md) — derived_from が指す出力は先に写す・rg5_regions.json を書き直し rep 0006 の版の出所が失われた件(2026-11-02・dgr・決40・info 0049)
+- [漏れの検査の diff は照らした行の数も見る](leak-check-diff-zero-lines.md) — diff HEAD^1 は base が main で 0 行・それでも「一致 0」と出る・決43 の記録を訂正した件(2026-11-04・coord)
+- [連絡文の時刻は date をそのまま使う](comms-time-from-date-not-rounded.md) — 決43・決44 で先の時刻を書き dgr に指摘された・Python の中で now() を取り同じ値を使う(2026-11-04・coord)
+- [合成の試験は実の呼び出しと同じ型で](selftest-types-match-real-call.md) — selftest は Counter・実は dict で、実の書き出しの 1 枚目で KeyError(2026-11-04・dgr)・書く前にメモリの上で実のデータを回す
+- [JIS E 4017 の本文の在り処](jis-e4017-reference.md) — kikakurui.com で読める・機器囲い線は鎖線・黒丸は接続(系列 2)・線番の読み替えは ○(2026-11-04)
+- [図面解析の再設計(決48〜決71)](drawing-redesign-phase0.md) — 第 0 段は済み・G1 は決51・第 1 段の計画と G2〜G4 は決52・1-3 は rep 2234・M1 は rep 0028 で済み・1-5 の人の確認に入る(info 0032・2026-11-06)・§6 の 3 件は決62・物差し 第 18 版の承認は決63(M2 まで固めた)・U5 の戻りの欠けは決64 で 2a8c の前に直す・U1 の字の割れを選べない漏れは決66 で直した(1068232)・U2 の割れは決68 で直した・物差しは決67 で第 19 版・決69 で 1-5 を段ごとの確認と決定論の組み直しに改めた(f12fc は今の答えで確定・2a8c から)・S1 の押して足すの欠け 5 点は決71 で dgr に直しを頼み、24aab33 で直して 2a8c を配り直した(rep 2334)・S1 は close し、S2 記号の一覧を 8753 で配った(rep 0029・2026-11-10)
+- [道具のコミットの前にも漏れの検査](leak-check-before-tool-commit.md) — 区切りのコメントの字とハイフンの連なりが原本の 8 字に当たり coord が取り込みを止めた(2026-11-05・dgr)
+- [漏れの検査はコメントの見出しにも当たる](leak-check-banner-false-positive.md) — 漢字 + ハイフン 7 字が 8 字の類に当たった・字を出さずに分類し、直してから取り込む(2026-11-05・dgr)・ありふれた文末(〜のとおりである。)も当たる(2026-11-09・coord・決70)・〜ようにする。も当たった(2026-11-12・kgb)・〜っていなかった。も当たった(2026-11-16・kgb)
+- [searched の未検索の数はプロファイルと照らす](searched-count-vs-profile.md) — 決54 で rep 1402 の未検索 14 とプロファイルの 7 の差を見落とし、決55 §3 の 2 で 7 鍵を dgr に求めた(2026-11-05・coord)
+- [送りの最中は道具の置き場を書き換えない](no-tool-edits-while-runs-record-version.md) — 回ごとの記録がその時点のファイルの sha と未コミットを書く・写しで試してすぐコミット・送りの道具は次の図の前に(2026-11-05・dgr)
+- [報告の採った回の数は runs_used から](report-counts-from-runs-used.md) — status の数は「通った回のある項目」・出力は「最初の使える回」・rep 1532 で claude 5 と書き出力は 6 と codex 1(2026-11-05・dgr)
+- [真偽の照らしは空で真にならないように](truth-check-vacuous-all.md) — 無い鍵で all() が 0 件のまま真になり coord に知らせた・照らす物が 1 件以上あることも出す(2026-11-08・dgr・rep 2250 §5)
+- [acc の QA の評価と監査の計画](acc-qa-eval-audit-plan.md) — 決78 の acc の行・判定は決定論 → LLM → 人の抜き取り(QA だけ §3 の 1 の例外)・期待は種類ごとに少数・Q5 は acc 案で利用者が確かめる・設計 第 0 版と rep 1555(2026-11-12)
+- [acc の正本の指紋](acc-fingerprint-t0.md) — T0・T1 は 3caaf1c9・追加の受領の後の T0add は 535680f0(2026-11-12・info 1314)・新しい受け箱の 8 ファイルは 644 で 444 を頼んだ
+- [GitHub への保全](github-backup-setup.md) — 決74・非公開の 2 リポジトリ・push は coord の道具と 21:10 のタイマーだけ・data/ と会話の記録は置かない(2026-11-11)
+- [追加の受領(2026-11-12)](intake-20261112-second-delivery.md) — 新しい 134 ファイルを raw へ・QA 203 問は読取の側に渡さない・目標は構造化の試行と phase12 型の API とエージェント・図面 3 枚の確認は続ける
+- [API とエージェントの P0 の設計(kgb)](kgb-api-agent-p0.md) — 決78 で kgb の持ち分・口 14 を作り rev の審査 4 回の後に**口の型を凍結(版 1.0・2026-11-17)**・次はエージェントの最初の版(決129 の順 3)
+- [追加の資料の凍結の 6 本](doc-freeze-targets-20261112.md) — 規程 2・作業標準 2・事例 1・説明書 1 の sha16・凍結の info まで値を書かない(info 1619)・画面にも出さない(rep 0217 の条件 3・段 2 で出てしまい info 0220・2026-11-13)・見込みは 4 本が 11-15・説明書と事例は段 3・段 4 の後(info 2158)・規程・基準 2 本と作業標準 2 本は凍結済み(決121・決123・決124・2026-11-15・frozen.py から外した)・残りは説明書と事例報告と別の版 2 本
+- [漏れの検査はコミットの文を照らさない](leak-check-commit-message.md) — worktree と diff はファイルの行だけ・コミットの文も shingles で照らす・push の前なら amend(2026-11-12・kgb)
+- [決92 第 3 回の作りの要点](round3-design-dec92.md) — 束線の横切る配線・入り口の番号のつなぎ・付記のつなぎ直し・カムの行・配線番号の点検・S5 を開く(2026-11-13)
+- [人手確認の基本ルール](review-screen-design-principles.md) — docs/08 第 5 版(決154・2026-11-18・R24〜R27 と C28〜C31)・第 4 版は決151(R21〜R23)・前は第 3 版(決107・決113・決127)・R1〜R20 と C1〜C23・代表の問い → 作り直し → 再確認・原本に見える物の言葉で問う・1 問の見本で先に確かめる・数と番号は機械の読みを見せない・実の回の照らしは作り手・agy は見本だけ(2026-11-16)
+- [確かめの画面の共通の部品](review-ui-common-parts.md) — scripts/review_ui/ 0.1(6f45f01)・dev と gate・静かな画面と /judge・agy_check.py・2a8c の S5 は HOLD で止めた(2026-11-14・決107〜決111)
+- [計画に dec の外の直しを足したら知らせの頭に](plan-additions-beyond-dec-flag-at-top.md) — 承認の時刻と計画の箇所を書き追補の記録を頼む・決115 の後の計画の直しが決117 になった件(2026-11-14・dcr)
+- [合成の見本は実の長さの押し出しを見ない](synthetic-sample-misses-real-length-layout.md) — 8732 で案の中身が見えず判断できなかった・選びに中身を出し実の回で道具で照らす(2026-11-15・dcr)
+- [正本に在るかは台帳の書き出しで](check-canonical-state-before-writing.md) — Document の節点で数える・pipeline_state には図面も入る・135 と書き 126 と正された(2026-11-16 info 1357・2026-11-17 rep 2220)
+- [顧客のヒヤリングの回答(2026-11-17)](customer-hearing-answers-20261117.md) — 22 項目・同じ線番は同じ電線・手書きの改訂が最新・写真や波形の値も対象・事故の例は故障報告書と結ばれていない・押印の社名も伏せる・新幹線の空調も対象・機器と記号の一覧は図面の集の最後の項目・決140 で本文の社名も伏せる、新幹線の空調を対象に入れる(2026-11-17)
+- [試験の出力を絞る時は終了の値を見る](check-exit-code-when-filtering-test-output.md) — grep に通すと試験が落ちても && の先へ進む・selftest 9/10 のままコミットした件(2026-11-17・acc)
+- [正本の字を AI に読ませる回の止め](canonical-llm-hold-until-company-names-masked.md) — 決157 で解けた・設定の確かめも済み(docs/09・2026-11-19)・QA の評価の実の回は acc の画面での計画の承認の後
+- [連絡文の Python を引用符なしの heredoc で流さない](comms-script-not-unquoted-heredoc.md) — 本文の逆引用符がシェルに解かれ置き場の字が抜けた(2026-11-18・dgr・info 2359)・値はスクリプトの中で求める
+- [社名の伏せ(決140〜決149)](company-name-mask-dec140-149.md) — 本文も伏せる・正本も伏せて答えで戻す・止め(決142)と解く条件 3 つ・表は第 1 版 9 社・7 本の入れ替え(2026-11-18)
+- [記号の一覧と JIS の範囲(決143〜決159)](symbol-inventory-jis-dec143-150.md) — 区分 A/B/C/F・E 4017 と C 0617 第 3〜8 部・目録は dynfw から git 外へ写した・顧客用は番号と名だけ(2026-11-18)・決159 で図面の 2 冊の名称表を JIS より先に当てる(2026-11-19)
+- [取り込んだ連絡文は全部読む](read-every-merged-comm.md) — 入ったファイルを並べて 1 本ずつ読み注記を付ける・dgr の訂正を読み落とし古い数で諮った件(2026-11-18・coord・決152)
+- [仕様書ドラフト 261111 の達成見込みの表](spec-draft-261111-feasibility-table.md) — ~/tmp/spec_261111/・158 行・3 セッションが answers/*.json に記入・mvp2 は主 22 行(2026-11-18)
+- [LLM の置き場と学習の決まり(決158)](llm-location-and-training-dec158.md) — 置き場は国内・処理は国外でも可・学習に使われない設定・4 経路の確かめは済み(docs/09)・Bedrock は global の呼び方(2026-11-19)
+- [名称表 9 頁を 3 種の LLM で読む(決161 の段 4 の改め)](name-tables-llm-read-stage4.md) — vol_read.py cf7951f・字の層は崩れ・絵の列は無い・決165 で記録・APPROVED.json の段は自動の判定で止められ、書き手を利用者に問う(coord も代行しない・2026-11-20)

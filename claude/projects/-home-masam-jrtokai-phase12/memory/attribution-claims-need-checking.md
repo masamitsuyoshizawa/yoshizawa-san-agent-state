@@ -27,3 +27,4 @@ metadata:
 **名の出どころも帰属である(2026-09-24)。** S4-F の読み手で理由の札 `unknown_property` を「設計書の名」とコード注記・rep・info の 3 か所に書いたが、設計書に 0 件で、出どころは fed 自身の計画だった。coord の決定文はこれを受けて閉じた一覧を「fed の 7」で数え、1 つ落ちた。**名・定数・規則を「どの文書由来か」で分類するときは、その文書を名で grep し、分類を機械検査にする**(D5: 読み手が出す札を構文で集めて一覧と両向き照合・設計書側は設計書に名が在ることを見る)。
 
 関連: [[claim-wider-than-implementation]]・[[criterion-not-tool-output]]・[[verify-filenames-before-citing]]・[[artifact-self-report-not-trusted]]
+追記(2026-10-29・bkb): 設計 改訂 11 §15 に「一覧で保留中として数えられる(fed info 0948・fed の会話の確かめ)」と書いたが、元は coord の条件 (d) で、fed の一覧(GET /jobs)は state_reason を持っていなかった(fed rep 20261029-1000)。**条件(あるべき姿)を、相手の実装の事実として出典を付けて書かない。出典を付ける前に、その出典の文に当該の主張が在るかを grep で確かめる。**

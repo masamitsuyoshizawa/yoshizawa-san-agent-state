@@ -20,3 +20,5 @@ metadata:
 - `bash script.sh` はスラッシュ無しだと PATH から探され `$0` も裸の名になる → `readlink -f "$0"` が cwd 相対で壊れる(command -v で先に解く)。複合コマンドの cd は効かないことがあるので絶対パスで呼ぶ。
 - 2026-10-13 実施: docker 側ディストロ Ubuntu は wsl セッションが無いと止まる(dump 前に `wsl -d Ubuntu -- sleep` で起こす・out.sh に組み込み済み)。kb_backup のログ名は分単位で衝突していた(pid を足した)。
 - 再起動後に USB SSD が未マウントだと /mnt/f が空ディレクトリのまま → kb_backup.sh に未マウントなら書かない門(rc 3)・/etc/fstab に F: を nofail で追加(2026-10-13)。
+
+追記(2026-10-28・bkb): PC/Docker Desktop の再起動の後、手元 Neo4j のコンテナは Up なのにホストのポート(9890・9990・10090・10190 ほか)が閉じた。原因 = Windows の Hyper-V 動的ポート予約(`netsh int ipv4 show excludedportrange protocol=tcp` が 9658〜10257 を予約)。docker restart では戻らない。復旧は利用者の管理者 PowerShell で `net stop winnat` → コンテナの restart → `net start winnat`。**受入や計測の前に healthz と 4 DB のポートを確かめる**(両側が同じ壊れ方だと比べは「同じ」と出る)。

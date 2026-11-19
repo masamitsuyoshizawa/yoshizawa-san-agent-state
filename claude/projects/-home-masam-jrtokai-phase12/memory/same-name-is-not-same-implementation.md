@@ -19,3 +19,5 @@ metadata:
 
 
 **実例 3(2026-09-27・coord)**: `llm_providers.py` はリポジトリに同名 6 本(中身 4 通り)。coord は直下の 1 本(9963129a)を読んで「Opus 5.5 未登録」と書いたが、kg_api が読むのは `kg_api/kb/scripts/llm_providers.py`(fa6c962b・app.py 22 行)。結論は偶然一致したが、参照するときは読み込み元を先に確かめる(OWNERS はパス付きで書く)。
+
+**欄でも同じ(2026-10-28・fed・中案 A 設計 改訂 11)**: bkb 設計の `state.awaiting.target_sha`(工程の状態ファイル)を intake の `state.json` の `target_sha` と取り違え、2 行下の「worker が state.target_sha を成果物の sha に書き換える」を読まずに「改訂 10 は欠陥」と coord に伝え、改訂 11 で正しい照合を壊した(bkb の指摘で撤回・改訂 12)。**How to apply:** 同じ名の欄(target_sha など)を照らす前に、どのファイル・どの物の欄かを接頭辞まで書き出す。「前の版の欠陥」と言う前に、相手の現行版の該当節を最後まで読む(書き換えの記述は近くにある)。

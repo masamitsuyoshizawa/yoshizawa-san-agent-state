@@ -1,0 +1,125 @@
+---
+name: accident-vector-similar-item
+description: 決312〜314(2026-10-27): 事故摘録のベクトル類似検索を B-KB に並行して置く・段 0 評価完了(概念@5 38→44%・低い層 3→8/30)・段 1 口 + 段 2 旗の実装を承認(bkb/dkb 実装中・rev R314-A)
+metadata:
+  type: project
+---
+
+利用者の相談(2026-10-27): 曖昧な検索のために B-KB のグラフと並行して事故摘録全文のベクトル検索を置き、類似性の信頼度が低い事故原因の補助データにしたい。API 利用者への影響を避ける形で。
+- **決312**: v1 に加法 = 新しい口 `/v1/accident/similar`(bkb)+ diagnose は既定 false の旗 `similar_cases` で加法の欄(dkb・発動は grade low/novel/insufficient か related_cases_B 空の決定論規則)。/v2 の版分けはしない。索引は外部ファイル(A と同じ形 faiss/emb.npy/bm25/meta/info・bge-m3・手元 GPU)・B の正本グラフは不変。本文の断片は出さない(マスク済み全文 703 件から作る)。
+- 検討書 `docs/検討_事故摘録ベクトル類似検索_20261027.md`(57a1699cabbb30c3)。
+- 段 0(評価・LLM なし)= bkb が索引と検索の道具(req 20261027-0452)・dkb が LOO700 646 問で recall@k(k 3/5/10・vec/bm25/hybrid・節・exclude_ids = 当該 + 双子)を現行 related_cases_B と grade × group で比較(req 20261027-0452)。段 1〜3(口・旗・表示)と EC2 は結果を見て dec。
+- 現状の事実: B の類似は全文索引 accident_ft(語の一致)と B 診断の related_cases_B(概念ラベル・全文は見ない)。grade は _estimability_core。LOO700 の c+p は high 58% → novel 33%。
+
+- **bkb の段 0 は完了**(2026-10-27 05:36・rep 20261027-0536): 索引は B 正本の Document.text から(決312 追補 2・masked は地名の是正前なので使わない [[b-document-vs-masked-files]])・knowledge_kb_v8/data/bkb/accident_similar/(bkb-sim-2・全文 700・節 2,680・節の札 header/overview/note/log・概況と原因は分けられず 1 節)・道具 knowledge_kb_v8/scripts/bkb/accident_similar.py の search(text, k, exclude_ids, variant, section)(検索のとき Neo4j 不要・既定 CPU・順は 6 桁に丸めた値 → acc_id・双子は畳む)・照合 accident_similar_check.py(決定論 2 回 byte 同一・負例 9/9・GPU/CPU 646/646)・設計案 docs/設計案_v1_accident_similar_bkb_20261027.md(exclude_ids を公開の口に出す推し)。双子の群の外に全文コサイン 0.95 以上の組 15(dkb へ注意)。
+
+**段 0 の結果(2026-10-27・dkb rep 0603・費用 0)**: LOO700 646 問・混合(hybrid)・節の最大(section "*")vs 現行 related_cases_B の label: 概念@5 38% → 44%(p=0.008)・系統@5 70% → 81%(p<0.001)・低い層(80 問・概念の正解あり 30 問)概念 3 → 8(p=0.06)・系統 13 → 21(p=0.04)・にせ双子 15 組(コサイン 0.95 以上)を除いても向き同じ・CPU 0.17 秒/問・GPU と byte 同一。記録 knowledge_kb_v8/data/eval/similar_recall_20261027/(MANIFEST f34c05400220492b)。
+**索引の出どころ**: マスク済みファイル(accident_kb_v7/data/masked)ではなく **B 正本の Document.text**(09-25 の地名の戻し 決86〜95 を含む承認済みの状態)。masked ファイルは戻しの前の版(決313 で確認・是正不要)。索引 bkb-sim-2・道具 knowledge_kb_v8/scripts/bkb/accident_similar.py の search(text, k, exclude_ids, variant, section)・検索時は Neo4j に繋がない・既定 CPU。
+**決314(2026-10-27)**: 段 1 = POST /v1/accident/similar(bkb・設計案 docs/設計案_v1_accident_similar_bkb_20261027.md 改訂 0 ab45c43b → 改訂 1 へ・k 1〜10 既定 5・hybrid・"*"・score 3 桁・from_b・exclude_ids 公開)+ 段 2 = diagnose の旗 similar_cases(dkb・既定 false・発動 = 低い層か related_cases_B 空 = 80/646・最上位の 1 鍵 similar_accidents・鍵なし/[]/null + sources_down・木は不変・旗 OFF byte 同一)。順序 = 実装 → rev 静的確認(R314-A 設計・R314-B 実装)→ 受入(段 1 は dkb が recall の枠を口経由で・段 2 は bkb)→ main。別 dec = EC2・段 3 表示(fed)・判定器の本評価(旗 ON 80 問・別系列)・全層への拡大。
+
+- **段 1(bkb)実装済み**(決314・2026-10-27 08:10・rep 20261027-0810・main a15a2fd2): 部品 kg_api/sources/accident_similar.py(search の契約 = 段 0 と同じ位置引数・6 桁・失敗は SimilarUnavailable(reason)・KG_SIMILAR_INDEX_DIR 既定 kg_api/kb/index_similar・KG_SIMILAR_DEVICE 既定 cpu)・口 POST /v1/accident/similar(SimilarOptions extra=forbid・k 1〜10 既定 5・hybrid・"*"・score 3 桁・from_b・失敗 = null + sources_down)。試験 kg_api/kb/scripts/test_accident_similar.py --base-rev 4037d962(10 項目)。受入の材料 endpoint_646x9_k10.jsonl b7ae9808 は段 0 と 5,814 一致。hybrid の 3 桁は上位で同値 → 順は rank(段 3 で要検討)。次 = rev 静的確認・dkb の段 2・EC2 は別 dec。
+
+- **段 2(dkb)の bkb 受入 合格**(2026-10-27 08:42・rep 20261027-0842・dkb-sim c07ae9a4): 旗 OFF 7 本を bkb が取り直し f2b と 7/7 同一(索引は空の置き場)・旗 ON の LOO 646 は dkb と byte 同一 8fbf445e・80 問 400 行が bkb の独立の期待と完全一致・失敗 = null + sources_down B:類似検索:failed・normative は鍵なし(dkb の契約・決314 に明記なし)。道具 knowledge_kb_v8/scripts/bkb/sim2_acceptance.py。注意: 規則の「grade 高・B 空」の枝は LOO 646 に 0 問(合成 24 組で担保)・/v1/dkg/diagnose に exclude_ids が無く口では自分の事故が入る。
+
+**実装の状態(2026-10-27 09:30)**: 段 1 = main a15a2fd2(部品 kg_api/sources/accident_similar.py b53e2b48・設計案 改訂 1 768f62a7・試験 kg_api/kb/scripts/test_accident_similar.py は KG_SIMILAR_INDEX_DIR を実物に向けて回す・T1〜T9)・口経由の 646×9 写し b7ae9808 が段 0 と 5,814/5,814 一致。段 2 = ブランチ dkb-sim c07ae9a4(main 未投入・旗 OFF 7 本 f2b と同一・ON 646 問 8fbf445e 違反 0・bkb 受入 合格 rep 0842)。**決315** = normative は発動しない(承認)・判定器の本評価 2 回(80 問・概念 label 最大 5 行・新系列・約 0.5 ドル仮定)は rev R314-B → dkb-sim を main → 実行。注意 = 「高い grade かつ B 空」の枝は LOO に 0 問・/v1/dkg/diagnose の口に exclude_ids が無く LOO の問いでは発動が変わりうる・hybrid score は 3 桁で同値になるので rank で読む。
+
+**決316(2026-10-27)**: 判定器の本評価は類似事故の概念 label 最大 5 行を**独立の候補リスト**として同じプロンプトで判定(B)。理由 = 判定器 L3 は順位で判定(correct 1〜3 位・partial 4〜5 位・docs/判定器定義書_LOO700_L3_v1.md §3)なので 6〜10 位に足しても測れない。報告 = 補助だけ c+p・本体か補助の和・本体外れを補助で拾えた数(主眼)・646 = 流用 566 + 和 80・2 回一致率。**判定器に何かを足して効果を測るときは、先に判定規則が何位まで見るかを確かめる。**
+
+**rev R314-A/B(2026-10-27 10:09・代行コミット a244d8f7)**: 段 1 要是正 A1(索引の構造不正・encode・BM25 の例外が SimilarUnavailable に変換されず 500 になり得る)・A2(不出検査が値の文字列だけ・concepts を丸ごと転記・鍵と型を閉じない)。段 2 条件 B1(`res or []` が None を正常 0 件に・型検査不足)・B2(表示契約 ON で B:類似検索:failed が handover の理由へ波及し needed が変わる)。coord 判断 = B2 は厳密維持(補助の障害は引き継ぎを変えない)。是正 req 1302(bkb/dkb)→ rev 再確認 → 受入差分 → main → 判定器。**補助の欄を足すときは、その失敗が共有の機構(sources_down)経由で主の判定を変えないかを経路で確かめる。**
+
+- **R314-A の是正**(2026-10-27 13:24・rep 20261027-1324・main db5911ec): 部品 747c81d89e6a6923(失敗はすべて SimilarUnavailable・札 6 種 = index_missing/index_unreadable(構造不正を含む)/index_version/model_unavailable/encode_failed/search_failed)・口は関数の中で部品の import から形づくりまで 1 つの境界(200 + null)・応答は鍵と型を投影(concepts は id/label・知らない exclude ID は返さない)・T5 は形の宣言(余分な鍵は値によらず違反)・設計案 改訂 2。検索の結果は段 0 と byte 同一のまま。教訓: 値の文字列だけの不出の検査は、鍵・型・数の漏れを見ない。`from . import X` はパッケージの属性があると sys.modules を見ない(import の失敗の差し込みは属性も外す)。
+
+- **段 2 R314-B 是正後の bkb 再受入 合格**(2026-10-27 14:06・rep 20261027-1406・dkb-sim a74bffa7): 失敗は similar_accidents = null だけ(sources_down に印なし・B:類似検索:failed は撤回)・行に rank・契約の外の戻り 25 通りは null・表示契約 ON でも handover 不変。道具 knowledge_kb_v8/scripts/bkb/sim2b_acceptance.py(contract・display を追加)。段 1・2 の bkb の手番は済み(段 1 は rev R314-A' 待ち)。
+
+- **A1-f と B1-k**(2026-10-27 17:16): 部品 e40d9a0e8ec40afa(main 43c9f6b8・非有限は index_unreadable/nonfinite_score・札 7 種・正常時は段 0 と byte 同一)。dkb B1-k(8968b0f7)の確認 合格(info 1716・鍵の欠けは null・空の list は成功)。rep 1406 の「合成 25 + 例外」は「合成 24 + 例外 1 = 25」の数え誤り(info 1716 で訂正)= 件数は名の一覧から数える。残りは rev の最終確認 → dkb-sim を main → 決316。
+
+**R314 完了(2026-10-27 17:45)**: 是正 2 巡(A1/A2/B1/B2 → A1-f/B1-k)の後 rev 合格・残条件なし。段 1 = main 43c9f6b8(部品 e40d9a0e8ec40afa・札 7 種・設計案 改訂 3)・段 2 = dkb-sim 7c42ba0c(dkg_backend 7cab774e274ba9b7・改訂 13)。失敗は similar_accidents null だけ(sources_down に入れない・fed 推し)。次 = dkb-sim を main → 決316 判定器(80 問 × 2 回・独立リスト)→ 結果で EC2(bkb 設計案 §6: 重み 2.2GB・索引 31MB・メモリ 2.4GB)・段 3 表示・全層拡大を諮る。
+
+- **rev 最終確認 R314-A''/B'' 合格・残条件なし**(2026-10-27 17:45・rev rep 1745)。段 1 = main 43c9f6b8(部品 e40d9a0e)で確定。dkb が dkb-sim を main へ → 決316 の判定器。次の bkb の手番の可能性 = EC2 反映の dec の材料(設計案 §6: 重み 2.2GB・索引 31MB・メモリ 2.4GB・像への重みの入れ方)を手順案に(別 req)。
+
+**決316 結果・決317(2026-10-27 19:xx)**: 判定器 jv2sim_20261027(独立リスト・sim_labels_v1)= 発動 80 問中 判定対象 53(G3 27 は対象外)・補助だけ c+p 17/53 = 本体と同数・どちらか 25/53・本体外れ 36 のうち補助で 8(22%)拾う・2 回 53/53 一致・約 0.40 ドル(仮定)・coord 数え直し一致。決317 = 段 3 表示に着手(fed・「補助・候補ではない」の札・本体の下・旗は表示側から ON)・medium 層 135 問 × 2 回(dkb・約 0.71 ドル仮定)・EC2 は段 3 と 1 便(bkb 手順案 → coord 別 dec)。全層拡大は medium の結果で。
+
+- **EC2 反映の手順案**(決317 (3)・2026-10-27 19:29・rep 1929・docs/手順案_EC2_類似検索_bkb_20261027.md 99bcf037): 重みは /models を共用(像に焼かない)・索引は /app/kg_api/kb/index_similar へ ro マウント・環境変数なし・kgapi_recreate.py で作り直し。手元の像(Dockerfile.abc・488MB)で VmRSS +1.6GB(A と両方で 6.9GB)。落とし穴: 像は SENTENCE_TRANSFORMERS_HOME=/models なので重みは /models/models--BAAI--bge-m3(HF hub の中身を直下)。受入の期待 = ec2plan_20261027/expected_ec2.json(29214dcc)。実施は coord・受入は bkb。
+
+**決318・319(2026-10-27 19:4x)**: 段 3 は案 T(DkgTreeRequest に既定 false の similar_cases・根の診断だけ・results.diagnose.similar_accidents・描画/levels に入れない・V2 の木の道だけ概念を伏せる)= Dify D の tool 節点は全部 with_tree 真で /v1/dkg/tree を 1 回呼ぶため。medium 層の判定 = 補助 64/135 vs 本体 59・本体外れ 76 のうち 23(30%)拾う・一致 135/135 → **発動を medium へ拡大**(80 → 約 236 問)・high 378 問 × 2 回を評価中(約 2.0 ドル仮定)。EC2 事前確認 = /models に bge-m3 5617a9f(A と同じ revision)・available 約 5GB・kg_api 1.5GiB・bkb 実測 類似 +1.6GB(A と合わせピーク 7.55GB)→ A の SentenceTransformer と共用できるか bkb 検討中。rev R317-A(fed 設計 f502dfd0)待ち。
+
+- **bge-m3 の共用**(2026-10-27 19:52・rep 1952・手順案 改訂 1 b32be13f): A の retriever と同じ bge-m3・5617a9f。VmRSS 別々 +1.52GB → 共用 +0.05GB・結果 byte 同一。案 S1(共通の読み込み口・fed の retriever.py に変更)推し / S2(部品だけ・順に依る)。EC2 = available 5.0GB・kg_api idle 1.53GiB・CPU 4 → 共用を入れてから反映が推し。スレッド数が違うと 6 桁目が変わる(73/5,814・並びは同じ)= 受入は score ±0.001。決318 (1) 公開の木の範囲 = 描画と levels の名(R284-1)と回答・設計案 改訂 4。
+
+**決320(2026-10-27 20:2x)**: high 378 問 = 補助 234 vs 本体 221・拾えた 54/157(34%)・3 層合計 補助だけ 315/566 vs 本体 297 → **発動を全層へ拡大**(規則 = 旗 ON かつ normative でない・既定 OFF 不変)。dkb-sim2(c376e9be = medium + 木の根の旗)で実装中。S1(bge-m3 共用)は fed 条件付き合意(装置を鍵に・同時 encode 試験)・_REFS_ENC は版不明で寄せない。EC2 実測 = A 1 回で 68 秒・MemUsage +0.31GiB・available 5.0GB。dkb の観察 = 類似事故の概念を本体の候補づくりへ(別検討・未着手)。
+
+- **S1 の差分**(2026-10-27 20:28・rep 2028・枝 bkb-s1 7235554d・main に入れていない = fed が取り込む): kg_api/sources/st_models.py(鍵 = 名・版・get_device_name で決めた装置・encode はロック)・部品 model()・A の retriever._load_st(7 行)。試験 test_st_models.py S1〜S8 合格(S8 = 共用で 5,814 が段 0 と同一・CPU だけ)。ロックなしでも例外 0 だったが残す推し(11.9 秒 vs 6.1 秒)。試験 T1 は段 2 の承認済みの schemas の加法で落ちる形だった → B の型と Options だけ中身まで見る形に是正(main)。決319/318 の受入(c376e9be)は決320(全層へ)で止めた → dkb の新しい版の req でまとめて(sim3_acceptance.py)。
+
+- **決319/318/320 の受入 合格**(2026-10-27 21:01・rep 2101・dkb-sim2 2cd560f8): 発動 = normative 以外の全問(決320)・646 問 3,230 行が独立の期待と一致・木の根の旗 77 通り(根だけ・除外なし)。fed は S1 を fed-sim に取り込み済み(rep 2046・ロックは残す)。教訓: 規則の拡大で「発動しない問 0 件」になると、空集合を前提にした照合(KeyError・StopIteration)が道具の側で壊れる → 対象 0 件を記録に出して扱う。次の bkb の手番 = fed の段 3 の受入・EC2 の受入。
+
+- **段 3(fed)の受入に固定する条件 A1**(rev R317-A・coord 2026-10-27 21:1x): ① similar_accidents だけ ON(direct_causes は鍵なし/[]/null/行ありの別ケース)でも V2 は label/id を伏せ、V3 と直接 diagnose は保持・内部状態を書き換えない・dkg_tree.py の早期 return(:349)を残す変異で落ちる ② 未指定と明示 false を分け、要求・request_digest・本文が基準版と同じ(木 22 問 × 描画旗 3 種・LOO 646 は別・JSON 比較の除外は時刻と版のパスだけ) ③ ON は許した差(similar_accidents・request_digest)以外を比較・鍵は根の diagnose だけ(items・枝・描画・levels に無い)・枝が在る正例・正常行/[]/null/鍵なしを別々に・null の節だけ除くと主の本文・uncertainty・「断定できない理由」が OFF と同じ。材料は fed(fed-sim)が出してから。fed の設計 docs/設計_類似事故表示_fed_20261027.md(改訂 0 f502dfd0)。
+
+- **段 3(fed 表示・fed-sim dc1bc417c)の受入 合格**(2026-10-27 22:13・rep 2213・道具 sim_display_acceptance.py): A1 ①〜③・観点 (1)〜(8)・試験 8 本。低い注意 2(行が dict でないものだけの配列は見出しだけ・行頭の 2 字下げ)は fed の判断。→ 是正(契約の外 = dict でない要素を含む配列は取得できず・字下げ)と R317-B2(test_st_models の S6 の判定・bkb-s1 8021bfeac)を経て、**最終の版 fed-sim 6c05b6a9e の是正の受入・最終の照合 合格**(2026-10-27 23:16・info 2316・設計 改訂 2 2b0451de・初回の写しと値が同じ)。ほかの bkb の手番 = EC2 の受入(期待 ec2plan_20261027/expected_ec2.json)。
+
+**段 3 の最終版(2026-10-27 23:0x)**: fed-sim 6c05b6a9e(= 段 3 実装 + 全層化 dkb-sim2 4a71d2d2 + S1 bkb-s1 8021bfea + rev R317-B の是正 B1/B2 + fed 3 点)。sha16 = プラグイン 0.3.21 dkg_diagnose.py bdd31482・dkg_tree c2ca6ba7・schemas 3f8f57bf・demo_v10 cc1f71a9・dkg_backend 7fe62d84・tree_state 00bd489e・st_models bb09c33a・accident_similar 0fb1342d・retriever 6e34a4ad・設計 改訂 2 2b0451de・EC2 用 D DSL a1318d4a。待ち = rev R317-B'(req 2303)・bkb 最終照合 → main → **EC2 反映の dec(未・段 1〜3 + プラグイン + 索引 ro マウント + /models 共用 + kgapi_recreate.py で作り直し・bkb 手順案 改訂 1 b32be13f・expected_ec2.json 29214dcc)**。
+
+**R317 完了(2026-10-28 03:41)**: rev R317-B' 合格(fed-sim 6c05b6a9e・B1/B2 解消・fed 3 点整合)・bkb 最終照合合格(89 札・26 blob)。次 = fed が fed-sim を main へ → **EC2 反映の dec を利用者に諮る**(材料: bkb 手順案 改訂 1 b32be13f = /models 共用・索引 31MB を ~/jrtokai-v9abc/… に置き /app/kg_api/kb/index_similar へ ro・設定不要・kgapi_recreate.py で作り直し〔Aliases 引き継ぎ〕・compose 1 行・S1 込み・expected_ec2.json 29214dcc・EC2 用 D DSL a1318d4a〔btn_deploy の型〕・プラグイン 0.3.21・EC2 available 約 5GB・A 読み込み後 MemUsage +0.31GiB)。反映後 = bkb 受入・dkb 確認・fed/利用者の画面目視・VmRSS 実測・CPU 1 問の時間。
+
+- **EC2 受入の準備 改訂 2**(2026-10-28 03:52・rep 0352): 手順案 改訂 2(1282b134・§4 だけ)・道具 ec2_similar_acceptance.py(snap before/after・on・judge・rehearse)・期待 v2 expected_ec2_v2.json b02603f4。発動しない問い → normative の 1 問・木の根の旗 6 問・旗 OFF の前後 = 診断 7 + 木 6。手元の予行で全部合格(V1/V2/L1 はコンテナ無しで落ちるのが正しい)。反映の直前に snap before が要る(だれが回すかは coord の dec)。
+
+- **決321 EC2 反映・bkb の EC2 受入 合格**(2026-10-28 04:16・info 0416): 像 t304-20261024 → t321-20261028(main ecda4d59b = fed-sim 6c05b6a9e)・照合 18 札・旗 OFF の前後 13 同一・口の score は期待と差 0・木の旗 ON の所要は OFF と差なし。記録 ec2_similar_20261028/(record_judge 15921ae9)。戻し = 前の像 t304。bkb の類似検索の手番はこれで一段落(A の実測は coord)。
+
+**EC2 反映 完了(決321・2026-10-28 04:1x〜04:4x JST)**: kg_api 像 **t321-20261028**(9 ファイル・index_similar ro ~/jrtokai-v9abc/index_similar・別名引き継ぎ・kgapi_recreate2.py)・プラグイン 0.3.21(@e374bef1)・D の DSL a1318d4a(退避 3b46cd07)・demo_v10 像 t321-20261028。受入 = bkb 18 札・dkb 合格・fed 材料 = tree22_t321.json 8832c7c9 + probe_default(本文の文字は API では取れない・human-input)。実測 = 類似の口 初回 4.5 秒・以後 0.3〜0.5 秒・VmRSS 5.06GB で A を使っても増えず(S1 共用)・**A の再ランクは CPU で 1 問 60〜70 秒(rerank なし 0.4 秒・既存の性質)**。戻し = t304-20261024 / swap 0.3.20 / backup_D_pre_t321 / sing-20260925。手順書 §9.ae。道具 ~/t321/。
+
+**受入 完了(2026-10-28 04:36)**: bkb 18 札・dkb・fed (a) 木 22 問 21/22(問 19 は既存差)・(b) D 本文 節 4/4・角括弧 0(--dump-text 版 probe)。残り = 利用者の画面目視。fed の観察 = 類似の節は手番で変わらない(発生現象の文だけで引く・答えを検索に入れるかは別検討)。A の再ランク 60〜70 秒は別件(POOL 30・OMP 2 が候補・測ってから諮る)。
+
+**決322・323(2026-10-28 05:2x・利用者の画面確認の後)**: (1) 最新版 API リファレンス = fed(/similar・similar_cases・3 形・V2 伏せ・版の表・bkb が /similar の章を確認・rev 静的確認)(2) console.* Streamlit(kg_api/dev_console・EC2 8510)の対応 = fed → bkb 受入 → EC2 は coord 別 dec (3) グラフ B 関連事例 vs ベクトル類似の関連性レポート md = dkb(重なり・補完性・grade×群×k×variant×section×手番の進み・費用 0)(4) LOO700 = 既存 jv2sim 315/566 vs 297 を正式にまとめ + **決323 = 候補の作り方の変種 1 案(recall で選別)を判定器 566 問 × 2 回(約 3.2 ドル仮定)**。
+
+- **決322 の支援**(2026-10-28): (a) dkb 向け補助 similar_query.py(ee984731・問いの文 + 答えの決定論の連結・positive が推し)rep 0524。(b) fed の API リファレンス 第 2 版 §4-10 を照合 rep 0529 = 直し 1(作り直しの手順の参照先が無い)・低 3。その直しの元は bkb の漏れ = 設計案 §4 の残課題「B の投入の後の索引の作り直し」を手順案に入れていなかった → 手順案 改訂 3 §7(e4534dfc)で足した。(c) console の受入は fed の req 待ち。
+
+- **決322 (2) console の受入 合格**(2026-10-28 05:47・rep 0547・fed-con dd2c7acc8)。これで決322 の bkb の分 (a)(b)(c) はすべて済み(coord req 0519 閉じ)。
+
+- **答えを問いに足すと当たりが減る**(dkb 報告 改訂 1 7ffcce6c・info 20261028-0628・similar_query 改訂 1 で作り直し): hybrid 節の最大の concepts@5 = 段 1 +6/−47・段 3 +3/−68。全 6 条件・段 1〜3 で失う問 > 得る問。改訂 1 の段 0 は本番の文の検索と 646 問 × 18 条件で一致。→ 類似検索に観測を足す設計は、この結果を踏まえてから。
+
+**決322〜325 の結果(2026-10-28 05:2x〜10:47)**: API リファレンス 第 2 版 改訂 1 docs/API_リファレンス_全エンドポイント_20261028.md(58f480b0・EC2 openapi 642b6412 と一致・rev R322-A 待ち)・console 対応 main cb9ee9745 → EC2 t324-20261028(決324・画面目視は利用者)・レポート docs/報告_類似事故_グラフとベクトルの関連性_20261028.md 改訂 1(7ffcce6c)= B とベクトルの事故はほぼ重ならず(上位 5 一致 0 が 497/635)・当たりは補完的(和 200/401)・手番で検索し直すと当たりは減る・**決323 v2(上位 10 事故の概念を 1/rank で)333/334 vs v0 315 vs 本体 297(伸びは主に 10 事故を見る分・約 3.15 ドル)**・**決325 = 表示は現状維持・文の正規化の検討だけ(bkb・req 1047)・c10 判定なし**。
+
+- **決325 (2) 正規化の検討**(2026-10-28 11:08・rep 1108・1 枚 docs/検討_類似検索_問いの文の正規化_bkb_20261028.md): 推し = 今は変えない。既定(hybrid・節の最大)の concepts@5 = N0 177・Q1 180・Q2 177・I1 178・I2(索引と問いの NFKC)182(+10/−5 p 0.30・n.s.)。上位 5 が 270〜475/646 で入れ替わる。索引の本文は全 700 事故に NFKC で変わる文字(半角カナ 51,614 字ほか)・LOO の問いは 0 字。I2 は索引を別の理由で作り直す便の第一候補(判定器で確かめてから)。
+
+**決325 (2) 閉じ(2026-10-28 11:08)**: 問いの文の正規化は「今は変えない」(bkb 検討 docs/検討_類似検索_問いの文の正規化_bkb_20261028.md 9a1bdc6b・6 設定 × 5,814・concepts@5 177〜182 で有意差なし・上位 5 は 270〜475 問で入れ替わる)。**I2(索引と問いの NFKC・本文に半角カナ 51,614 字)は索引を別の理由で作り直す便の第一候補として残し、そのとき判定器で確かめる**(契約の変更点は同書 §4・index_version bkb-sim-3)。
+
+**How to apply:** 段 0 の rep(bkb・dkb)が来たら grade 別の recall の差で段 1 の可否を諮る。判定器を通す本評価は旗 ON の別系列で jv2 と混ぜない。関連 [[loo700-baseline-judge-v2]]・[[direct-causes-dead-questions]]。
+
+**2026-10-27 段 0 の dkb 分(rep 20261027-0603)**: 道具 eval_similar_recall.py(LOO700 646 問・当たり = B の HAS_CAUSE→NORMALIZED_AS の概念 / cause_taxonomy の系統 / 原因の文 3-gram)。推し = hybrid・section "*"・k 5: 概念@5 38→44%・系統@5 70→81%(現行 related_cases_B のラベル比)・低い層 系統 13→21/30。群の外のほぼ同じ文書 15 組を除いても向きは保たれる。**G3 の原因の文の当たりは定型文(中央値 3 字)の一致なので証拠にしない**。CPU 0.16 秒・GPU 0.03 秒(結果は byte 同一)。旗の欄は 発動なし = 鍵なし・0 件 = []・失敗 = null(fed の 5 点)。
+
+**2026-10-27 段 2(決314・dkb rep 20261027-0817)**: dkb-sim に実装(dkg_backend fc76f154b705cd9f・未 merge)。旗 similar_cases・発動 = grade 低い層か related_cases_B 空・**normative は発動しない**(dkb の判断・確認待ち)・鍵 similar_accidents(なし/[]/null + sources_down `B:類似検索:failed`)・部品 kg_api/sources/accident_similar.py(bkb)は発動時だけ import・索引は KG_SIMILAR_INDEX_DIR を渡す(既定 kg_api/kb/index_similar)。旗 OFF 7 本 = f2b 同一・旗 ON 646 問 8fbf445eefa310be の照合 6 点 違反 0(発動 80・段 0 の上位 5 と一致)。bkb 受入・rev 待ち。照合の発動の規則は実装を呼ばず道具の中で独立に書く。
+
+**fed の段 3(表示)の前提(2026-10-27・決312 追補 1・決314・決315)**: 置き場 = diagnose の本文の節だけ(Dify D・Streamlit)・公開の探索木には出さない(R284-1 の事故 ID 0 件の検査があるため)。鍵 = 最上位の similar_accidents(鍵なし = 不発動・[] = 発動したが 0 件・null = 取得失敗で sources_down に B:類似検索:failed)。各行 from_b(V2 の伏せ字の判断)・節は固定の札・score は 3 桁。**表示の順は rank で読む**(hybrid の score は 3 桁で上位が同値になる・設計案 改訂 1 §3)。normative は鍵なし。段 3 の dec は判定器の本評価(80 問 × 2 回)の結果の後。fed の推しと 5 点は info 20261027-0457。
+- **R314-B2 の決着(2026-10-27 13:1x・決314 追補 4)**: 類似検索の失敗の印は sources_down に入れず similar_accidents: null だけで示す(fed info 20261027-1312 の推し・coord 同意・dkb が実装)。理由 = sources_down は handover のほか、プラグイン 680 行の「■ 断定できない理由」・federate_router 163 行・dkg_tree_state 907/971 行・fed の比べの道具の健康判定も読むので、補助の失敗が主の答えに波及する。uncertainty にも行を足さない。
+
+**2026-10-27 R314-B 是正(dkb-sim a74bffa7・dkg_backend effc118a18e54a05)**: 失敗は similar_accidents = null **だけ**(sources_down は Dify の「断定できない理由」・federate の uncertainty・木の meta・fed の健康判定も読むので足さない・決314 追補 4・fed info 1312)・行の契約の検査(list だけ・有限数・concepts・twins)・rank と「配列の順 = 順位」。旗 ON 2b7cbf43717ff517(旧版との差は rank だけ)。決316 = 判定器は補助の欄を独立の候補リストとして判定(定義書 §3 は順位で判定するので 6〜10 位に置くと効き目を測れない)・道具 judge_similar_labels.py(sim_labels_v1)。bkb 再受入・rev R314-B' 待ち → main → 判定器。
+
+**2026-10-27 決314 段 2 を main へ(11168b00・dkg_backend 7cab774e)・決316 判定器の結果(rep 20261027-1858)**: 系列 jv2sim_20261027(補助の欄を独立の候補リストとして判定・cand_config sim_labels_v1)。発動 80 のうち **G3 が 27**(LOO700 の判定の対象外)→ 本体と比べるのは 53。補助だけ 17/53・本体 17/53・本体が外れた 36 のうち補助が拾えた 8(22%)・本体が c+p で補助が外れた 8・2 回一致 53/53。合成 305/566(本体だけ 297)は単一リストと並べない。費用 入力 85,369・出力 9,878(仮定単価 約 0.40 ドル)。推し = 段 3 は進める・全層拡大は medium 135 問の評価の後。教訓: 発動の集合に判定の対象外の群(G3)が混じるかを、判定を回す前に確かめる。
+
+**2026-10-27 決317 medium 層(rep 20261027-1927)**: 判定対象 135(G1 80・G2 55)で本番と同じ部品と変換を直接呼んで行を作り(judge_similar_labels.py build・2 回で同一)・判定 2 回。補助だけ 64/135・本体 59・どちらか 82・本体が外れた 76 のうち拾えた 23(30% > 低い層 22%)・本体 c+p で補助外れ 18・一致 135/135。費用 入力 152,481・出力 17,839(仮定 約 0.73 ドル)。推し = medium への拡大(発動 80 → 約 236・旗の契約の変更 = 別 dec)・high(378 問)は先に評価。系列 = jv2sim_20261027 に問の集合の札(low53・medium135)。
+
+**2026-10-27 決318・決319**: dkb-sim2 c376e9be(dkg_backend 71555010・dkg_tree_state 00bd489e・未 main・bkb 受入と rev 待ち)= 発動の層に medium(発動 80 → 236・旗 OFF 7 本 = f2b)・木の根の旗(tree_state similar_cases・木の確定の後に根の診断にだけ・木は除外なし)。high 378 の評価: 補助 234 対 本体 221・拾えた 54/157(34%)・層が上がるほど拾えた率が高い(22→30→34%)・3 層合計で補助だけ 315/566 > 本体 297(同じ判定器)。費用 high 約 2.04 ドル(仮定)。推し = 全層へ拡大・本体の候補づくりへの取り込みは別の設計(本体の欄を変える)。教訓: 木の比べは経過時間と台帳の時刻を tree_snapshot.strip で外す。
+
+**2026-10-27 決320 全層へ**: dkb-sim2 2cd560f8(dkg_backend 7fe62d84・未 main)= _similar_trigger は mode が normative でなければ真(SIMILAR_GRADES を廃止)。旗 OFF LOO = f2b・旗 ON 2d0ec0f533cd2891 発動 646・行 3,230・前回の 236 は同一・新 410 は high。bkb へ決319 (1)・決318・決320 をまとめた受入 req(2031)・rev R317-B は段 3 と 1 便(coord)。合格後に main。
+- **fed 段 3 実装(2026-10-27 21:33・rep 2133)**: 設計 改訂 1(06adec423b8238f4)・fed-sim dc1bc417c(main + S1 + dkb-sim2 42bbc7641)。プラグイン 0.3.21(dkg_diagnose.py 403adcb38088014e・木 4114270f2b2ba16f)・dkg_tree.py c2ca6ba70d489324・schemas.py 3f8f57bf4003a5d2・EC2 用 D の DSL a1318d4ae0bec9e2(本番 355d3e91 は ec2_diagnose_button_t310.yml)・手元 D 4dd55b9472a328a4・demo_v10。試験 test_similar_display 28/0・変異 8・22 問 tree_similar_check(写し sim_t318)。bkb 受入 req 2133・rev R317-B は coord。学んだこと: 本文の節の挿入は「\n + 節」で抜く(行を改行でつなぐ)・実データの行はもともと score 降順なので並べ直しの変異は合成の逆順で捉える・手元の版の DSL の変更は test_fed_profile の LATER_DSL_CHANGES に変更のコミットを足す(2 コミットに分ける)。
+- **段 3 の最終の版(2026-10-27 23:01・rep 2301)**: fed-sim 6c05b6a9e = dc1bc417c + fed 是正 4009b959f(dict でない要素を含む配列は取得できず・設計 改訂 2 2b0451de76153528・tree_similar_check の終了値)+ bkb-s1 8021bfeac(R317-B2)+ dkb-sim2 4a71d2d28(R317-B1)+ main。プラグイン bdd31482eda0a971・木 8abbcba4a4ba568d・dkg_tree c2ca6ba70d489324・schemas 3f8f57bf4003a5d2・EC2 用 D a1318d4ae0bec9e2・手元 D 4dd55b9472a328a4。試験一式合格・22 問 V3/V2 終了値 0。残り = bkb の是正受入と final 照合・rev R317-B' → fed-sim を fed 経由で main へ → EC2 は coord の別 dec。
+
+**2026-10-28 rev R317-B' 合格**: dkb-sim2 4a71d2d2(試験 69b22153・dkg_backend 7fe62d84・dkg_tree_state 00bd489e)は fed-sim 6c05b6a9 経由で main へ(dkb は別に入れない)。次 = EC2 反映の dec(coord)→ 反映後に dkb が全層の発動と木の根の旗を確かめる。教訓: 他セッションの型に欄が加法されたら、自分の試験の「欄が無い」照合が旧い契約として残っていないかを見る。
+- **段 3 を main へ(2026-10-28 03:47・info 0347)**: rev R317-B' 合格(0341)・bkb 是正受入と final 合格(2316)→ main ecda4d59b(コードは 6c05b6a9e と同じ・プラグインの木 8abbcba4a4ba568d)。fed-sim の作業ツリーは片付け済み(ブランチは残す)。次 = coord が EC2 反映の dec(段 1〜3・0.3.21・DSL a1318d4a・索引・S1)。
+
+**2026-10-28 決321 EC2 反映済み・dkb の確認 合格(info 20261028-0419)**: kg_api 像 t321-20261028(口 172.31.4.27:8600)・コンテナの中の python から localhost:8600 を呼ぶ(鍵は環境変数から・値は出さない)。全層の発動(high の問で旗 ON に 5 行・ほかの欄は OFF と同一)・normative は鍵なし・木の根だけ・EC2 D-KG = e6fff51a820caeb4(トンネル 19891 → neo4j-dkg 172.20.0.8:7687・測った後に閉じる)。
+- **決321 EC2 反映の fed 受入(2026-10-28 04:36・rep 0433/0436)= (a)(b) 合格**: 木 22 問 tree22_t321 8832c7c9 vs 81227a0d で 21/22(問 19 既存差)・D の probe の本文(--dump-text・final_body 6d4d2897)に節 4・形と置き場 4/4・角括弧 0・不出 0。画面の写しには類似事故の節が写らない(本文の中で探索木より上)→ probe の --dump-text で文字を取る。4 つの節は同じ並び(検索は発生現象の文だけ)。描画後の文字に順位の番号は残らない(番号付きの並び)。A の再ランクの遅さ(EC2 CPU 60〜70 秒・POOL 30・OMP 2)は別件で測ってから諮る。残り = demo_v10 の目視(利用者)。
+- **決322(2026-10-28)fed 分**: (1) API リファレンス 第 2 版 docs/API_リファレンス_全エンドポイント_20261028.md 改訂 1 58f480b012eba3e1(38 経路・main の app.openapi() から抽出・EC2 t321 openapi 642b6412 と coord が照合一致・bkb §4-10 確認の指摘を全部採った・rev R322-A 待ち)。422 は FastAPI 既定の {"detail":[…]}・401 等は {"error":…}。(2) console 設計 docs/設計_console類似事故対応_fed_20261028.md e26899b1(EP_LIST に similar・diagnose/tree にチェック既定 OFF・試験 コ9〜11)・実装 10/30 目安・コ1 の照合相手に EC2 t321 openapi の写しを coord に依頼。
+- **決322 (2) console 実装(2026-10-28 05:39・rep 0539)**: fed-con dd2c7acc8・dev_console/app.py 7ec40dc6378d4b79・test_dev_console.py d935b7f5fb991e84(17/17)・設計 改訂 1 11a62f7c09afb5b7。bkb 受入 req 0539 待ち → main → EC2 は coord。学んだこと: console の試験 コ4 は「該当なし」等の判定の言い回しを禁じる(事実だけ)= [] は「0 件(返った並びは空)」。AppTest は同じプロセスで回るので requests.request を差し替えて合成の応答で画面を照らせる。要求は show_result の curl の -d から読める。
+
+**2026-10-28 決322 (3)(4)・決323 完了(rep 20261028-0609・レポート docs/報告_類似事故_グラフとベクトルの関連性_20261028.md ed77828c)**: v2 sim_rankw10_v1(上位 10 事故の概念を 1/rank 和の順に 5 行)c+p 333/334 vs v0 315 vs 本体 297(v2 対 v0 +26/−8 p 0.003)。伸びは 4〜5 行目の partial(14→39)で、recall では対照 c10(上位 10 を出た順)と同じ = 見る事故の数の効果(推定)。既存の v0 315 > 297 は問ごと +85/−67 で有意でない(p 0.17)。B と V の事故はほぼ重ならない(上位 5 の一致 0 が 497/635)が当たりは補完的。合成の答えで再検索すると当たりが減る(段 3 +1/−65)。道具 simvar_candidates・similar_vs_b・similar_report_tables(dkg/)。写し simvar_20261028/。
+**教訓**: 他者の問いの組み立て道具(bkb build_query)は文を整える(文末の「。」を外す)ので、段 0 が本番の入力と別物になった(上位 5 が 270/646 で変わる)。基準の段は本番と同じ入力で取り、取り直した写しが判定の入力の元と一致するかを照らしてから数える。差の主張は合計でなく問ごとの得失(符号検定)でも見る。
+
+**2026-10-28 決325 で一区切り**: 本番の表示は現状維持(5 事故・k 5・v2 や k 10 へ変えない)・次は bkb の文の正規化の検討だけ(recall で測ってから)・c10 の判定器はしない。報告は改訂 1(7ffcce6c・手番を similar_query 改訂 1 で作り直し・結論不変)。dkb の手番なし。
+- **API リファレンス 第 2 版 改訂 3 = 6269bb4ba7de678f(2026-10-28 15:52)**: 改訂 2 = R1〜R5(初版から写した章のコードとの食い違い・応答封筒は 2 種類)・改訂 3 = rev R322-A の A1〜A4(不変性は「追加の直前の版」と各受入の範囲に限る・類似事故の欄は本体の診断が成立した応答にだけ付く・section 系は全文の層で null・B は 10 本)。学んだこと: 初版から写した章は誤りを引き継ぐ(件数・鍵の置き場・HTTP の状態)= 写すなら現物で照らす。「既定は今と同じ」は基準の版と確かめた範囲を書く(初版から全応答の保証と書かない)。補助の欄の 3 形を読む前に本体の成立(available・準備中)を確かめる。
+- **API リファレンス 改訂 4 = 2449aa67b7aab9bc(2026-10-28 17:18)**: rev R322-A5 = 封筒の一般化を限定(共通の封筒を使う口 19・使わない口 19 を構文木で数えて列挙)。学んだこと: 指摘された反例 2 本だけ直さず、同じ型の主張を全件数える(実際は使わない口が 19 本)。src の行番号は基準の版を書く(決328 の追加で app.py が 8 行ずれた)。
+- **API リファレンス 第 2 版は改訂 4(2449aa67b7aab9bc・main 039443fad・2026-10-28 17:2x)で閉じた**: rev R322-A'(条件付き・A5)→ fed 改訂 4(封筒を使う口 19/使わない口 19 を列挙)→ coord が構文木で独立照合して 19/19 一致 → rev 再確認なし(決322 追補 11)。写しは ~/jrtokai-agent-env/ref/ に更新済み。
+- **API リファレンス 第 2 版は改訂 4(2449aa67b7aab9bc)を最終として閉じた**(決322 追補 11・2026-10-28・coord が封筒 19/素 19 を独立に数えて一致・rev の再確認は不要)。
+
+- **11-18 第 1 弾の反映と索引(bkb rep 20261118-1017)**: 索引 bkb-sim-2(10-27 の B・20aaa1e41b9858db)の BM25 の語の表と埋め込みは、第 1 弾で新しく伏せる 92 の名を含む → 名で問うと事故が上位に来る道(推定)= 個人情報のため、反映の後に作り直すことを推した(手元と EC2・照らし = digest・92 の名が語の表に 0・LOO 646×9 の順位)。口が索引の元と今の B の digest を照らす守りは別件の案。**How to apply:** B の本文を伏せ直す時は、B から作った派生物(類似検索の索引・全文索引など)も同じ便で作り直す。
+- **11-18 10:30 第 1 弾の反映を利用者が承認(手元の B だけ・決351 追補 85)**: bkb = 段 6 の照らし(反映の後)と索引の作り直し(反映の一部・EC2 は触らない)。索引 bkb-sim-2 の置き場は `knowledge_kb_v8/data/bkb/accident_similar/{doc,sec}`(手元の口の置き場 kg_api/kb/index_similar は空)・作りの記録 = bkb-gd-5 の digest 20aaa1e41b9858db・事故ごとの本文の sha16 の要約 e92c914bfc7c2619・BM25 の pickle は語を持つ。道具 accident_similar.py は B を読む時にコンテナの起動設定から接続を取る(10-27 のまま)→ bkb が使ってよいかを coord に確かめ中(rep 1033)。古い索引は退避 → 反映が戻されないと決まったら消す、を推した。
+- **11-18 10:47**: 利用者が案 1(bkb が B を読む・作り直しの時だけ)を承認・手順と古い索引の退避も決まった。正本への反映は、dkb が見つけた正本に書く口の止め(決351 の積荷の commit を拒む)の変更 → rev → 台での commit の通し(bkb は 17 項目)→ 正本、の順に後ろへずれた。索引の作り直しは正本への反映の後。
+- **11-18 11 時 索引の照らしの道具(74c9c757b・similar_index_mask_check_bkb.py d376f027309ff76f)**: coord の決め = 語を引く数えは dkb が回す(bkb の読む範囲を広げない)。prepare(反映の前の本文と伏せた所の字の位置 → 文の中の切り方で期待の語・本文の sha16 を古い索引の meta と照らす)→ check(層ごとの数だけ)。**janome は語だけと文の中で切り方が違う**(語だけ 2 語・文の中 3 語)→ 期待の語は文の中で求める。

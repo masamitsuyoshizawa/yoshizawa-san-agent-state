@@ -14,3 +14,7 @@ comms で長く使われた「生成 ≈7 ドル/208 問」は ckb の根拠の�
 - 記録上 G7 の生成は 11 回(`knowledge_kb_v8/data/pipeline_state_c/*.eval`)= 累計で約 583 ドルの過小報告。
 
 関連: [[eval-improvement-progress]] [[estimates-not-labeled-as-measurements]]
+
+
+(索引から移した説明・2026-11-07)
+- [C-KB G7 の API 実費](c-kb-g7-api-cost.md) / [C-KB コスト削減20260918](ckb-costdown-20260918.md) — キャッシュ導入前73.6ドル→導入後22.54ドル・「生成≈7ドル」は撤回済 / G7 1 回 73.6→24 ドル(−67%)・回答側の固定部を cachePoint 化・速度は改善せず

@@ -16,4 +16,4 @@ metadata:
 
 **再適用**: `fix_aspects_only.py`(現示種類・時素のみSET、方向/種別/所属駅は非変更=影響最小・非破壊)→9990適用済。井田川下り1=減速・注意・警戒・停止、河曲12R/2L=時素True に是正。interlocking-013/027/034 の事実部分が正答化(理由・従属関係の未収録部でpartialは正当)。
 
-**要フォロー**: 同一論理信号が複数踏切図に描かれ現示/時素が食い違う多重描画の不整合あり(下り1が5描画中2正/3旧)。APIは概ね正しい描画を拾うが、richest現示等での reconcile が残課題。EC2 cgraph反映も未(全フェーズ後にまとめて)。[[eval-and-table-comprehension]] [[signal-symbol-recognition]] [[judge-scope-calibration]]
+**要フォロー**: 同一論理信号が複数踏切図に描かれ現示/時素が食い違う多重描画の不整合あり(下り1が5描画中2正/3旧)。APIは概ね正しい描画を拾うが、richest現示等での reconcile が残課題。EC2 cgraph反映も未(全フェーズ後にまとめて)。[[eval-improvement-progress]] [[signal-symbol-recognition]] [[judge-scope-calibration]]

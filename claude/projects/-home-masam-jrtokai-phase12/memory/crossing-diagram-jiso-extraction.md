@@ -8,7 +8,7 @@ metadata:
   modified: 2026-07-30T17:13:39.366Z
 ---
 
-踏切制御図表の「図」から未構造化だった項目を追加抽出し 9990(関西 neo4j-crossing-v6)+ EC2 cgraph(jrtokai-v9-neo4j-cgraph)へ**加法投入**(2026-07-31)。[[added-data-integration-2026-07]] [[eval-and-table-comprehension]] の続き。
+踏切制御図表の「図」から未構造化だった項目を追加抽出し 9990(関西 neo4j-crossing-v6)+ EC2 cgraph(jrtokai-v9-neo4j-cgraph)へ**加法投入**(2026-07-31)。[[added-data-integration-2026-07]] [[eval-improvement-progress]] の続き。
 
 - **進行定位(最難関)を幾何で決定論判定**: ベクター線幅は一律(無情報)・信号名/キロはテキスト層皆無(CADベクター)。→ 高DPIラスタ化し cv2 HoughCircles で信号円検出、**輪郭ダーク帯の半径方向厚**を実測。進行定位=約1.0pt輪郭・停止定位=約0.71pt。実装 `kb_demo_v6/crossing_jiso_geom.py`(半径5.2-9.5pt@400dpi・信号帯 y∈[0.22,0.56]×高に限定でタイトル/諸元欄の文字誤検出を排除・厚み測定は半径rを含むダーク帯のみで隣接配線を排除・帯[0.88,1.35]ptで二重円/重畳異常を除外)。蟹江=正解[1RA/3L/12R/11LA]に4/4一致。信頼度フラグ clean63/review31。
 - **役割分離(V6哲学)**: 太/細の判別=幾何(決定論)、記号テキストの読取=vision。太円に番号マーカーを描いた注釈画像をvisionに渡し記号だけ読む「注釈誘導OCR」(`read_jiso_symbols`)。

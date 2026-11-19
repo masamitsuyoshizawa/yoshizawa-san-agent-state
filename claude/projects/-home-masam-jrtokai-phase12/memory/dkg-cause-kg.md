@@ -21,7 +21,7 @@ metadata:
 
 **Why:** B/C正本と分離した実験層で非破壊担保。判定=決定論・LLM=候補提示のみ・確定=人手承認(fan-out判定案→AskUserQuestion承認→confirm列→投入、のパターンが確立)。
 
-**How to apply:** 残課題3件完了(20260825後半): 観測→B伝播(発火確認・応答全体概念@5=0.640/系統@5=0.930)・機序名寄せ+18(被覆22)・検知直付けDETECTED_BY59でD=4を66%へ削減。改善サイクル2完了: 機序T1/HB拡大(Mechanism319・被覆31/209)・hold22確認(y3・残2)・S補完=元記録欠如で不能と確定(拡充には顧客の運行影響データ提供か定性S尺度の承認が必要)。Difyプラグイン更新はv0.3.0手順(作業記録§9・console APIはBearer=access_token Cookie+X-CSRF-Token)。ローカルAWS認証はsaml2aws login(利用者が! で実行)。EC2のkg_apiバインドは127.0.0.1でなくプライベートIP:8600。EC2ネットワークはjrtokai-v9_default(deploy_jrtokai-netではkg_apiからDNS不可)。関連 [[milestone-20260825]] [[v8-cross-source-federation]] [[eval-and-table-comprehension]]
+**How to apply:** 残課題3件完了(20260825後半): 観測→B伝播(発火確認・応答全体概念@5=0.640/系統@5=0.930)・機序名寄せ+18(被覆22)・検知直付けDETECTED_BY59でD=4を66%へ削減。改善サイクル2完了: 機序T1/HB拡大(Mechanism319・被覆31/209)・hold22確認(y3・残2)・S補完=元記録欠如で不能と確定(拡充には顧客の運行影響データ提供か定性S尺度の承認が必要)。Difyプラグイン更新はv0.3.0手順(作業記録§9・console APIはBearer=access_token Cookie+X-CSRF-Token)。ローカルAWS認証はsaml2aws login(利用者が! で実行)。EC2のkg_apiバインドは127.0.0.1でなくプライベートIP:8600。EC2ネットワークはjrtokai-v9_default(deploy_jrtokai-netではkg_apiからDNS不可)。関連 [[milestone-20260825]] [[v8-cross-source-federation]] [[eval-improvement-progress]]
 
 - mode=normative追加(2026-09-01・コミット済・EC2 norm-20260901): 依拠文書のみモード(B実績不使用・
   手順トレースprocedure_trace主役・step観測で分岐実行・異常時はon_abnormalを候補化)。

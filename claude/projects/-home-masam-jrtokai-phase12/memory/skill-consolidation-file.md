@@ -12,4 +12,4 @@ metadata:
 
 **Why:** ヒント/知識が app.py(SCHEMA_HINTS/format_answer)・glossary.json・docs/信号記号読取ルール・docs/踏切制御表_意味ルール・決定論注入関数に分散しており、動作根拠を一元把握する索引が必要。
 
-**How to apply:** SCHEMA_HINTS/format_answer/glossary/決定論注入(sounding_readdown_ctx・hazard_stops_ctx・clearance_x_ctx 等)・凡例(F-1/R-2/R-3/R-4)を変更・追加したら、同ファイルの該当節と§5-6(固有記号埋込監査)を更新する。固有記号(TC/駅名/踏切名/具体値)の例示埋込は複写リスクとして§6で管理し、決定論算出へ委譲する方針。関連: [[eval-and-table-comprehension]] [[crossing-sounding-readdown]] [[legend-extraction]]。
+**How to apply:** SCHEMA_HINTS/format_answer/glossary/決定論注入(sounding_readdown_ctx・hazard_stops_ctx・clearance_x_ctx 等)・凡例(F-1/R-2/R-3/R-4)を変更・追加したら、同ファイルの該当節と§5-6(固有記号埋込監査)を更新する。固有記号(TC/駅名/踏切名/具体値)の例示埋込は複写リスクとして§6で管理し、決定論算出へ委譲する方針。関連: [[eval-improvement-progress]] [[crossing-sounding-readdown]] [[legend-extraction]]。

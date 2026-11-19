@@ -15,3 +15,5 @@ EC2 の kg_api(`jrtokai-v9-kg-api`)への反映は、動いているコンテナ
 **How to apply:** EC2 に反映する新しい設定は、まず「置換方式で置けるか」を見る。環境変数・マウント・ポートの追加はコンテナの作り直し(coord の承認と時刻)になると先に書く。関連: [[ec2-kg-api-deploy-path]] [[verify-what-the-target-actually-reads]]
 
 **実例 2(2026-09-25・D-KB の旗)**: `DKB_SINGULARITIES` は環境変数だけを読んでいたので、dkb が `kg_api/kb/config/dkb_flags.json`(環境変数 > ファイル > 既定・形の誤りは既定のまま uncertainty に 1 行)を足し、coord が `docker cp` で置いて restart・`docker commit` でタグに焼いた(cp だけではコンテナを作り直すと消える)。`.gitignore` に入れてリポジトリには置かない。
+
+- **2026-10-24(決304 追補 20)**: `docker run` で kg_api を作り直すと compose の**網の別名 kg_api が消える**。Streamlit 系 5 本は `http://kg_api:8600` を向くので 14 時間 届かなかった(口 172.31.4.27:8600 の healthz は通るので気づかない)。作り直しの受入は**依存先から名前解決と healthz**を照らす・kgapi_recreate.py は Aliases を引き継ぐ・応急は `docker network connect --alias kg_api`。

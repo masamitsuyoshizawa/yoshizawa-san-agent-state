@@ -15,4 +15,4 @@ metadata:
 - DWG版 AC1032(2018)含む → DWG→DXFは **ODA File Converter 推奨**(LibreDWGは2018非対応)。ezdxf 1.4.4 で DXF解析。
 - 立ち上げ記録=`~/jreast-phase0/docs/セットアップと初期手順_20260729.md`。次段=DWG→DXF変換PoC→レイヤ/記号/連動表レイアウトの棚卸し→抽出設計。
 
-本プロジェクト(jrtokai)の [[eval-and-table-comprehension]] の表構造化手法・[[abc-unified-api]] のkg_api が主な再利用資産。
+本プロジェクト(jrtokai)の [[eval-improvement-progress]] の表構造化手法・[[abc-unified-api]] のkg_api が主な再利用資産。

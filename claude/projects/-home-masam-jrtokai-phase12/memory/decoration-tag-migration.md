@@ -17,4 +17,4 @@ metadata:
 - **Phase D 回帰合格**: try1×208 correct 69→69(非低下)・c+p 121→122・incorrect 17→16・9990件数不変(4806/9669)・9790=338+`<circle>`混入0。
 - 現データに`◎/□`は皆無=将来の対象記号増加に備えた新設。コミット b4acee6/2f10da8/ae752a3/5bd0447。
 
-関連 [[eval-and-table-comprehension]] [[v9-api-schema-unification]]。
+関連 [[eval-improvement-progress]] [[v9-api-schema-unification]]。

@@ -19,3 +19,7 @@ liteはfederateと僅差で1.6倍速(C系は本サンプルでほぼ発火せず
 
 **Why:** 顧客提案・役割分担設計(初動=dkg/二次調査=lite)の実測根拠。
 **How to apply:** 方式選定や精度言及時はこの実測値を引用。再評価はrun_fed_vs_dkb.pyを再実行(スナップショットはgit外data/eval/fvd_*)。
+
+
+(索引から移した説明・2026-11-07)
+- [federate vs D-KB比較](fed-vs-dkb-comparison.md) / [D-KB再発照合改善](dkb-recurrence-improvement.md) — 層化50問LOO同条件: c+p=fed70/lite68/dkg48・リーク0確認・勝ち筋=同一箇所再発検索 / 統一比較確定(eaf19f5): fed72≈lite70>dkg52-56(双子除外)

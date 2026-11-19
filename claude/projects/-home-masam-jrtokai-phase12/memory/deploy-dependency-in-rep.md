@@ -15,3 +15,5 @@ metadata:
 **How to apply:** 反映されうるファイルを rep に挙げるときは、そのファイルが読み込む自分の他のモジュールのうち、反映先に未反映のもの(どの決で足したか)を併記する。依存の確かめ方は、反映先と同じ集合のファイルだけを一時の場所に写し、公開の口を 1 回呼ぶ。[[verify-what-the-target-actually-reads]] [[ec2-replace-deploy-config-in-files]]
 
 追記(2026-10-16・決263-B の受入で発見): **他の所有者の守りの試験も、変更の依存先である。** 決251 で dkg_router.dkg_diagnose に intake を足したとき、fed 所有の `kg_api/kb/scripts/test_dkg_tree.py` が router の構文木を「承認された置き換えだけ」と照らしていたのに、その一覧に足さず、試験も回さなかった。10-15 から 1 項目が FAIL のまま残り、決263-B で既存の試験 21 本を回して見つけた(変更前の版でも同じく落ちることで、今回の退行でないと切り分けた)。**公開の口(router・schemas)を変えたら、その名を grep して、他の所有者の試験も含めて全部回す。**
+
+**追記(2026-10-19・決271)**: 同じ型で 2 回つまずいた。差分 10 本を置いて restart したら D のルーターが `cannot import name 'dkg_c_port'`、足したら今度は `No module named 'dkg_profile'`(kb/scripts 側)で available=false。**手順**: (1) 差分ファイルが import する名前を再帰的に列挙し main にだけあるモジュールを一緒に置く、(2) restart の前にコンテナ内で全ルーターを `python3 -c import` する、(3) 足りないものを足すときは要るものだけ(補助スクリプト 26 本を巻き込んで外し直した)。D が落ちていたのは約 6 分。

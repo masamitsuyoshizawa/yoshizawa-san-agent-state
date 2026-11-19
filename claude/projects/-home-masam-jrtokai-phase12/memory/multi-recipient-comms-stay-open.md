@@ -22,4 +22,4 @@ metadata:
 - 競合したら**両方の注記を残して `open`** にする(相手の受領を消さない)。
 - **coord 宛の便に cc で受領の注記を足すのは、coord が閉じた後にする**(2026-09-26 に fed rep 1730・1831 の status 行で dkb の注記と coord の閉じが 2 度競合。coord の依頼・急がない)。cc の受領は会話で伝え、注記は main を取り込んで coord の閉じを見てから。
 
-[[close-own-req-when-answered]](自分発の便は応答が来たら閉じる — こちらは別の話)[[session-comms-protocol]]
+[[close-own-req-when-answered]](自分発の便は応答が来たら閉じる — こちらは別の話)[[session-comms-worktree]]

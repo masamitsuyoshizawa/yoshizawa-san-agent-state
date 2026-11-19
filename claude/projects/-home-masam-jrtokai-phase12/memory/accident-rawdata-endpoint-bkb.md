@@ -17,3 +17,9 @@ metadata:
 
 **Why:** 原本は個人名を含むが顧客判断で掲載可。git には入れない(accident_kb_v7/data/ の規則)。
 **How to apply:** 照合でも原本の中身は読まず sha256 と件数だけを見る。関連 [[facets-instance-entry-acceptance-bkb]]。
+
+
+(索引から移した説明・2026-11-07)
+- [事故摘録の原本の API(bkb)](accident-rawdata-endpoint-bkb.md) / [EC2 反映(決154〜158)](accident-rawdata-api-item.md) — /v1/accident/rawdata・2026-09-30 EC2 反映済み
+
+- **伏せた版の契約(2026-11-16・coord req 1939 への rep 20261116-0911)**: `/meta` の `masked` は上の階(包みなし)で項目の値を返す(f0ae34cc1・415d0ad7197d22ea から)。項目とファイルの真の食い違いが 1 つでも在ると対応表全体が不正 → 全部の事故の口が 503。EC2 の像 t328-20261028 は f0ae34cc1 より前(常に false の版 58aa50748877e66f のはず・推定)→ 伏せた版の配備で kg_api の反映が要る。router の /meta の docstring が「常に false」のまま(次の kg_api の便で直す)。PDF にそろえる案への推し = 値だけの xlsx を正のまま、見る用の PDF を bkb の道具で描いて足す(LibreOffice の変換は使わない)。

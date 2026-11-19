@@ -14,4 +14,4 @@ metadata:
 - refs索引chunks.jsonlへ`page_print`を加法付与(1867/2030件、`add_page_print_refs.py`)。F/R系旧docxチャンク163件は実体が目次断片でvision突合不成立→付与見送り(創作禁止)。
 - 表示層: app.py refs注入ヘッダ・docs_backend.search page・federation.py citation9箇所(`_page_label`)・split_main_sub出典規約(`patch_pagelabel_20260902.py`)。
 - EC2はkb/index・dkb・refs_c_indexとも**roマウント**: データ更新はホスト側`/home/ubuntu/jrtokai-v9abc/{index,dkb,refs_c_index}`へsudo cp→コンテナ再起動。
-- 関連: [[eval-and-table-comprehension]] [[skill-consolidation-file]]
+- 関連: [[eval-improvement-progress]] [[skill-consolidation-file]]

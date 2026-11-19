@@ -13,3 +13,7 @@ metadata:
 - 案 A を反映: http/stream に `resolver 127.0.0.11 valid=10s ipv6=off`・名前形 proxy_pass 29 本と URI 形 3 本(rewrite)・stream を変数形に。稼働版 sha16 9b5b42c55eb12025。V4 = IP を変えた console がブラウザから開けた(利用者確認)。
 - 以後: restart 後の reload は**不要**。新しい vhost/location を足すときは `-t` + `reload`。conf はコンテナ内のファイル(bind mount でない)・変更は docker cp + reload・退避は EC2 ~/nginx_backup_20261009 と手元 S。リポジトリ deploy/nginx-new/nginx.conf は鍵を伏せた写し。
 - `grep -c "set \$up"` はダブルクォートで $ が行末になり 0 を返す → `grep -cF 'set $up'`。
+
+
+(索引から移した説明・2026-11-07)
+- [EC2 nginx は resolver 化済み(決223)](ec2-nginx-reload-after-container-restart.md) — 2026-10-09 に案 A 反映・upstream の restart で

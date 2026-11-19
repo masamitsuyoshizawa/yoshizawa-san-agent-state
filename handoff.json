@@ -6,49 +6,73 @@
    "sha256": "ce73fd2aea4585f65944db5914a12d27976c3c2c74e26e006a670f141d417b96"
   },
   "K": {
-   "latest": "20261019-0200_K_incr.tar.zst",
-   "sha256": "6b5762cfd199caf523a738fdaeff9984567c90b5e57ba4f1cb78fe3ebca29dc7"
+   "latest": "20261120-0200_K_incr.tar.zst",
+   "sha256": "f2cce4e7ec33a29f0559c485173428f6788486ef919f86869d58596d64309423"
   },
   "M": {
-   "latest": "20261019-0200_M.tar.zst",
-   "sha256": "7c24a00f03a40f31cc92bc2a514200fce9ccc19f53f6854744c4f4e13501f321"
+   "latest": "20261120-0200_M.tar.zst",
+   "sha256": "f10ae01210f8d2a70a4e5b8184dcb03bb089b9ce1ed4f58e35a610f62e4bef02"
   },
   "N": {
-   "latest": "20261018-0300_neo4j-accident-v7.dump.zst",
-   "sha256": "90d6c62a2406bbd5424a2ef23ed6672eb1aff5d7d2da01ea7198e4809735d69f"
+   "latest": "20261115-0300_neo4j-tacit-v1.dump.zst.gpg",
+   "sha256": "ca0486a97f7577b5d427ab2e9c69f2d1a543b63b7818fc30f3d84da2ff907ab4"
   },
   "P": {
-   "latest": "20261017-0200_P.tar.zst.gpg",
-   "sha256": "591834372ad88da4082a2fec96812c8e8177ff605ef2f0c4b949309ee6713f03"
+   "latest": "20261117-0200_P.tar.zst.gpg",
+   "sha256": "339478e0bc7f3fd0b85cfb591fdff56069ef5e596459dd1368ff5a9f6b19a660"
   },
   "S": {
-   "latest": "20261019-0200_S.tar.zst.gpg",
-   "sha256": "3db564ce47052c865b160d48f8b0e327e946ae59d77d1187c24f9c507c09fe88"
+   "latest": "20261120-0200_S.tar.zst.gpg",
+   "sha256": "ad6edf931e71dd6fdd868a141530e0674a12b57574c11614f9f2d951c999fa34"
   },
   "T": {
-   "latest": "20261019-0200_T.tar.zst.gpg",
-   "sha256": "8c12e551b023cea0fae2d93b23e2d90c10c2296c6a66ace0338a69a1d4344053"
+   "latest": "20261120-0200_T.tar.zst.gpg",
+   "sha256": "a6c0cef250d206897acab6f23a76eff02fd14267ec3ad847607910cc1405268c"
   },
   "U": {
-   "latest": "20261016-0200_U.tar.zst.gpg",
-   "sha256": "71c69de803e0fbc8ac1e6812f7eb6e34737f4e9b335a10f075bc8c202e7dad80"
+   "latest": "20261116-0200_U.tar.zst.gpg",
+   "sha256": "d06ad5cb57e20ebb804593e205e0c95a1fb3f260d147a5c05ca9aa131f9bdb66"
   }
  },
  "by": "DESKTOP-OCT2024",
  "distro": "Ubuntu",
  "heads": {
-  "jrtokai-phase12": "main@b701725e1905",
-  "jrtokai-phase12-agy": "agy@cf98a7431bcd",
-  "jrtokai-phase12-bkb": "bkb@cd6eb3fb7e5b",
+  "jrtokai-phase12": "main@224c319bf39a",
+  "jrtokai-phase12-agy": "agy@da65e77de425",
+  "jrtokai-phase12-bkb": "bkb@fe3f2dfc7b06",
   "jrtokai-phase12-bkb-a263": "bkb-a263@31eba4a906e0",
+  "jrtokai-phase12-bkb-llmsel": "bkb-llmsel@cc6f2a0f2dc5",
   "jrtokai-phase12-bkb-r263a": "bkb-r263a@4fce667e821f",
   "jrtokai-phase12-bkb-r264p": "bkb-r264p@6c0a04b2e5f2",
-  "jrtokai-phase12-ckb": "ckb@b7b99f77ca77",
-  "jrtokai-phase12-coord": "coord@b701725e1905",
-  "jrtokai-phase12-dkb": "dkb@8e2e538e44f1",
-  "jrtokai-phase12-fed": "fed@e30c3c778040",
-  "jrtokai-phase12-pla": "pla@1711aa2ae77e",
-  "jrtokai-phase12-rev": "rev@908bdbe2bb94"
+  "jrtokai-phase12-bkb-r351": "bkb-r351@5e6aaa574ccb",
+  "jrtokai-phase12-bkb-r355": "bkb-r355@21dd26b6b87c",
+  "jrtokai-phase12-bkb-w1": "bkb-w1@9e49fcc93718",
+  "jrtokai-phase12-ckb": "ckb@40b8239837f2",
+  "jrtokai-phase12-coord": "coord@bcdfbb472de8",
+  "jrtokai-phase12-coord-readwrap": "coord-readwrap@a785e9c905d5",
+  "jrtokai-phase12-dkb": "dkb@224c319bf39a",
+  "jrtokai-phase12-dkb-r2w": "dkb-r2w@ffd3202df14d",
+  "jrtokai-phase12-dkb-r351w": "dkb-r351w@45575ecaa2e1",
+  "jrtokai-phase12-dkb-r351x": "dkb-r351x@734fa64c564d",
+  "jrtokai-phase12-dkb-reh": "dkb-reh@21c3731ffff9",
+  "jrtokai-phase12-dkb-rs5": "dkb-rs5@ade088e9fbaf",
+  "jrtokai-phase12-dkbcmp": "dkbcmp@98a5b605f688",
+  "jrtokai-phase12-fed": "fed@55ea82cd1fe9",
+  "jrtokai-phase12-fed-btn": "fed-btn@18dbb14ecaa4",
+  "jrtokai-phase12-fed-combo284": "fed-combo284@7b2348232061",
+  "jrtokai-phase12-fed-dc": "fed-dc@711caf68c2c0",
+  "jrtokai-phase12-fed-difyfr": "fed-dify-fr@b8e9ed836f55",
+  "jrtokai-phase12-fed-intake": "fed-intake@3c34dcf1e048",
+  "jrtokai-phase12-fed-p318": "fed-p318@eb9662c2e299",
+  "jrtokai-phase12-fed-tree270": "fed-tree270@a3dc38df35d9",
+  "jrtokai-phase12-fed-tree273": "fed-tree273@e9a0d67be9c1",
+  "jrtokai-phase12-fed-tree277": "fed-tree277@f753db980274",
+  "jrtokai-phase12-fed-tree279": "fed-tree279@c0cded3c390e",
+  "jrtokai-phase12-fed-tree284": "fed-tree284@975e537cf4f6",
+  "jrtokai-phase12-fed-tree286": "fed-tree286@4efca327159f",
+  "jrtokai-phase12-pla": "pla@b46c7f70bcd5",
+  "jrtokai-phase12-rev": "rev@72b7656bae59",
+  "jrtokai-phase12-tkb": "tkb@4b167c1e2513"
  },
- "updated": "2026-10-19 02:01"
+ "updated": "2026-11-20 02:09"
 }
