@@ -15,3 +15,7 @@ metadata:
 
 **Why:** 顧客の Kiro から kg_api を読むため。既存の CloudFront E3GPIYOTTCREU6 はエージェントの EC2 の物で、本 PJ の EC2 の前には配信が無かった。
 **How to apply:** IP を足す時は waf_allow_ips.txt → `aws wafv2 update-ip-set`(lock token 要)。EC2 を止めて起こすと公開の番地が変わり、MCP 用の名・証明書・配信の元を直す。WAF の説明の欄に括弧は使えない。関連 [[api-key-rotation-20261028]] [[ec2-nginx-conf-canonical]] [[aws-account-migration-20261031]]
+
+
+(索引から移した説明・2026-11-20)
+- [MCP サーバーの EC2 配備と CloudFront(決359)](mcp-server-ec2-cloudfront-r359.md) — 配信 E33JTQCG5ZIX8K・専用 WAF・nginx の vhost と秘密のヘッダー・手元 ~/.config/jrtokai-mcp/

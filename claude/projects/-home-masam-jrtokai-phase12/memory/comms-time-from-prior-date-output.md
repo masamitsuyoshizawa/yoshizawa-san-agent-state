@@ -1,0 +1,14 @@
+---
+name: comms-time-from-prior-date-output
+description: 連絡の便の名と date は、前の手番で出した date の出力から写す。同じ手番で date を回しながら名を書くと、見込みの時刻を書いてしまう(2026-11-20 に 12:16・12:30 と 2 回)
+metadata:
+  node_type: memory
+  type: feedback
+  originSessionId: a8683e03-1306-4a31-bc43-3323a207949a
+  modified: 2026-11-20T03:25:59.285Z
+---
+
+2026-11-20 に、連絡の便(info と rep)の名と `date:`・LOCKS の時刻を、`date` を回す命令と同じ手番で書いた。出力を見る前に見込みで書いたので、実時刻 12:21 を 12:16 と、実時刻 12:24 を 12:30(先の時刻)と書いた。先の時刻は comms_unread の [6/6] が先の日付として拾う。参照の無い数分のうちなら、git mv で名と date を直した(過去の便を直さない決まりは、re: の参照を壊さないため)。
+
+**Why:** CLAUDE.md の「連絡文の日付は date の実時刻」を守ったつもりでも、手番の組み方で破れる。sha の教訓([[sha-cut-drops-filename]] の「引く値を出すコマンドと、その値を書く便は別の手番に分ける」)と同じ形。
+**How to apply:** 便を書く前の手番で `date '+%Y%m%d-%H%M %H:%M'` を回し、その出力から名・date・LOCKS の時刻を写す。書くのに時間がかかったら、出す直前にもう 1 度回して、ずれていれば名を直してから出す。

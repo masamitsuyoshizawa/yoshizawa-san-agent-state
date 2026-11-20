@@ -1,56 +1,36 @@
 # Memory Index
-- [閉じた項目の索引](archive-index.md) — 図表 KB の個別是正・V3 第 1〜2 段・D-KB カバレッジ・順の明示などの閉じた項目(40 件・元の行のまま)
+- [閉じた項目の索引](archive-index.md) — 図表 KB の個別是正・V3 第 1〜2 段・D-KB カバレッジ・順の明示などの閉じた項目(74 件・元の行のまま)
 - [Prefers stratified sampling](prefers-stratified-sampling.md) — V7検証は無作為でなく層化サンプルを好む
 - [Raw diagram API](raw-diagram-api.md) — 図表RAW(グラフ化前JSON)をNeo4j RawDiagramに格納しkg_api /v1/rawで提供
 - [V9 API/スキーマ統一](v9-api-schema-unification.md) — API I/F凍結・プロパティ日本語正準統一(加法)・Streamlit薄クライアントUI・凍結IF検証環境
 - [A/B/C統合API](abc-unified-api.md) — v1凍結IFに加法でA(文書RAG)/B(事故ベイズ)/C(図表)追加・kg_api単独集約・現EC2相乗り+EBS拡張でデプロイ実行完了
-- [姉妹jreast-phase0](sibling-jreast-phase0.md) — JR東日本DWG連動図表→QAデモを別セッション(~/jreast-phase0)で立上げ・本成果を片方向コピー再利用
 - [踏切図 記号解釈規約](crossing-diagram-symbol-rules.md) — 利用者提供: 図左右=上り下り/信号の90°回転向き=方向/円内小円=閉そく判別/XC下りYC上り/タイトル駅名規約/
 - [評価器スコープ較正](judge-scope-calibration.md) — judge KG_SCOPEはグラフ追加に遅れがち。追加毎に3箇所較正しないと正答が誤判定されCに誤分類
 - [スキル集約ファイル維持](skill-consolidation-file.md) — 図表KB動作根拠(docs/図表KB_動作根拠_スキル集約)を今後も継続維持(利用者依頼)
 - [全対象再認識の原則](all-targets-extraction-principle.md) — 特定質問対応でも全駅全踏切を再認識・格納、抽出パイプライン/スキーマを維持(利用者標準指示)
 - [踏切=管轄駅脚注も確認](crossing-check-station-footnote.md) — 踏切質問は管轄駅連動図表の脚注(備考)も必ず確認(006で判明・亀山脚注HAZARD投入済・利用者重要指示)
 - [評価ケースの正準](eval-cases-canonical.md) — 208問評価は正準20260821版(連動3問変更+顧客分類①-④保持)を必ず使用・4分類別Verdictも並行集計
-- [EC2 kg_api反映先](ec2-kg-api-deploy-path.md) / [EC2 nginx conf正本](ec2-nginx-conf-canonical.md) — 実体は/app/kg_api/app.py・nginx の動く版はコンテナの中だけ(11-03)
+- [EC2 kg_api反映先](ec2-kg-api-deploy-path.md) / [EC2 nginx conf正本](ec2-nginx-conf-canonical.md) — /app/kg_api/app.py・nginx の動く版はコンテナの中(11-03)
 - [Difyデモ EC2](dify-demo-ec2.md) — Dify CE 1.16.1 を EC2 構築・ask/federate-lite デモ稼働・DSL 正本 deploy/dify/dsl
 - [D-KG原因探索KG](dkg-cause-kg.md) — Phase1-5完了・全承認済(bolt10090・10573ノード・/v1/dkg/diagnose稼働・機序140・SOD)。Dify対話統合
-- [海鉄コメント対応20260826](kaitetsu-comments-20260826.md) — ②36問対応表+F-1読取強化をステージング検証済み・本体未投入(承認待ち)
 - [出典ページ規約](page-label-convention.md) — 印字pNN/PDF通しpNN規約・page_map決定論生成・EC2データはホスト側roマウント3ディレクトリ
-- [federate vs D-KB比較](fed-vs-dkb-comparison.md) / [D-KB再発照合改善](dkb-recurrence-improvement.md) — 統一比較 fed72≈lite70>dkg52-56(eaf19f5)
-- [数値基準整備HB/T2](quant-standards-hb-t2.md) — 定量化523件・定格72件(投入待ち)・Ⅴ編取替目安+T2規範値44件格納・次回LOOでjudge較正要
-- [C系診断ビュー](c-diag-view.md) — Phase1実装済(U1鳴動逆引き/U3同時多発)・一元化維持・Phase2=影響範囲/鎖錠逆引きが残
 - [bedrock代替経路](ec2-bedrock-fallback.md) — saml2aws失効時=EC2ホストIAMロール+大阪リージョン(東京は接続不能・コンテナ不可)
 - [連絡箱とworktree運用](session-comms-worktree.md) — docs/comms方式(INDEX/LOCKS/OWNERS/ARTIFACTS)
 - [投入の担保(ingest_pipeline)](ingest-pipeline-enforcement.md) — B/D-KG 投入は ingest_pipeline --mode commit のみ
-- [ckb セッション状態](ckb-session-state.md) — P1/P2/P2b/P3 完了(kb_conn 化・ingest_diagrams G0〜G10・プロンプト正本・判定スコープ統一
 - [rev セッション(Codex)](rev-session-codex.md) — 2026-09-14 新設: セカンドオピニオン専任・worktree ../jrtokai-phase12-rev
-- [C-KB 正答化 第1〜6弾](ckb-remediation-waves-20260916.md) — 2026-09-18 完了: 正準 179→186(保守 172→181・87.0%・誤答0)
-- [B/D-KG 監査の状態](dkb-audit-state.md) — 2026-09-17 是正後 PASS 20/WARN 3(X6・X6b・X8=既知)/FAIL 0・入口コマンドと機械担保の所在
-- [C-KB G7 の API 実費](c-kb-g7-api-cost.md) / [C-KB コスト削減20260918](ckb-costdown-20260918.md) — G7 1 回 73.6→約 24 ドル・cachePoint 化・速度は不変
 - [LOO700 新基準値(判定器v2)](loo700-baseline-judge-v2.md) — 新基準 jv2_20261026 c+p 297/566(決311・+3 は揺らぎ由来)
 - [辞書展開の連鎖置換](dict-expand-chain-replacement.md) — 展開が壊れた文字列を41問で生成・v2で是正・弱条件一律除外は撤回(真因は辞書でなく展開側)
 - [投入物の効果は別担保](ingest-effect-unmeasured.md) — ingest_pipelineは正しく入った担保で価値の担保ではない・X17新設・支持ゲートが1年間発火0だった実例
-- [障害探索ツリー fed](fault-tree-stage3-fed.md) — 第3〜5段: 読み方表=docs/設計_読み方表_障害探索ツリー_20260922.md(改訂1・§10停止条件
 - [派生辺の追随漏れ](derived-edge-drift.md) — 支持辺は08-25生成のまま空原因修復に追随せず116組欠落・再生成/手順書/質問の安全区分の印は案A実装済(safety_mark
-- [安全区分の印の表示](safety-mark-display.md) — Dify の文面はプラグイン dkg_diagnose.py が組み立てる・印は質問と別行・印なしは出力不変・v0.3.6
-- [辞書の是正は閉じた](dict-remediation-closed.md) — 機械検査 770 件は是正しない・効かない理由=同定の枠が入れ替わる・閉じるときも測る
 - [audit_fed は fed ツリーに書く](audit-fed-writes-fed-tree.md) — dkb から回すと fed の git 管理の監査報告を上書きする
-- [甲13 の決着(B-KB 併記)](bkb-koh13-outcome.md) — 「撤去しない」で決着・判定は保留(保1)で不合格0件
 - [V3 語彙 DB の W1〜W4](v3-vocab-db-w1-w4-done.md) — 正本 neo4j-vocab-v3(10190)に v3.0 投入済み・束の digest 2e763fba
 - [保存の順で D-KB の応答が変わる](storage-order-changes-dkb-responses.md) — 同じ graph_digest でも戻した DB で 70/646 が変わる
-- [federate の B 照会も順に依る](federate-b-order-dependence.md) — 実装 959786cd・受入 段 0/2/3 合格・**評価完了 2026-09-27
-- [本番の合成を Opus 5.5 へ](opus55-production-switch-item.md) — **2026-09-28 本番切替済み**(EC2 反映
-- 小さな事実: [review_kit の答えの kit_commit は HEAD](review-kit-answers-kit-commit-is-head.md) / [PDF の ToUnicode で共有の字形が別の字に](pdf-tounicode-shared-glyph-fact.md) / [一時コンテナのパスワード先頭「-」](tmp-neo4j-password-leading-dash.md) / [Python 3.12 の sum は補正付き](python312-sum-compensated.md) / [boto3 の既定の再試行](boto3-default-retries.md) / [grep の関数は CP932 で -c が空](grep-shim-count-blank-on-cp932.md) / [LibreOffice に Calc が無く rc 0 で出力なし](libreoffice-no-calc-rc0.md) / [空の Neo4j でドライバが stderr に非 JSON の警告](neo4j-driver-unknown-label-warning-on-stderr.md) / [botocore は真偽の欄の true 以外を偽に](botocore-json-bool-coerces-to-false.md) / [Neo4j に大きな読み込みを 3 度重ねるとヒープ切れ](neo4j-heap-exhaustion-on-repeated-bulk-loads.md) / [WSL2 の壁の時計は 30 秒ごとに約 1.35 秒戻る](wsl2-wall-clock-steps-back-every-30s.md)
-- [Dify refusal_fallback(決131 閉じ)](dify-refusal-fallback-item.md) / [Dify 状態整理の後ろ盾(案 A)](dify-state-fallback-plan-a.md) — 決123〜132 で閉じた・EC2 反映済み
-- [エージェント向け資料 3 本(20260928)](agent-docs-bkb-dkb-20260928.md) — B-KB query/facets ガイド・D-KB diagnose ガイド・改変の説明
+- 小さな事実: [review_kit の答えの kit_commit は HEAD](review-kit-answers-kit-commit-is-head.md) / [PDF の ToUnicode で共有の字形が別の字に](pdf-tounicode-shared-glyph-fact.md) / [一時コンテナのパスワード先頭「-」](tmp-neo4j-password-leading-dash.md) / [Python 3.12 の sum は補正付き](python312-sum-compensated.md) / [boto3 の既定の再試行](boto3-default-retries.md) / [grep の関数は CP932 で -c が空](grep-shim-count-blank-on-cp932.md) / [LibreOffice に Calc が無く rc 0 で出力なし](libreoffice-no-calc-rc0.md) / [空の Neo4j でドライバが stderr に非 JSON の警告](neo4j-driver-unknown-label-warning-on-stderr.md) / [botocore は真偽の欄の true 以外を偽に](botocore-json-bool-coerces-to-false.md) / [Neo4j に大きな読み込みを 3 度重ねるとヒープ切れ](neo4j-heap-exhaustion-on-repeated-bulk-loads.md) / [WSL2 の壁の時計は 30 秒ごとに約 1.35 秒戻る](wsl2-wall-clock-steps-back-every-30s.md) / [tmux 3.4 の罠(hook でサーバーごと消える・rc 0 で空)](tmux-34-pitfalls.md)
 - [facets/diagnose 入力解釈の落とし穴](facets-input-regex-pitfalls.md) — 場所 regex に左境界なし(「過去に新城駅」を場所に取り込む)・「1号線」が番号
 - [facets 個体 entry の混入(EC2 まで反映済み)](facets-instance-entry-issue.md) — 決134〜149: 札 = 採用札(iii)・辞書 338ea0b1
-- [技術説明会 資料(20260928〜1006)](tech-talk-materials-20260928.md) — 項目 1/3 md・Slides Artifact(版 9)・項目 1/3 PPTX
-- [事故摘録の原本の API(bkb)](accident-rawdata-endpoint-bkb.md) / [EC2 反映(決154〜158)](accident-rawdata-api-item.md) — /v1/accident/rawdata
 - [PDF の表示確認は完全版 chromium](playwright-pdf-needs-full-chromium.md) — Playwright 既定の headless shell は blob の PDF
-- [3 層辞書 確認シート新様式 S3(bkb)](dict-sheet-v2-s3-bkb.md) — 決161 S3 独立照合 33 検査一致
-- 探索木: [内部状態の契約 P1](t0-tree-internal-state-contract.md) / [P2 計画 fed](dkg-tree-p2-plan-fed.md) / [第 1 段の受入 bkb](tree-stage1-acceptance-bkb.md) / [EC2 反映〜決231](t0-tree-stage1-ec2-deployed.md) — 受入合格・EC2 反映済み
 - [接続設定の作り直しで C が欠けた](env-rebuild-missing-c-masks-as-data-drift.md) / [C の接地は黙って失敗する](c-grounding-silent-failure.md) — 4 DB を揃えて繋がりを確かめてから比べる
+- [C の 30 秒の試し直しが ON/OFF の照らしを壊す](c-cooldown-race-breaks-on-off-pair-checks.md) — C に届かない kg_api では 30 秒ごとに 1 回だけ unreachable・v3 の D2・D4 が巡り合わせで外れた(段 3 の ①〜③・11-20)・C の索引は過程の中に覚えられ、読み込んだ後は C が落ちても札 0(今届くは別の過程から見る)
 - [C スキーマ変更は dkb へ info](ckb-obligation-c-schema-info-to-dkb.md) — dkg_grounding/c_diag_view は dkb 所有
 - [C の演習で app は正本を読む](c-rehearsal-app-reads-canonical.md) — app.py は KG_INTERLOCKING_URI
 - [代替 PC 環境(20261009)](env-replacement-pc-20261009.md) — 手元 Neo4j は EC2 の写し・区切りごとに push・compose の一部は動かない
@@ -60,74 +40,62 @@
 - [参考記事: 判断特化型 GraphRAG(Jev)](ref-judgment-graphrag-jev-article.md) — Qiita 2026-10-08・0〜1 の判断モデルで登録と 3 ホップ探索
 - [語彙の別名の B:N は出現数](vocab-alias-source-b-is-count.md) — Alias.source の B:N は事故 ID でない・支持事故は本文一致の推定しか無い
 - [2 台の PC の切替(handoff)](pc-handoff-mechanism.md) — 元 PC DESKTOP-OCT2024 へ移行完了 2026-10-13・Docker Desktop・F:
-- [explore 試作(決232〜241)](explore-proto-item.md) — /v1/explore の B/D ホップ探索・段 1 完了・改訂 14 は G1 不合格で段 2 停止
-- [MVP1 最終報告・提出物](mvp1-final-report-slides.md) — 吉澤分スライド 5 枚版/ロング 11 枚・パイプライン仕様書 B/C/D(e94faaa51b6166a7
 - [4 DB の Excel 書き出し](kb-excel-export.md) — export_kb_excel.py・説明/一覧/ラベル別/関係型別・件数照合 OK・出力は git 外
-- [原因特定の手法の調査(agy/pla)](root-cause-methods-survey.md) — explore 閉鎖後の別手法調査 → 決247〜256
-- [M02 段 0 の B 側](m02-stage0-b-side.md) — 決246・両方 21/50 だが 2 軸の類似は選別にならず 3 軸で 0・既存 b-3a と同じではない(2026-10-14)
 - [次フェーズ構想 A/B(決259〜334)](next-phase-challenges-ab.md) — A 中案 = API 先行・W1 完了(10-31)・正本の最初の登録は案 Y・W2 は移行の後に計画し直し
 - [V7 デモ画面の迂回と NER の原文送信](v7-demo-ui-bypass-and-ner-raw.md) — 決260 で画面を無効化(19ec4847・否定例 4/4)・NER の原文送信は例外
-- [停止点 3 の実装(完了)](stop-point-3-impl-pending.md) — 決263-A 受入合格・main 3599e9e1(2026-10-17)・次は決264
-- [薄い窓口 A の状態](thin-plan-a-window-state.md) — 決264 の LLM 演習 完了(2026-10-18・不整合なし)・手順書・通しは正本の接続の環境変数を渡す
-- [決275 探索木 V3 の受入(bkb)](tree-v3-acceptance-r275-bkb.md) — 決277〜286 合格・前段 [[tree-redesign-acceptance-r270-bkb]
 - [EC2 の Dify DSL は別系統](ec2-dify-dsl-lineage.md) — EC2 は EC2 用の版に最小差分・ボタン回答の層(決290・G1)・プラグイン 0.3.18
 - [図表解析の動的フレームワーク 新タスク](diagram-dynfw-phase0-kickoff.md) — 別リポジトリ ~/diagram-dynfw-phase0
 - [顧客提出 Neo4j dump 一式(20261022)](neo4j-dumps-delivery-20261022.md) — B/C/D/語彙の dump・手順書・復元試験 4/4
-- [Dify human-input の実測事実](dify-human-input-facts.md) / [決290 ボタン回答の受入(bkb)](dify-button-acceptance-r290-bkb.md) — カード内 mermaid 可・受入合格
-- [決298 R1 判別の辺の受入(bkb)](r1-discriminates-acceptance-bkb.md) — 実装・是正・表示・決303 投入後まで合格(2026-10-24)
 - [機序の文のリスト表記(残課題)](mechanism-text-list-repr-pending.md) — 決292 はプラグインで是正・dkb 案 A(出どころで「 > 」へ)は別件で保留
-- [direct_causes と R1(決297〜304)](direct-causes-dead-questions.md) — 手元・EC2 の D-KG へ投入済み・続く F2
-- [事故摘録ベクトル類似検索(決312〜325)](accident-vector-similar-item.md) — EC2 反映済み(t321)・決325 で表示は現状維持・正規化は今は変えない
 - [B の Document.text と masked の差は正常](b-document-text-differs-from-masked-by-design.md) — 09-25 の承認済み地名是正
 - [外部エージェント環境の分析リポジトリ](agent-env-repo-kickoff.md) — ~/jrtokai-agent-env(決326・2026-10-28)・写し + 目録・分析セッション 1 つ
-- [API 鍵の交換(決327〜330)](api-key-rotation-20261028.md) / [compose の正本と鍵の組](compose-env-canonical-kg-api-keys.md) — 旧鍵は残す(決330)・env を替えたら .env も同じ便で・IP 許可は SG 443
+- [API 鍵の交換(決327〜330)](api-key-rotation-20261028.md) / [compose の正本と鍵の組](compose-env-canonical-kg-api-keys.md) — 旧鍵は残す(決330)・env を替えたら .env も同じ便で
 - [Hyper-V 予約で手元 Neo4j の公開が消える](windows-hyperv-port-exclusion-blocks-docker-publish.md) — 再起動後に 9658〜10257 が予約される
-- [Community でも READ セッションは書けない・READ 包み実装](neo4j-read-mode-enforced-on-community.md) — 決334 合格(a785e9c90)・EC2 未反映・演習の正本拒否は口の番号で(決344)
+- [Community でも READ セッションは書けない・READ 包み実装](neo4j-read-mode-enforced-on-community.md) — 決334 合格(a785e9c90)・EC2 未反映
 - [jrtokai-mvp2 立ち上げ(車両 図表・文章)](jrtokai-mvp2-kickoff.md) — ~/jrtokai-mvp2 + ~/jrtokai-mvp2-coord・車両専用(10-29)
 - [言及の事実は辺に置く(決336)](mention-facts-belong-on-edges.md) — ON CREATE の外の SET は「誰の事実か」を問う
 - [暗黙知対応(並行ジョブ)](tacit-knowledge-kickoff.md) — 決337 = 別 DB・9 型・新セッション tkb・置き場は本体ツリー accident_kb_v7/data/tacit/
-- [担当の main への取り込みが止められた時は coord が取り込む](coord-merges-peer-branch-when-peer-main-push-blocked.md) — 利用者の決め 2026-11-19・中身を確かめて・報告する・取り込みと push に限る
+- [担当の main への取り込みが止められた時は coord が取り込む](coord-merges-peer-branch-when-peer-main-push-blocked.md) — 利用者の決め 11-19・取り込みと push に限る
 - [台の間も文書だけの差なら main を進めてよい](main-ff-docs-only-during-rig.md) — 利用者の決め 2026-11-19・コードの置き場とデータに触れない事を coord が確かめた時だけ
 - [質問と報告は coord へ連絡箱で](route-questions-to-coord.md) — 利用者に直接尋ねない(利用者指示 2026-10-30)
-- [main への早送りが止められたら coord が取り込む](main-merge-blocked-coord-merges.md) — 回り込まず枝だけ push・止められた事と枝のコミットを知らせる(利用者の決め 2026-11-19)
-- [tkb 第 0 巡の状態](tkb-round0-design-state.md) — 段 1・2・U8・U9 の門は rev 合格・1 回読みも合格(決342 追補 35・4 か所に限る)・U9 は顧客と会社の答えと dec 待ち
-- [AWS アカウント移行(20261031)](aws-account-migration-20261031.md) — 決348 で EC2 2 台を新へ複製済み(切り替えは利用者の指示待ち)・新は Opus 4.7/5.5 が AccessDenied・LLM は sat-sandbox(決345)
+- [main への早送りが止められたら coord が取り込む](main-merge-blocked-coord-merges.md) — 回り込まず枝だけ push・止められた事を知らせる(11-19)
+- [tkb 第 0 巡の状態](tkb-round0-design-state.md) — U9 の門まで rev 合格・U9 は答えと dec 待ち・確認の段は決357 に合わない(rep 20261120-1210)
+- [AWS アカウント移行(20261031)](aws-account-migration-20261031.md) — 決348 で 2 台を新へ複製済み・切り替えは利用者の指示待ち・LLM は sat-sandbox(決345)
 - [決350 デモの見本と処理役(bkb)](intake-demo-r350-bkb.md) — 段 2 済み・R350I-3 是正(91e46605b)・G8 で止まる事故 4 件
 - [Bedrock の呼び出しの記録(sat-sandbox)](bedrock-invocation-logging-sandbox.md) — 東京は本文を記録・大阪は無し(11-02)・暗黙知の実送信は会社に確認中で保留
-- [AI セッション間の自動トリガー試作](ai-msg-lab-auto-trigger.md) — ~/ai-msg-lab・V1〜V4 合格・往復の上限を人を挟まない往復で数えるよう直した(c2d946b)・ドライラン再開 11-11 17:49・統合は利用者の判断待ち
-- [事故摘録の追加 SAT と本 PJ へ(決349・決350)](intake-accident-sat-registration.md) / [項目](intake-accident-sat-registration-item.md) — 登録先 3 か所・SAT はマスク済みだけ・決350 で SAT は保留・デモ画面は正本の写し + 架空の見本 + PDF
-- [新担当者向け 全体説明の資料(20261105)](agent-newcomer-briefing-deck-20261105.md) — SMテンプレ pptx 10 枚・build_deck.py
-- [マスク済みの本文が補完辞書の追加に追随していない](masked-text-stale-vs-supplement.md) — 703 件は 6〜7 月のまま・変わる文書 95・事故 93(決351 の基準)・連絡には語の sha も書かない
+- [AI セッション間の自動の知らせ ai-hub](ai-msg-lab-auto-trigger.md) — ~/ai-msg-lab 版 1.0.0(決363・11-20)・wrap で自動立ち上げに組み込む・phase12 の有効化は利用者の合図待ち・mvp2 と dynfw はその後
+- [事故摘録の追加 SAT と本 PJ へ(決349・決350)](intake-accident-sat-registration.md) / [項目](intake-accident-sat-registration-item.md) — 登録先 3 か所・決350 で SAT は保留
+- [マスク済みの本文が補完辞書の追加に追随していない](masked-text-stale-vs-supplement.md) — 703 件は 6〜7 月のまま(決351 の基準)・連絡には語の sha も書かない
 - [bkb は原文と NER の語を読まない](bkb-mask-internals-read-limits.md) — 09-25 からの制約・伏せた本文は決312・補完辞書と name_scrub は決351・11-12 に破って申告
-- [決351 追補 4 と決355 段 A(bkb)](r351-remask-and-r355-stage-a-bkb.md) — R1 不採用・R2 は枝 bkb-r351・案 P は git 外・2 回目の一覧・演習の計画・段 A の試作の計画(11-13)
-- [決352 一括追加の工程の設計(bkb)](bulk-intake-r352-bkb.md) — 設計 改訂 12 76008707・6 回目で A1〜A8 合格・Q-A で辞書の回の欠陥(子をまたぐ dict_diff)を見つけて直した・止める口(pause.py)・LLM の種類を束で必須・受入の台 7 回は全例合格(11-11)・資格の門は待ち・saml2aws の資格は期限の欄で読む・回 4 の G8 は skip だけ(改訂 14)・2 回の expand 合格
+- [決351 追補 4 と決355 段 A(bkb)](r351-remask-and-r355-stage-a-bkb.md) — R1 不採用・R2 は枝 bkb-r351・案 P は git 外(11-13)
+- [決352 一括追加の工程の設計(bkb)](bulk-intake-r352-bkb.md) — 設計 改訂 12 76008707・受入の台 7 回は全例合格(11-11)・資格の門は待ち
 - [事故摘録の原本は PDF と Excel](accident-originals-pdf-and-excel.md) — acc:0001〜0348 = PDF・0349〜0700 = Excel・原本の名は rawdata/manifest.json
 - [新しい事故摘録の一括(20261106)](new-accident-batch-20261106.md) — zip 6,340 件(ほぼ Excel)・incoming/20261106・登録済みと重なり 0
-- [一括追加の窓口の設計 fed(決352)](bulk-intake-window-design-fed.md) — 改訂 14 61bc6c34(選択肢の日本語・11-13 に revert で打ち消し = 確認画面の作り直しに吸収)・改訂 13 70941d48(段 3 の台の判断だけの画面 R352F-6)・改訂 12 7b8e61ea(持ち越しの件と語・回 4 G8 の注)・改訂 11 b5755147(待ちの印 WAITING_ON)・改訂 10 bc39032a(違い 14 か所を §17 に)・親 bundle/子 batch・口 9 本(resolve は受理済みの判断を今の状態より先に照らす)・有効な判断は bkb §4-12・rev の確認待ち(版は止める)
-- [人の確認画面の作り直し fed(20261112〜13)](review-screen-redesign-fed.md) — 設計の案 改訂 4 27842d14・見本 版 5(Artifact)・見比べの形で絞った疑問点だけ・原本の表示・R9〜R14・日本語の表示の枝は revert で吸収・決357 で道具一式(review_kit)を実装済み・改訂 12 = 開始の形 open(URL を開くだけ・利用者の指示)と rev R10・R11 の直し(main 3722e332a・設計 c08e5d7b・写し 版 5 38f20698・試験 270・変異 63/63)・**改訂 13(c56e8057e)と改訂 14 の D・B(4c3f4a414・試験 395・変異 114)を本体に入れた**・次は A の設計と計画(急がない)・向きの表の案 67a90926
-- [一括追加の社内現状説明の資料(20261110)](bulk-intake-status-deck-20261110.md) — SMテンプレ pptx 17 枚・build_deck.py・docs/資料_事故摘録の一括追加_現状説明_20261110
-- [SAT の API の確かめ(20261113〜16)](sat-api-sandbox-check-fed.md) — テスト環境の頭の道は /v1・架空の文書で登録の試し済み・Excel は既定で字が切れる・検索層 /v2/query と公開 /retrieval は同じ本文だが並べ方は違うことがある・今のデモの事故摘録は字の切れ 0.4% で少ないが隠しのシートも頁として索引に在る(決349 追補 2〜6・報告メモ)
-- [配る版と SAT 登録の版を PDF に統一(決352 追補 57〜60)](dist-pdf-unification-r352-57.md) — 承認済み・PDF は伏せた原文から決定論で・xlsx は内部の中間物・Excel 原本は段落の形・SAT は既定の設定(表にしなければ字の層のまま入る)・bkb の設計 改訂 17 を固めて rev へ
-- [確認の画面への利用者の好み(20261116・1118)](review-screen-user-prefs-20261116.md) — 機械の推定は見せる・選びは中身で・手で打たせない・両方に成り得る語を語ごとに問わない(11-18「判断が難しくなっている」)・束をまたいで番号の向きをそろえる・資料は本文の中の所で・第 2 弾は案 A(安全を取る)を選んだ(決351 追補 82)
-- [人手確認の基本ルール 第 5 版の取り入れ(決357 追補 63・67)](human-review-rules-v3-adopted.md) — 2026-11-18・第 4 版 R21〜R23・C24〜C27 → 第 5 版 R24〜R27・C28〜C31(R25〜R27 は phase12 の P1〜P3 が正本に入った物)・次に作る束から
+- [一括追加の窓口の設計 fed(決352)](bulk-intake-window-design-fed.md) — 改訂 14 61bc6c34(11-13 に revert で確認画面の作り直しに吸収)・親 bundle/子 batch・口 9 本
+- [人の確認画面の作り直し fed(20261112〜13)](review-screen-redesign-fed.md) — 決357 で review_kit を実装・改訂 14 の D・B(4c3f4a414)を本体に・次は A の設計
+- [SAT の API の確かめ(20261113〜16)](sat-api-sandbox-check-fed.md) — テスト環境の道は /v1・架空の文書で登録の試し済み・Excel は既定で字が切れる
+- [配る版と SAT 登録の版を PDF に統一(決352 追補 57〜60)](dist-pdf-unification-r352-57.md) — 承認済み・PDF は伏せた原文から決定論で
+- [確認の画面への利用者の好み(20261116・1118)](review-screen-user-prefs-20261116.md) — 機械の推定は見せる・選びは中身で・手で打たせない・束をまたいで番号の向きをそろえる
+- [人手確認の基本ルール 第 5 版の取り入れ(決357 追補 63・67)](human-review-rules-v3-adopted.md) — 第 5 版(11-18)= R24〜R27・C28〜C31
 - [SAT の戦略は別顧客への説明用](sat-strategy-is-for-other-customer.md) — JR東海向けではない・本 PJ の開発に影響させない(11-06)
-- [決352 一括追加の dkb 分](bulk-intake-r352-dkb.md) — 受入と D-KG の設計 改訂 11 25ef2d87(11-08・rev 4 回目の I2 = 件ごとの承認は新設の節点 N(j) で・費用の台帳は B 改訂 6 の手順に・有効な判断は件を targets に含む最大の版・上限は C − O・切り詰めは台帳の外の記録で・費用は親をまたぐ 1 本の台帳と件ごとの grant・既存 700 件の段 6 は決351 が前提)・既知の双子は要旨一致で循環 → 同日 + 場所は要約を見ない 568→154・除外帯を 3 段で・辺は必ず根へ(読み手は 1 段)・G9 は外す・rev の差分の確認待ち
-- [抽出の取りこぼしの計測(20261112)](stage1-coverage-audit-20261112.md) — 率 B 中央 0.29%・本当の取りこぼしは測定値の 4 件・b001 は新様式で高く出る・B の伏せ漏れの類 94 文書
-- [B の欄ごとの伏せ漏れ(決351 追補 2)](b-property-name-leak-r351-20261112.md) — 案 P 461 か所・73 事故・文の欄 272・EC2 も同じ digest・/doc が extraction_json を返す
-- [再構築 段 A の dkb 分(決355)](rebuild-stageA-dkb-20261113.md) — 済み(rep 0048・0050・0056)・主因は類例の原因の引き出し・抽出だけ 53.6%・天井 79%・95% は届かない見込み
+- [決352 一括追加の dkb 分](bulk-intake-r352-dkb.md) — 受入と D-KG の設計 改訂 11 25ef2d87(11-08)・G9 は外す・rev の差分の確認待ち
+- [抽出の取りこぼしの計測(20261112)](stage1-coverage-audit-20261112.md) — 率 B 中央 0.29%・本当の取りこぼしは 4 件
+- [B の欄ごとの伏せ漏れ(決351 追補 2)](b-property-name-leak-r351-20261112.md) — 案 P 461 か所・73 事故・/doc が extraction_json を返す
+- [再構築 段 A の dkb 分(決355)](rebuild-stageA-dkb-20261113.md) — 主因は類例の原因の引き出し・天井 79%・95% は届かない見込み
 - [外部エージェントに渡す束の設計(決361・bkb)](loo-external-agent-pack-bkb.md) — 案 c(補完辞書の全語で当て直す)・決めてもらう点 5 つ・承認待ち(11-16)
-- [手元の B 正本への接続(案 A)](b-canonical-conn-container-env.md) — 利用者の決め 2026-11-18: コンテナの NEO4J_AUTH から包みで渡す・~/.kb_ec2.env は EC2 のトンネルで使わない・DKB_MAIN_TREE が要る
-- [決351 見本を確認の道具の束に(dkb)](r351-review-kit-set-dkb.md) — 決357 追補 10〜12・実 rerun2-6 に利用者が答えた(11-16・問題なし 10・気になる 2・分からない 1 → 諮らない・選びの向きの混乱の指摘)・版 2 とバイト一致・serve は dkb(rev→agy の後)
-- [決351 第 1 弾の正本への反映(済み 11-19)](r351-round1-apply-commit-gate.md) — 手元の B 332bf9d5431dd505・索引も切り替え済み・EC2 は前のまま(手順を作って進める)・12 所は案 A・渡した書き出しは次の提出で置き換える
-- [MCP-UNI の EC2 並行配備(決362)](mcp-uni-ec2-deploy-r362.md) — 2026-11-19・8620・/mcp-uni・今の鍵を共用・SAT はマニュアルだけ・午後に v0.2.2 へ入れ替え(伏せは有効に戻した = 利用者の決め・誤伏せと伏せ漏れが残る・記録は消さない)・深夜に 3 つ目の MCP-UNI2(8630・/mcp-uni2)を並行で配備
-- [MCP サーバーの EC2 配備と CloudFront(決359)](mcp-server-ec2-cloudfront-r359.md) — 配信 E33JTQCG5ZIX8K・専用 WAF・nginx の vhost と秘密のヘッダー・手元 ~/.config/jrtokai-mcp/
-- [決351 残りの所の問い(bkb・20261119)](r351-residual-places-questions-bkb.md) — 改訂 2 = 組の全部の所を並べる・2 回(10 問 + 11 問)・採用の行 R351-RESID-ADOPT・rev 合格・実の束 2 つ作成済み(ad96b5e3・243274e6)・serve は bkb(coord の PIN の後)
-- [LOO 自己強化ループ(決361・計画の段)](loo-self-reinforcing-loop-r361.md) — 計画 改訂 0 ddd10fe1・評価を先に/3 重のループ/AI の出力は案・pla(独立)・rev・agy に依頼済み・pla のツリーに main を入れ直さない・D1〜D7 未決
-- [容器の作り直しで docker cp の更新が消える](recreate-from-config-image-loses-docker-cp-updates.md) — 10-28 に shirei が 9-25 の版に戻り 3 週間気づかず(利用者の指摘 11-19)・作り直す前後にプログラムの指紋を照らす
+- [手元の B 正本への接続(案 A)](b-canonical-conn-container-env.md) — 利用者の決め 11-18: コンテナの NEO4J_AUTH から包みで渡す・DKB_MAIN_TREE が要る
+- [dkb の正本の読みの範囲](dkb-canonical-read-scope.md) — B・D-KG・語彙 DB の読みだけ(11-18)・C の正本は読むだけでも ckb の持ち分(11-20 に 1 回当てて報告された)
+- [決351 見本を確認の道具の束に(dkb)](r351-review-kit-set-dkb.md) — 決357 追補 10〜12・利用者が答えた(11-16)・serve は dkb
+- [決351 第 1 弾の正本への反映(済み 11-19)](r351-round1-apply-commit-gate.md) — 手元の B 332bf9d5431dd505・EC2 は前のまま・EC2 の手元の演習は 11-20 に回し直し 1・2 とも 10/10 合格(もう変えない 9f46a2c50)・rev の差分待ち・第 2 弾の書き手 rev 1844 はもう変えない 0d91c1645
+- [MCP-UNI の EC2 並行配備(決362)](mcp-uni-ec2-deploy-r362.md) — 11-19・8620・/mcp-uni・v0.2.2・MCP-UNI2(8630)も並行
+- [MCP サーバーの EC2 配備と CloudFront(決359)](mcp-server-ec2-cloudfront-r359.md) — 配信 E33JTQCG5ZIX8K・専用 WAF・手元 ~/.config/jrtokai-mcp/
+- [決351 残りの所の問い(bkb・20261119)](r351-residual-places-questions-bkb.md) — 改訂 2・10 問 + 11 問・11-20 に利用者が 21 問とも答え済み
+- [LOO 自己強化ループ(決361・計画の段)](loo-self-reinforcing-loop-r361.md) — 計画 改訂 0 ddd10fe1・D1〜D7 未決
+- [容器の作り直しで docker cp の更新が消える](recreate-from-config-image-loses-docker-cp-updates.md) — 作り直す前後にプログラムの指紋を照らす(11-19)
 ## 教訓(題名だけ・詳細は各ファイル)
 - 検証・照合の規律: [0 件報告前の照合](verify-zero-counts-before-reporting.md) / [グラフ照会の規律](graph-query-discipline.md) / [hash 一致は完全性ではない](hash-match-not-completeness.md) / [件数は範囲を併記](report-counts-with-scope.md) / [条件分岐は両側を数える](check-both-branches-of-a-condition.md) / [段を過ぎた印は段に固有の値で](phase-marker-state-must-be-unique.md) / [誤りは打ち消し合う](errors-can-cancel-each-other.md) / [照合は上流から期待値を作る](collation-derive-expected-from-source.md) / [等式には時点を持たせる](equality-checks-need-a-timepoint.md) / [空集合はどの集合の部分集合でもある](empty-set-is-subset-of-anything.md) / [写しの比較は健康と予定集合を検査してから](snapshot-compare-needs-health-and-plan.md) / [件数を判定に入れる](count-side-effects-in-judgement.md) / [台の受入は台の外への書き込みも照らす](rig-acceptance-must-check-writes-outside.md) / [台が動いている間は本体の git 外へ書かない](no-main-data-writes-during-rig-runs.md) / [「無い」は経路を全部たどってから](absence-claim-read-whole-path.md) / [戻す書き込みは隣の字と並んで別の名の語を作る](reverse-unmask-creates-new-name-strings.md) / [graph_digest の行の読み方](graph-digest-line-parsing.md) — 辺の id は生・| と改行で切り違える / [前の判断の日付は判じた日](prior-date-is-judgment-date.md)
 - 試験・否定例・対照: [別プロセスで検証する](verify-in-separate-process.md) / [否定例は落ちた理由まで確かめる](negative-test-check-reason.md) / [試験のソース切り出しは構文で](test-extracts-source-cut-by-syntax.md) / [試験で注入しない](test-must-not-inject-what-prod-lacks.md) / [試験の子は LLM の口を止める](test-child-must-block-llm.md) / [仕様は実装するまで検証されない](spec-unverified-until-implemented.md) / [手元の台は本番の例外の包みを通さない](test-app-lacks-prod-error-envelope.md) / [画面の受入は svg の実寸を見る](screen-acceptance-check-svg-size.md) / [AppTest の前後比較は対照から](apptest-screen-compare-needs-control.md) / [評価の補助は本番の入力を変えない](eval-helper-must-not-normalize-production-input.md) / [対照の漂いで床が膨らむ](control-drift-inflates-derived-floor.md) / [照らしの道具は本物の値で 3 つ当ててから](verifier-smoke-on-real-data-before-trusting.md) / [試験の版は回した版を書く](tested-commit-must-be-run-commit.md) / [演習専用の止めは正本への道を塞ぐ](rehearse-only-guard-blocks-commit.md) / [rc は命令の直後に取る](rc-capture-after-command-substitution.md) / [変異の試験は対照から](mutation-harness-needs-control.md) / [変異の下で試験が本物を動かす](mutation-can-run-real-side-effects.md) / [試験の偽の物は本番と同じ作りで](test-fixture-must-match-prod-setup.md)
 - 主張と報告: [既知の正解の選ばれ方を確かめる](known-set-selection-bias.md) / [推定を実測と混ぜない](estimates-not-labeled-as-measurements.md) / [版を疑う前に変更を外す](isolate-the-change-before-blaming-version.md) / [効果と劣化に同じ基準を当てる](asymmetric-standard-for-gain-and-loss.md) / [主張が実装より広くなる](claim-wider-than-implementation.md) / [伏せに使った辞書で照らすと 0 は作りから出る](residual-check-zero-by-construction.md) / [受け取る側を見て報告する](report-from-the-consumer-side.md) / [基準を道具の出力で書かない](criterion-not-tool-output.md) / [現状を確かめずに仮定する](assumed-current-state-without-checking.md) / [推しは自分の前提に照らす](recommendation-must-fit-own-premises.md) / [帰属の主張も確かめてから](attribution-claims-need-checking.md) / [費用の見積りは呼び出しと入力を数えてから](estimate-count-calls-and-inputs.md) / [単価を Web で調べない](no-web-search-for-prices.md)
-- 識別子・連絡箱・諮り方: [新しい束は出ている束と語・形の重なりを数える](check-overlap-with-live-review-sets.md) / [欄の値だけの資料には欄の名と本文の所を添える](field-value-only-material-add-field-name-and-body-context.md) / [ack と info の中の頼みは連絡箱で数える](ack-requests-check-inbox-not-chat.md) / [dec の追補まで読む](read-dec-addenda-first.md) / [専門家への問いは答えの分岐まで設計](expert-question-answer-branches.md) / [承認が要る線](approval-line-for-own-artifacts.md) / [認証の境界の値は変える前に知らせる](auth-boundary-values-notify-before-change.md) / [識別子は実物から取る](verify-filenames-before-citing.md) / [他者の一覧を dec に写さない](dont-copy-canonical-lists-into-dec.md) / [先に計算して sha を出す](precommit-hash-for-independence.md) / [共有スクリプトは追いの変更でも LOCKS を取り直す](locks-for-follow-up-changes.md) / [sha16 は名前と対で採る](sha-cut-drops-filename.md) / [置換子が本文を壊す](placeholder-substitution-collisions.md) / [諮る直前に peer の推しを現物で確かめる](relay-positions-verify-at-ask-time.md) / [status 行は相手の注記を残す](status-line-keep-others-notes.md) / [反映の依存を rep に書く](deploy-dependency-in-rep.md) / [固定と書いた版は進める前に知らせる](notify-before-advancing-frozen-version.md)
+- 識別子・連絡箱・諮り方: [新しい束は出ている束と語・形の重なりを数える](check-overlap-with-live-review-sets.md) / [欄の値だけの資料には欄の名と本文の所を添える](field-value-only-material-add-field-name-and-body-context.md) / [ack と info の中の頼みは連絡箱で数える](ack-requests-check-inbox-not-chat.md) / [dec の追補まで読む](read-dec-addenda-first.md) / [専門家への問いは答えの分岐まで設計](expert-question-answer-branches.md) / [承認が要る線](approval-line-for-own-artifacts.md) / [認証の境界の値は変える前に知らせる](auth-boundary-values-notify-before-change.md) / [識別子は実物から取る](verify-filenames-before-citing.md) / [他者の一覧を dec に写さない](dont-copy-canonical-lists-into-dec.md) / [先に計算して sha を出す](precommit-hash-for-independence.md) / [共有スクリプトは追いの変更でも LOCKS を取り直す](locks-for-follow-up-changes.md) / [sha16 は名前と対で採る](sha-cut-drops-filename.md) / [設計の差はファイルの sha16 の前後で](design-diff-range-by-file-sha16.md) / [便の時刻は前の手番の date から](comms-time-from-prior-date-output.md) / [置換子が本文を壊す](placeholder-substitution-collisions.md) / [諮る直前に peer の推しを現物で確かめる](relay-positions-verify-at-ask-time.md) / [status 行は相手の注記を残す](status-line-keep-others-notes.md) / [反映の依存を rep に書く](deploy-dependency-in-rep.md) / [固定と書いた版は進める前に知らせる](notify-before-advancing-frozen-version.md)
 - 門・閾値・仕組みの読み: [点検の閾値は自分の選択](screening-threshold-is-a-choice.md) / [門の閾値は守る対象から](threshold-from-what-it-protects.md) / [厳しくすれば安全ではない](tightening-is-not-safety.md) / [門は許す一覧で](gate-allowlist-not-denylist.md) / [G0 の固定入力の試験が設定を決め打ち](g0-fixed-tests-pin-config.md) / [観測の行に一覧を出すと原本の名が出る](observation-lines-leak-names.md) / [検査の子へ秘密を argv で渡さない](secrets-not-in-child-argv.md) / [成果物の自己申告を信じない](artifact-self-report-not-trusted.md) / [限定の一覧は設計の回す一覧から](acceptance-limits-from-design-list.md) / [SCHEMA_HINTSは全問に入る](prompt-hints-apply-to-every-request.md) / [併記は元の入力を見る](annotations-must-read-original-input.md) / [反映先が何を読むかを確かめる](verify-what-the-target-actually-reads.md) / [足す先の仕組みが何を全件見るか](check-what-the-target-mechanism-scans.md) / [値がどこから読めるかを確かめる](check-where-a-value-can-be-read-from.md) / [同じ札でも中身を並べる](same-label-compare-contents.md) / [元の側の印が型当てを壊す](marker-in-source-breaks-alignment.md) / [門の許す形は生の応答で決める](gate-accepted-shapes-from-raw-response.md) / [一覧の欄は許す一覧で出す](list-output-allowlist-columns.md)
-- 環境・道具の罠: [スクリプトで文書を書き換えたら構成を確かめる](scripted-doc-edit-check-structure.md) / [監査は本体ツリーで回す](audit-run-in-main-tree.md) / [参照先の追随漏れが原因を隠す](silent-path-drift-masks-cause.md) / [同名は同じ実装ではない](same-name-is-not-same-implementation.md) / [EC2 の置換方式では設定をファイルで](ec2-replace-deploy-config-in-files.md) / [merge の失敗をパイプで隠さない](merge-failure-masked-by-pipe.md) / [read transaction は snapshot ではない](read-transaction-not-snapshot.md) / [pkill は自分のシェルも殺す](pkill-kills-own-shell.md) / [GPU の取り合いで意味照合が黙って落ちる](gpu-contention-silent-semantic-failure.md) / [本体ツリーは走っている間に替わる](main-tree-moves-during-run.md) / [作業ツリーの data/dkb 欠け](worktree-data-symlink-gap.md) / [import の順で同名モジュールが替わる](import-order-swaps-same-name-module.md) / [基盤の再試行は失敗の定義を変える](platform-setting-changes-failure-definition.md) / [写した道具の決め打ちが他 PJ を上書き](copied-tool-hardcodes-overwrote-other-repo.md) / [合成の入力が上書きの欠陥を隠す](synthetic-fixture-hides-rewrite-defects.md) / [再起動でスクラッチパッドが消える](scratchpad-lost-on-reboot.md) / [工程のソースを変えたら契約の生成区画を書き直す](pipeline-change-regen-contract-codes.md) / [Bash ツールでは set -e が効かない](bash-tool-set-e-ineffective.md) / [空の名の変数で git add が広がる](empty-filename-var-widens-git-add.md) / [本文を読まない応答は keep-alive で次の要求に混ざる](unread-body-keepalive-leak.md) / [ディレクトリを 0600 にすると台が止まる](dir-mode-0600-blocks-rig.md)
+- 環境・道具の罠: [スクリプトで文書を書き換えたら構成を確かめる](scripted-doc-edit-check-structure.md) / [監査は本体ツリーで回す](audit-run-in-main-tree.md) / [参照先の追随漏れが原因を隠す](silent-path-drift-masks-cause.md) / [同名は同じ実装ではない](same-name-is-not-same-implementation.md) / [EC2 の置換方式では設定をファイルで](ec2-replace-deploy-config-in-files.md) / [merge の失敗をパイプで隠さない](merge-failure-masked-by-pipe.md) / [read transaction は snapshot ではない](read-transaction-not-snapshot.md) / [pkill は自分のシェルも殺す](pkill-kills-own-shell.md) / [GPU の取り合いで意味照合が黙って落ちる](gpu-contention-silent-semantic-failure.md) / [本体ツリーは走っている間に替わる](main-tree-moves-during-run.md) / [作業ツリーの data/dkb 欠け](worktree-data-symlink-gap.md) / [import の順で同名モジュールが替わる](import-order-swaps-same-name-module.md) / [基盤の再試行は失敗の定義を変える](platform-setting-changes-failure-definition.md) / [写した道具の決め打ちが他 PJ を上書き](copied-tool-hardcodes-overwrote-other-repo.md) / [合成の入力が上書きの欠陥を隠す](synthetic-fixture-hides-rewrite-defects.md) / [再起動でスクラッチパッドが消える](scratchpad-lost-on-reboot.md) / [工程のソースを変えたら契約の生成区画を書き直す](pipeline-change-regen-contract-codes.md) / [Bash ツールでは set -e が効かない](bash-tool-set-e-ineffective.md) / [空の名の変数で git add が広がる](empty-filename-var-widens-git-add.md) / [本文を読まない応答は keep-alive で次の要求に混ざる](unread-body-keepalive-leak.md) / [ディレクトリを 0600 にすると台が止まる](dir-mode-0600-blocks-rig.md) / [使い捨ての Neo4j は rm -v で消す](disposable-neo4j-rm-without-v-leaves-data.md) / [git は日本語の名を引用符で包む](git-quotes-japanese-paths.md) / [台本は中身を作ってから開く・言った待ち時間は date で](script-write-after-compute.md)

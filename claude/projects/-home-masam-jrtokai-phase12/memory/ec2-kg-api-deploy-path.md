@@ -19,3 +19,7 @@ EC2 コンテナ `jrtokai-v9-kg-api` は `WorkingDir=/app/kg_api`、CMD=`uvicorn
 
 (索引から移した説明・2026-11-07)
 - [EC2 kg_api反映先](ec2-kg-api-deploy-path.md) / [EC2 nginx conf正本](ec2-nginx-conf-canonical.md)(11-03 訂正: 動いている版はコンテナの中だけ・ディスクは 9/4 の古い版) — 実体は/app/kg_api/app.py(/app/app.pyは無効)
+
+
+(索引から移した説明・2026-11-20)
+- [EC2 kg_api反映先](ec2-kg-api-deploy-path.md) / [EC2 nginx conf正本](ec2-nginx-conf-canonical.md) — 実体は/app/kg_api/app.py・nginx の動く版はコンテナの中だけ(11-03)

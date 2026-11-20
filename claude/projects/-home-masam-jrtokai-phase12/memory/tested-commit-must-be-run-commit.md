@@ -16,3 +16,4 @@ metadata:
 - 「新しい checkout でも通る」と言うなら、git worktree add --detach で別の木に出して回す。
 - 全角か半角か、何字かを書く時は、コードの定数を読んで(ord・len)確かめてから書く。人が写す字(dec に書く行など)は特に。
 関連 [[estimates-not-labeled-as-measurements]] [[assumed-current-state-without-checking]] [[r351-review-kit-set-dkb]]
+- **2026-11-20(bkb・変異の回)**: 変異の回し手は始めに道具を写して固めるが、写した版を出力に書いていなかった。coord に「回した版と書いた版が同じことを後から追えるように」と頼まれ、回し手(作業ツリー knowledge_kb_v8/data/bkb_mutation/mut_run.py)に、**出力の頭に写した道具と試験の sha16・HEAD・始めの時刻、末尾に終わりの時刻**を書く行を足して回し直した。同じ時に、v3 の変異の回を「約 70 分」と確かめずに見込んで書いた(実は 283 個で約 4 分)= 見込みは前の回の出力の時刻から採る([[estimates-not-labeled-as-measurements]])。

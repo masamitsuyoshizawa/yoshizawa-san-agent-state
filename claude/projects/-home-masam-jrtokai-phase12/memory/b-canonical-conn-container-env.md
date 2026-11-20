@@ -19,3 +19,7 @@ metadata:
 
 **Why:** 利用者が方法を決めるまで 10 時間以上、束が止まった(info 20261117-1351)。
 **How to apply:** B を読む作業の前に、この包みで digest を取ってつながりを確かめる。関連 [[r351-review-kit-set-dkb]] [[route-questions-to-coord]]
+
+
+(索引から移した説明・2026-11-20)
+- [手元の B 正本への接続(案 A)](b-canonical-conn-container-env.md) — 利用者の決め 2026-11-18: コンテナの NEO4J_AUTH から包みで渡す・~/.kb_ec2.env は EC2 のトンネルで使わない・DKB_MAIN_TREE が要る

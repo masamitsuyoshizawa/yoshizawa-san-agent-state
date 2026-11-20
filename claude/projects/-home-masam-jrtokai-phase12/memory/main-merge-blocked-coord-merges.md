@@ -13,3 +13,7 @@ metadata:
 **Why:** 利用者の決め(2026-11-19・決351 追補 129・130)=「coord が取り込む(今後も)」。止められた操作を別のセッションが代わりに行うと判定をすり抜けるので、coord は利用者に諮ってから決めた。止められた事を隠さずに書いたので正しい道で決められた、と coord が評価した。
 
 **How to apply:** 枝のコミットと push は自分で行う。**main への早送り(`git -C <本体ツリー> merge --ff-only`)は、単独の命令でも止められた**(2026-11-19 13:37・理由 Undermining Oversight・1 度目は push と合わせた命令で Destructive)。以後は試さず、枝のコミットを coord に知らせるだけにする。関連: [[session-comms-worktree]]
+
+
+(索引から移した説明・2026-11-20)
+- [main への早送りが止められたら coord が取り込む](main-merge-blocked-coord-merges.md) — 回り込まず枝だけ push・止められた事と枝のコミットを知らせる(利用者の決め 2026-11-19)

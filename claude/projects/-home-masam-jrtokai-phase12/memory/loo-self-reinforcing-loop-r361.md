@@ -17,3 +17,7 @@ metadata:
 
 **Why:** 過去の実験の資産(LOO の変種・学習曲線・観測込み)と失敗(合わせ込み・漏れ・見かけの改善)を踏まえずにループを回すと、数字だけ上がる。
 **How to apply:** pla の rep が届くまで、pla のツリーに main を merge しない(計画書が入る)。段 1 の着手は改訂 1 と承認の後。関連 [[rebuild-stageA-dkb-20261113]] [[loo700-baseline-judge-v2]] [[root-cause-methods-survey]] [[ingest-effect-unmeasured]] [[known-set-selection-bias]]
+
+
+(索引から移した説明・2026-11-20)
+- [LOO 自己強化ループ(決361・計画の段)](loo-self-reinforcing-loop-r361.md) — 計画 改訂 0 ddd10fe1・評価を先に/3 重のループ/AI の出力は案・pla(独立)・rev・agy に依頼済み・pla のツリーに main を入れ直さない・D1〜D7 未決

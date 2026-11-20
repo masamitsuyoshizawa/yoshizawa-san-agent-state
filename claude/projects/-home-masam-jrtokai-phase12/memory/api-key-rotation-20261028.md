@@ -26,3 +26,7 @@ metadata:
 - [API 鍵の交換(決327〜330)](api-key-rotation-20261028.md) / [compose の正本と鍵の組](compose-env-canonical-kg-api-keys.md) — 段 A・B 完了・旧鍵は期限なく残す(決330)・env を替えたら .env も同じ便で・決341 で 4 つ目 f1fa83e3 追加・IP 許可は SG 443(手元 CLI で)
 
 **決356(2026-11-14 02:02 JST・利用者の依頼と承認)**: 5 つ目の鍵 **11200c21** を追加(MCP サーバー `~/jrtokai-mcp-server` 専用・読み取りだけ・既存 4 鍵は不変・KG_API_WRITE_KEYS は EC2 に設定なし)。値は手元 `~/.config/jrtokai-mcp/kg_api.key`(0600・52 字)だけ・kb_backup.sh の S に追加。EC2 は recreate_env.py で作り直し(退避の像 pre-key5-20261114・瞬断 17.1 秒・docker diff は空だった)+ .env 3 本を 5 鍵に(EC2 の道具 ~/t327/key5_prepare.py・key5_verify.py・key5_env_canonical.py)。env_canonical_update.py は 3 鍵を assert していて使い回せない。新アカウントの複製は 4 鍵のまま(切り替えの時に足す)。手元からは `ssh -N -L 127.0.0.1:18600:172.31.4.27:8600 kb-demo-ec2`・ヘッダーは x-api-key。
+
+
+(索引から移した説明・2026-11-20)
+- [API 鍵の交換(決327〜330)](api-key-rotation-20261028.md) / [compose の正本と鍵の組](compose-env-canonical-kg-api-keys.md) — 旧鍵は残す(決330)・env を替えたら .env も同じ便で・IP 許可は SG 443

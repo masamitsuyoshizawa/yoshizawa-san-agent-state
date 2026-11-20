@@ -24,3 +24,7 @@ metadata:
 
 (索引から移した説明・2026-11-07)
 - [Community でも READ セッションは書けない・READ 包み実装](neo4j-read-mode-enforced-on-community.md) — 決334 受入合格・main a785e9c90(2026-10-29)・EC2 未反映・直の driver 生成は 12 か所・X1 execute_write は Session proxy で止める・決344 で演習モードの正本拒否を口の番号で(書き方の列挙は漏れる)
+
+
+(索引から移した説明・2026-11-20)
+- [Community でも READ セッションは書けない・READ 包み実装](neo4j-read-mode-enforced-on-community.md) — 決334 合格(a785e9c90)・EC2 未反映・演習の正本拒否は口の番号で(決344)

@@ -15,3 +15,7 @@ EC2 の容器を作り直す(recreate)時は、作り直す前に、容器と像
 - docker cp で反映した時は、commit した札から容器を作り直しておく(Config.Image を、いちばん新しい札にそろえる)と、次の作り直しで戻らない。
 - 「前の版に戻っていないか」と聞かれたら、容器の作成の時刻・像の札・同じ名の像の新しい札・中のファイルの指紋を、順に見る。
 - 関連 [[ec2-replace-deploy-config-in-files]] [[compose-env-canonical-kg-api-keys]] [[api-key-rotation-20261028]] [[derived-edge-drift]]
+
+
+(索引から移した説明・2026-11-20)
+- [容器の作り直しで docker cp の更新が消える](recreate-from-config-image-loses-docker-cp-updates.md) — 10-28 に shirei が 9-25 の版に戻り 3 週間気づかず(利用者の指摘 11-19)・作り直す前後にプログラムの指紋を照らす

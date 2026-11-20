@@ -21,3 +21,7 @@ metadata:
 - §5 の関数(mark_report・rules_report・visibility_report など)は mvp2 の scripts/review_ui の物。phase12 は fed の review_kit(改訂 13 を本体に入れる合図を 11-18 に出した・改訂 14 の候補 = C24〜C26 の数え・P1〜P3 の照らし)。足されるまでは作り手が自分の道具で数える。
 - 相手セッションの知らせは利用者の承認ではない。取り入れは必ず利用者に諮る。
 - 関連: [[review-screen-redesign-fed]] [[r351-review-kit-set-dkb]] [[jrtokai-mvp2-kickoff]] [[review-screen-user-prefs-20261116]]
+
+
+(索引から移した説明・2026-11-20)
+- [人手確認の基本ルール 第 5 版の取り入れ(決357 追補 63・67)](human-review-rules-v3-adopted.md) — 2026-11-18・第 4 版 R21〜R23・C24〜C27 → 第 5 版 R24〜R27・C28〜C31(R25〜R27 は phase12 の P1〜P3 が正本に入った物)・次に作る束から

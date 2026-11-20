@@ -20,3 +20,7 @@ metadata:
 
 (索引から移した説明・2026-11-07)
 - [事故摘録の追加 SAT と本 PJ へ(決349・決350)](intake-accident-sat-registration.md) — 登録先 3 か所(KB・SAT・エージェントの手元の索引)・SAT はマスク済み・**決350 で SAT は保留・デモ画面を正本の写し + 架空の見本 + PDF で作る(段 1 設計 11-07 目安)**
+
+
+(索引から移した説明・2026-11-20)
+- [事故摘録の追加 SAT と本 PJ へ(決349・決350)](intake-accident-sat-registration.md) / [項目](intake-accident-sat-registration-item.md) — 登録先 3 か所・SAT はマスク済みだけ・決350 で SAT は保留・デモ画面は正本の写し + 架空の見本 + PDF

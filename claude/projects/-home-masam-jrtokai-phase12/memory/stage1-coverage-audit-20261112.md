@@ -16,3 +16,7 @@ metadata:
 
 **Why:** 利用者の判断(b001 の accept/reject)が届いたら、この物差しで reject を高く出せるかを照らす約束(coord)。
 **How to apply:** 判断が届いたら、新様式の定型を足した版と足さない版の両方で照らす。中身を開くときは伏せ直してから。関連: [[observation-lines-leak-names]]・[[masked-text-stale-vs-supplement]]・[[bulk-intake-r352-dkb]]
+
+
+(索引から移した説明・2026-11-20)
+- [抽出の取りこぼしの計測(20261112)](stage1-coverage-audit-20261112.md) — 率 B 中央 0.29%・本当の取りこぼしは測定値の 4 件・b001 は新様式で高く出る・B の伏せ漏れの類 94 文書

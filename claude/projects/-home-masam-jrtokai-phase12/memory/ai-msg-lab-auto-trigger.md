@@ -2,8 +2,13 @@
 name: ai-msg-lab-auto-trigger
 description: AI セッション間の自動トリガー(ai-hub・ai-msg-watcher)の試作 ~/ai-msg-lab(2026-11-03)・tmux 前提・24 の窓への統合は未承認
 metadata:
+  node_type: memory
   type: project
+  originSessionId: 33062a8e-fea8-4862-bc8f-2385b718c852
+  modified: 2026-11-20T06:20:55.496Z
 ---
+
+**版 1.0.0(2026-11-20・決363・lab コミット 077861a)**: 利用者の指示で汎用版にした(計画は Plan Mode で承認)。足した物 = `ai-hub wrap --check DIR` / `wrap --dir DIR --script F`(窓を起こす仕組みから呼ぶ入口・rc 0 / 11 = 呼び手が起こす / 21)・`.ai-hub.json` の `"enabled": true` で有効(無ければ何も変わらない・対象は既定で codex と agy だけ)・窓を閉じるとエージェントも止まる・再起動の後の追い打ち(2 回目の起動から snapshot し直さない)・起動の猶予 20 秒と打鍵の守り 20 秒・見張り 1 本のロック・`stop`/`doctor`/`log`/`version`。文書 = lab の `docs/導入の手順.md`・`運用の手順.md`。ai_agent_environment への指示文 = `~/ai_agent_environment/docs/REQUEST_FROM_PHASE12_COORD_AI_HUB_LAUNCH.md`(改造はそこの Antigravity・利用者が渡す)。試験 = 単体 114・変異 41/41・通し wrap_e2e 40・通しの変異 8/8。**残り**: phase12 の有効化(`.ai-hub.json`・CLAUDE.md 2 項・AGENTS.md)は利用者の合図の後 → 立ち上げの受入(§7)→ mvp2・dynfw へ依頼(各 1 日のドライラン)→ 任意で coord の窓も tmux に。関連 [[tmux-34-pitfalls]]。
 
 利用者依頼(2026-11-03)で、連絡箱方式の「新しいメッセージを読んで処理して」「返信を確認して」の手の打ち込みを自動化する道具を試作した。リポジトリ `~/ai-msg-lab`(git・リモートなし・worktree coord/rev/agy)。`~/.local/bin/ai-hub`・`ai-msg-watcher` は lab の bin への symlink。
 
@@ -30,3 +35,7 @@ metadata:
 - [AI セッション間の自動トリガー試作](ai-msg-lab-auto-trigger.md) — ~/ai-msg-lab・ai-hub/ai-msg-watcher・tmux 前提・V1〜V4 合格・phase12 でドライラン中(tmux aimsg-dryrun-phase12・11-03 20:52〜数日)・24 の窓への統合と規約の追記は利用者の判断待ち
 
 **本番の立ち上げ(rev だけ・2026-11-13 16:50 頃・利用者の承認「進めてください」)**: 11-13 のドライランは rev への req 5 件・rev の rep を全部 30 秒〜2 分で検知・余計な打ち込み 0・止めた 0。coord が tmux `ai-jrtokai-phase12-954629` を窓 rev(bash・rev のツリー)と watcher(本番・`ai-msg-watcher --project /home/masam/jrtokai-phase12`・lab c2d946b)だけで作った(`ai-hub --start` は全部の窓を起こすので使わない)。利用者が rev の Codex を終了し、`ai-hub open rev` でこの窓に入って Codex を起動し直す。窓が無い coord・pla・agy への打ち込みは保留のまま(`_guard` が「窓が無い」で打たない)。起動時の snapshot は既存の req に打たないので、最初の 1 回は手で打つ。ドライランの tmux(aimsg-dryrun-phase12)は並べて残した。coord の窓の tmux 化は決351 の演習の区切りの後。
+
+
+(索引から移した説明・2026-11-20)
+- [AI セッション間の自動トリガー試作](ai-msg-lab-auto-trigger.md) — ~/ai-msg-lab・V1〜V4 合格・往復の上限を人を挟まない往復で数えるよう直した(c2d946b)・ドライラン再開 11-11 17:49・統合は利用者の判断待ち

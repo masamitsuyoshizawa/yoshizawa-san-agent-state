@@ -47,3 +47,40 @@ MEMORY.md が読み込みの上限に近づいたので 2026-11-07 に移した�
 - [facets 個体 entry の受入(bkb)](facets-instance-entry-acceptance-bkb.md) — 決134〜138・受入設計 改訂 7・独立投影は主番号ごと
 - 受入(bkb): [甲・乙・丁・F1](c-conn-mark-acceptance-bkb.md) / [戊 照会の待ちの上限](query-timeout-bo-bkb.md) / [戊-d](bo-d-vocab-retry-acceptance-bkb.md) — いずれも合格(2026-10-06〜決230)
 - [表示改善 第 3 段の受入(bkb)](display-stage3-acceptance-bkb.md) — S6 (c) を含め是正後に全部合格(2026-10)
+
+## 2026-11-20 に移した項目(34 件・元の行のまま)
+
+- [姉妹jreast-phase0](sibling-jreast-phase0.md) — JR東日本DWG連動図表→QAデモを別セッション(~/jreast-phase0)で立上げ・本成果を片方向コピー再利用
+- [海鉄コメント対応20260826](kaitetsu-comments-20260826.md) — ②36問対応表+F-1読取強化をステージング検証済み・本体未投入(承認待ち)
+- [federate vs D-KB比較](fed-vs-dkb-comparison.md) / [D-KB再発照合改善](dkb-recurrence-improvement.md) — 統一比較 fed72≈lite70>dkg52-56(eaf19f5)
+- [数値基準整備HB/T2](quant-standards-hb-t2.md) — 定量化523件・定格72件(投入待ち)・Ⅴ編取替目安+T2規範値44件格納・次回LOOでjudge較正要
+- [C系診断ビュー](c-diag-view.md) — Phase1実装済(U1鳴動逆引き/U3同時多発)・一元化維持・Phase2=影響範囲/鎖錠逆引きが残
+- [ckb セッション状態](ckb-session-state.md) — P1/P2/P2b/P3 完了(kb_conn 化・ingest_diagrams G0〜G10・プロンプト正本・判定スコープ統一
+- [C-KB 正答化 第1〜6弾](ckb-remediation-waves-20260916.md) — 2026-09-18 完了: 正準 179→186(保守 172→181・87.0%・誤答0)
+- [B/D-KG 監査の状態](dkb-audit-state.md) — 2026-09-17 是正後 PASS 20/WARN 3(X6・X6b・X8=既知)/FAIL 0・入口コマンドと機械担保の所在
+- [C-KB G7 の API 実費](c-kb-g7-api-cost.md) / [C-KB コスト削減20260918](ckb-costdown-20260918.md) — G7 1 回 73.6→約 24 ドル・cachePoint 化・速度は不変
+- [障害探索ツリー fed](fault-tree-stage3-fed.md) — 第3〜5段: 読み方表=docs/設計_読み方表_障害探索ツリー_20260922.md(改訂1・§10停止条件
+- [安全区分の印の表示](safety-mark-display.md) — Dify の文面はプラグイン dkg_diagnose.py が組み立てる・印は質問と別行・印なしは出力不変・v0.3.6
+- [辞書の是正は閉じた](dict-remediation-closed.md) — 機械検査 770 件は是正しない・効かない理由=同定の枠が入れ替わる・閉じるときも測る
+- [甲13 の決着(B-KB 併記)](bkb-koh13-outcome.md) — 「撤去しない」で決着・判定は保留(保1)で不合格0件
+- [federate の B 照会も順に依る](federate-b-order-dependence.md) — 実装 959786cd・受入 段 0/2/3 合格・**評価完了 2026-09-27
+- [本番の合成を Opus 5.5 へ](opus55-production-switch-item.md) — **2026-09-28 本番切替済み**(EC2 反映
+- [Dify refusal_fallback(決131 閉じ)](dify-refusal-fallback-item.md) / [Dify 状態整理の後ろ盾(案 A)](dify-state-fallback-plan-a.md) — 決123〜132 で閉じた・EC2 反映済み
+- [エージェント向け資料 3 本(20260928)](agent-docs-bkb-dkb-20260928.md) — B-KB query/facets ガイド・D-KB diagnose ガイド・改変の説明
+- [技術説明会 資料(20260928〜1006)](tech-talk-materials-20260928.md) — 項目 1/3 md・Slides Artifact(版 9)・項目 1/3 PPTX
+- [事故摘録の原本の API(bkb)](accident-rawdata-endpoint-bkb.md) / [EC2 反映(決154〜158)](accident-rawdata-api-item.md) — /v1/accident/rawdata
+- [3 層辞書 確認シート新様式 S3(bkb)](dict-sheet-v2-s3-bkb.md) — 決161 S3 独立照合 33 検査一致
+- 探索木: [内部状態の契約 P1](t0-tree-internal-state-contract.md) / [P2 計画 fed](dkg-tree-p2-plan-fed.md) / [第 1 段の受入 bkb](tree-stage1-acceptance-bkb.md) / [EC2 反映〜決231](t0-tree-stage1-ec2-deployed.md) — 受入合格・EC2 反映済み
+- [explore 試作(決232〜241)](explore-proto-item.md) — /v1/explore の B/D ホップ探索・段 1 完了・改訂 14 は G1 不合格で段 2 停止
+- [MVP1 最終報告・提出物](mvp1-final-report-slides.md) — 吉澤分スライド 5 枚版/ロング 11 枚・パイプライン仕様書 B/C/D(e94faaa51b6166a7
+- [原因特定の手法の調査(agy/pla)](root-cause-methods-survey.md) — explore 閉鎖後の別手法調査 → 決247〜256
+- [M02 段 0 の B 側](m02-stage0-b-side.md) — 決246・両方 21/50 だが 2 軸の類似は選別にならず 3 軸で 0・既存 b-3a と同じではない(2026-10-14)
+- [停止点 3 の実装(完了)](stop-point-3-impl-pending.md) — 決263-A 受入合格・main 3599e9e1(2026-10-17)・次は決264
+- [薄い窓口 A の状態](thin-plan-a-window-state.md) — 決264 の LLM 演習 完了(2026-10-18・不整合なし)・手順書・通しは正本の接続の環境変数を渡す
+- [決275 探索木 V3 の受入(bkb)](tree-v3-acceptance-r275-bkb.md) — 決277〜286 合格・前段 [[tree-redesign-acceptance-r270-bkb]
+- [Dify human-input の実測事実](dify-human-input-facts.md) / [決290 ボタン回答の受入(bkb)](dify-button-acceptance-r290-bkb.md) — カード内 mermaid 可・受入合格
+- [決298 R1 判別の辺の受入(bkb)](r1-discriminates-acceptance-bkb.md) — 実装・是正・表示・決303 投入後まで合格(2026-10-24)
+- [direct_causes と R1(決297〜304)](direct-causes-dead-questions.md) — 手元・EC2 の D-KG へ投入済み・続く F2
+- [事故摘録ベクトル類似検索(決312〜325)](accident-vector-similar-item.md) — EC2 反映済み(t321)・決325 で表示は現状維持・正規化は今は変えない
+- [新担当者向け 全体説明の資料(20261105)](agent-newcomer-briefing-deck-20261105.md) — SMテンプレ pptx 10 枚・build_deck.py
+- [一括追加の社内現状説明の資料(20261110)](bulk-intake-status-deck-20261110.md) — SMテンプレ pptx 17 枚・build_deck.py・docs/資料_事故摘録の一括追加_現状説明_20261110

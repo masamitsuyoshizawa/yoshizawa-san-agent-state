@@ -13,3 +13,4 @@ metadata:
 追記(2026-11-10 18:37 ごろ・WSL の再起動): coord のスクラッチパッドも空になった(`/tmp` が消える・Windows の再起動でなくても起きる)。動いていた台は中断(`neo4j-rehearse-*` が Exited 255・プロセスと予約の pid は消える・台の置き場 `~/intake_demo_rigs/` と `data/private/bulk_rig/` は残る)。LOCKS の予約は開いたままなので、持ち主の down と解放を待つ。Docker Desktop が WSL の準備より先に起動すると、bind mount の失敗でコンテナが起動しないことがある(`docker-nginx-1` が Exited 127・`docker start` で戻った)。ポートの確かめは `netsh ... excludedportrange` と実際の接続の両方で。
 
 - 2026-11-11 に再確認: 再起動の後もスクラッチパッドの**置き場は残っていたが、前の中身は消えていた**。置き場が在ることだけで「消えていない」と言わない(ls で中身を見る)。
+- 2026-11-20 08:32 の再起動で、bkb の変異の道具(mut_ww.py・mut_v3r4.py・mut_v3r3.py ほか)と時計の測りの道具が消えた。rev へ出した報告で「変異の道具は scratchpad」と書いていた。結果は連絡に在ったので大きな害は無かったが、rev が回し直す時は作り直しになる。**rev へ出す物の変異の道具は、作業ツリーの git の無視の内(例 knowledge_kb_v8/data/ の下)か、試験と同じ枝のファイルに置く**。

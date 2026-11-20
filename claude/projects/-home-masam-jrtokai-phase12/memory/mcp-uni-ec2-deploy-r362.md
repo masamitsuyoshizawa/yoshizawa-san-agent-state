@@ -21,3 +21,7 @@ metadata:
 **2026-11-19 深夜(決362 追補 6・7)**: 3 つ目のサーバー **MCP-UNI2**(コンテナ jrtokai-mcp-uni2・像 jrtokai-mcp-uni2:0.3.0-20261119・タグ v0.3.0-uni2 fce0c21・口 8630・/mcp-uni2・/health-uni2)を並行で配備した。確かめ 6 点は通った。サーバーの中で Bedrock の Tool-Use のループ(最大 4 ラウンド)を回し、kg_api の 9 道具 + SAT の 2 道具を AI が選ぶ作り。設定 `~/mcp-uni2/secret/uni2.env`(下流の鍵は共用・署名の秘密は新しい乱数)・記録 `/home/ubuntu/jrtokai-mcp-uni2-data`。nginx の設定 sha16 は 85be7dd7d3052c6c → aa50c8c13b2f98f4(退避 `~/nginx_backup/nginx.conf.pre-dec362-uni2-20261119`)。**外に面する容器は 3 つ**(決351 の EC2 の作業の窓で止めて戻す)。気づいた事: 1 問が重い(入力約 2.1 万・出力約 3,900 トークン)・モデルの制限なし・ログに内部の URL・session に問いと回答の抜粋。報告 = `docs/報告_MCP-UNI2のEC2並行配備_結果_coord_20261119.md`。教訓: nginx の設定に在る番号の字(8630)は、既存の容器の中の口でも当たるので、「既に在るか」は番地つきで見る・名ごとの応答の前後比べは、鍵がつぶれていないかを見る。
 
 **2026-11-20 未明(決362 追補 8)**: MCP-UNI2 を v0.3.1-uni2(e37ee8f・像 jrtokai-mcp-uni2:0.3.1-20261120)に入れ替えた。**既定のモデルは claude-haiku-4-5**(設定は UNI2_DEFAULT_MODEL の行・UNI_DEFAULT_MODEL は uni2 に効かなくなった)。確かめ 3 点は通った。ログの内部の URL の行は 0 になった。残り = 選べるモデルの制限なし(7 つ)・session の保存は既定で有効。報告 = `docs/報告_MCP-UNI2のv0.3.1入れ替え_結果_coord_20261120.md`。
+
+
+(索引から移した説明・2026-11-20)
+- [MCP-UNI の EC2 並行配備(決362)](mcp-uni-ec2-deploy-r362.md) — 2026-11-19・8620・/mcp-uni・今の鍵を共用・SAT はマニュアルだけ・午後に v0.2.2 へ入れ替え(伏せは有効に戻した = 利用者の決め・誤伏せと伏せ漏れが残る・記録は消さない)・深夜に 3 つ目の MCP-UNI2(8630・/mcp-uni2)を並行で配備

@@ -31,3 +31,7 @@ metadata:
 
 (索引から移した説明・2026-11-07)
 - [AWS アカウント移行(20261031)](aws-account-migration-20261031.md) — sat-sandbox → sat-singletenant-jrtokai-dev・EC2 2 台(jr-central・jr-central-agent)は一緒に移すのが推し・新アカウントは旧い世代だけ呼べ Opus 4.7/5.5・Sonnet 5 は AccessDenied(可否の API はあてにならない)・それまで LLM は sat-sandbox(決345)・**決348 で 2 台を新へ複製済み(旧は無停止・切り替えは利用者の指示待ち)**
+
+
+(索引から移した説明・2026-11-20)
+- [AWS アカウント移行(20261031)](aws-account-migration-20261031.md) — 決348 で EC2 2 台を新へ複製済み(切り替えは利用者の指示待ち)・新は Opus 4.7/5.5 が AccessDenied・LLM は sat-sandbox(決345)
