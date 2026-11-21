@@ -3,12 +3,14 @@
 - [完成形の UI/UX の構想](target-ux-vision.md) — 例(入力と出力のイメージ)から組合せを自動で作り、Dify 風のブロック組み換えで調整する(未確定)
 - [golden の規約に語彙を求める](golden-conventions-need-vocab.md) — 再導出の前に、分類の欄の語彙・参照の指し方・欄の定義が規約にあるかを確かめる
 - [WSL2 の単調な時計は約 1 割速い](wsl2-monotonic-clock-fast.md) — monotonic は 9〜10% 速い。壁時計は約 27〜30 秒ごとに 0.5〜2.2 秒戻り、秒の分解能の壁時計を使う古い対照(adjreq・pilotfix2)が全体の実行器で揺れる(v7a4・v7a5)。形は日と時刻で変わり、1 回の実行の間にも変わる。戻りを見たら先に跳びを測り、全体の検証は小さな形のときに始める(小さな形でも秒の境は越え得る・v7a6)
-- [貼る文は短文だけ](short-paste-texts.md) — 「INBOX.md の新しい依頼を処理してください」だけを示す。中身・続きの促し・事情の変わりは全て連絡文に書く(2026-11-18 に正された)
+- [貼る文は短文だけ](short-paste-texts.md) — 2026-11-21 から外部エージェントへは ai-hub が自動で知らせる。貼る文(「INBOX.md の新しい依頼を処理してください」)は、ai-hub が止まっている時だけ示す
+- [外部エージェントへの知らせは ai-hub](ai-hub-auto-notify.md) — icx・iag・rev へは、INBOX を作ると見張りが窓に打つ(決151)。返事も、coord の窓へ「返信を確認してください」と打たれる(決153)。この文は利用者の承認として扱わない
 - [補助のエージェントの定義と記録](subagent-definitions-and-records.md) — .claude/agents/ の定義はセッションの始め直しで読まれる。記録は subagents/ の JSONL(応答・要求の数・使用量)
 - [変異の照らしは理由まで比べる](mutant-check-compare-reasons.md) — 要約の n/n でなく行ごとの観測の理由を比べ、例外の行は検出に数えない。理由の欄の無い行も見る(2026-10-27 A3PC01 の見落とし)
 - [同じ作業ツリーで試しを並行して回さない](no-parallel-trials-same-worktree.md) — 試作 α の契約の試し・変異の実行器を別の過程と並行させると対照が落ちる(2026-10-27 req 1723)。回している間は proto/ も書き換えない(凍結の候補の照らし・req 2122)
 - [起動の前に作業ディレクトリを確かめる](subagent-cwd-before-launch.md) — 補助のエージェントは coord のセッションの作業ディレクトリを引き継ぐ。送信の起動の直前にリポジトリの根を確かめる(2026-10-28 R3 の 1 起動目の失敗)
 - [連絡文の時刻は書く直前の date の分](comms-time-at-write.md) — 名と date 行に次の分を見越して付けない(2026-10-28 に 2 回、1 分先の名を付けた)
-- [Claude Code のセッションへは送信で頼む](message-claude-sessions.md) — icc(diagram-icc)への処理開始・回答を読む依頼は SendMessage で送り、貼る文は Codex 等の分だけ
+- [Claude Code のセッションへは送信で頼む](message-claude-sessions.md) — icc(diagram-icc)への処理開始・回答を読む依頼は SendMessage で送り、Codex 等は ai-hub が自動で知らせる
 - [作業用の台の名は proto のパッケージ名と重ねない](scratch-script-name-shadows-package.md) — diag.py という台が `from diag import` を隠し、再生だけが ImportError になった(2026-11-05)
 - [名前を問う確かめは時間がかかる](naming-questions-are-slow.md) — 記号の正式名を選ぶ問いは 1 問 1〜3.5 分。正誤の問いと分け、分からない物は顧客への問いに回す(2026-11-16 s05)
+- [図の種類ごとに参照する資料を決める](per-drawing-type-references.md) — 図の記号は種類で違う。種類ごとに規格・資料・図の約束の表を束で選べる形を、次の段の軸にする(決155)

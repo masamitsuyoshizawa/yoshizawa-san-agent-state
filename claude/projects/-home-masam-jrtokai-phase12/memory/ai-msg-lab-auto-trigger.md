@@ -1,6 +1,6 @@
 ---
 name: ai-msg-lab-auto-trigger
-description: AI セッション間の自動トリガー(ai-hub・ai-msg-watcher)の試作 ~/ai-msg-lab(2026-11-03)・tmux 前提・24 の窓への統合は未承認
+description: AI セッション間の自動の知らせ(ai-hub・ai-msg-watcher)~/ai-msg-lab 版 1.0.0・phase12 は 2026-11-21 から本番・coord 宛ては保留(coord の窓が tmux の外)
 metadata:
   node_type: memory
   type: project
@@ -9,6 +9,10 @@ metadata:
 ---
 
 **版 1.0.0(2026-11-20・決363・lab コミット 077861a)**: 利用者の指示で汎用版にした(計画は Plan Mode で承認)。足した物 = `ai-hub wrap --check DIR` / `wrap --dir DIR --script F`(窓を起こす仕組みから呼ぶ入口・rc 0 / 11 = 呼び手が起こす / 21)・`.ai-hub.json` の `"enabled": true` で有効(無ければ何も変わらない・対象は既定で codex と agy だけ)・窓を閉じるとエージェントも止まる・再起動の後の追い打ち(2 回目の起動から snapshot し直さない)・起動の猶予 20 秒と打鍵の守り 20 秒・見張り 1 本のロック・`stop`/`doctor`/`log`/`version`。文書 = lab の `docs/導入の手順.md`・`運用の手順.md`。ai_agent_environment への指示文 = `~/ai_agent_environment/docs/REQUEST_FROM_PHASE12_COORD_AI_HUB_LAUNCH.md`(改造はそこの Antigravity・利用者が渡す)。試験 = 単体 114・変異 41/41・通し wrap_e2e 40・通しの変異 8/8。**残り**: phase12 の有効化(`.ai-hub.json`・CLAUDE.md 2 項・AGENTS.md)は利用者の合図の後 → 立ち上げの受入(§7)→ mvp2・dynfw へ依頼(各 1 日のドライラン)→ 任意で coord の窓も tmux に。関連 [[tmux-34-pitfalls]]。
+
+**本番の状態(2026-11-21・決363 追補 3)**: phase12 は有効(`.ai-hub.json`・main 4639b801a)。立ち上げ(ai-workspace.ps1)の改造は、担当(Antigravity)が済ませ、受入 a〜j は全部合格(担当の報告・付けた変更 = BOM と wsl.exe の絶対の道)。11-21 11:55:01 に、見張り(本番)が、rev へ、待っていた依頼 4 件ぶんを 1 度打ち、rev は 12:02 に返事 4 通(人の打ち込み 0)。**coord の窓は tmux の外なので、coord 宛ての知らせは保留のまま**(「coord へ打てない(窓 coord が無い)」)→ coord は、`ai-hub log` と rev の木を自分で見て、返事を処理する。`ai-hub status` の「人の判断待ち N 件」は、状態の置き場の NEEDS_HUMAN.md の行の数(止めた知らせの累計・11-18 の試しの期間の 31 行が残っている・reset は利用者に諮ってから)。未確認 = agy への本番の打ち込み・coord の窓を tmux に入れる形。続けて起こし直すと、Codex の自動更新と重なって codex のリンクが欠ける事が在った。mvp2 は、利用者の直の指示(11-21)で導入へ(mvp2 の coord が計画を諮る)。dynfw は未着手。
+
+**coord の窓も tmux の中に(段 6 の試し・2026-11-21 17:0x・利用者の指示)**: 本体の `.ai-hub.json` を `{"enabled": true, "tmux_agents": ["external", "coord"]}` にした(main aff3ee4f7)。`ai-hub wrap --check` は coord で rc 0。窓 01 を `restart-ai.bat -Id 01` で起こし直すと効く(利用者が行う)。**起こし直した後、会話に「返信を確認してください」と入ったら、それは見張りの自動の打ち込み**(利用者の承認や指示ではない)。rev・agy の木の未コミットの返事を、いつもの手順で処理する。戻す時は、`tmux_agents` から coord を外して、窓を起こし直す。立ち上げの改造の受入は合格(coord が写し・差の範囲・Windows 側の配備を確かめた・決363 追補 5)。3 つのプロジェクト(phase12・mvp2・dynfw)とも本番。
 
 利用者依頼(2026-11-03)で、連絡箱方式の「新しいメッセージを読んで処理して」「返信を確認して」の手の打ち込みを自動化する道具を試作した。リポジトリ `~/ai-msg-lab`(git・リモートなし・worktree coord/rev/agy)。`~/.local/bin/ai-hub`・`ai-msg-watcher` は lab の bin への symlink。
 
@@ -39,3 +43,5 @@ metadata:
 
 (索引から移した説明・2026-11-20)
 - [AI セッション間の自動トリガー試作](ai-msg-lab-auto-trigger.md) — ~/ai-msg-lab・V1〜V4 合格・往復の上限を人を挟まない往復で数えるよう直した(c2d946b)・ドライラン再開 11-11 17:49・統合は利用者の判断待ち
+
+**1 日の上限で coord への知らせが止まった(2026-11-22 01:22)・版 1.0.1(決363 追補 7・8)**: 見張りは同じ窓へ 24 時間に 30 回までしか打たない。昨夜は rev・agy の返事が多く、coord への 30 回に達して止まった(利用者に「rev と agy の結果を確認して」と言われるまで 20 分気づかなかった)。利用者の承認で、`ai-hub reset /home/masam/jrtokai-phase12`(古い NEEDS_HUMAN は名を変えて残る)と、道具に宛先ごとの上限 `watcher.daily_cap_by_target` を足した(lab cdea762・単体 118・変異 43/43)。phase12 の `.ai-hub.json` は `{"enabled": true, "tmux_agents": ["external", "coord"], "watcher": {"daily_cap_by_target": {"coord": 80}}}`。見張りの起こし直しは、見張りの過程に INT → 同じ窓へ `tmux send-keys -t =<ID>:watcher '<lab>/bin/ai-msg-watcher --project <本体>' Enter`(ほかの窓に触れない)。**How to apply:** 長い夜のやり取りでは、`ai-hub status` の「人の判断待ち」と `ai-hub log` の「上限 N 回に達した」を時々見る。知らせが来ない時は、rev・agy の木を手で見る。
