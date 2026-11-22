@@ -51,7 +51,7 @@ MEMORY.md が読み込みの上限に近づいたので 2026-11-07 に移した�
 ## 2026-11-20 に移した項目(34 件・元の行のまま)
 
 - [姉妹jreast-phase0](sibling-jreast-phase0.md) — JR東日本DWG連動図表→QAデモを別セッション(~/jreast-phase0)で立上げ・本成果を片方向コピー再利用
-- [海鉄コメント対応20260826](kaitetsu-comments-20260826.md) — ②36問対応表+F-1読取強化をステージング検証済み・本体未投入(承認待ち)
+- [海鉄コメント対応20260826](kaitetsu-comments-20260826.md) — ②36問対応表+F-1読取強化・打ち手 2 は 08-27/28 に承認投入済み(本文の追記による・2026-11-22 に索引の古い「承認待ち」を直した)
 - [federate vs D-KB比較](fed-vs-dkb-comparison.md) / [D-KB再発照合改善](dkb-recurrence-improvement.md) — 統一比較 fed72≈lite70>dkg52-56(eaf19f5)
 - [数値基準整備HB/T2](quant-standards-hb-t2.md) — 定量化523件・定格72件(投入待ち)・Ⅴ編取替目安+T2規範値44件格納・次回LOOでjudge較正要
 - [C系診断ビュー](c-diag-view.md) — Phase1実装済(U1鳴動逆引き/U3同時多発)・一元化維持・Phase2=影響範囲/鎖錠逆引きが残

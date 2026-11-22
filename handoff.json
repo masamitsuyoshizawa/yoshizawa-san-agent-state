@@ -6,40 +6,40 @@
    "sha256": "ce73fd2aea4585f65944db5914a12d27976c3c2c74e26e006a670f141d417b96"
   },
   "K": {
-   "latest": "20261122-0200_K_incr.tar.zst",
-   "sha256": "6ed4a3ed95ff7a75bc90c429431bf96767e82d031bb7386c1b44d33f01f3fde9"
+   "latest": "20261123-0200_K_incr.tar.zst",
+   "sha256": "0da469c3801a26d0b50827b66d3e3cd7ee97917c54bbb2a8e4e0835074efd299"
   },
   "M": {
-   "latest": "20261122-0200_M.tar.zst",
-   "sha256": "5c2c6bc5f55c462ca4c651377a609ab352990db5f66542f022786f5bac4e6e2c"
+   "latest": "20261123-0200_M.tar.zst",
+   "sha256": "3b8015d6372bf354c82054180ccef46bde5158602e571baab27b3af944729093"
   },
   "N": {
-   "latest": "20261115-0300_neo4j-tacit-v1.dump.zst.gpg",
-   "sha256": "ca0486a97f7577b5d427ab2e9c69f2d1a543b63b7818fc30f3d84da2ff907ab4"
+   "latest": "20261122-0300_neo4j-tacit-v1.dump.zst.gpg",
+   "sha256": "55ae0cda1fe5d5d12c0f0663dffaf7624f84931fcf2ad675e64c091d3f711184"
   },
   "P": {
    "latest": "20261122-0200_P.tar.zst.gpg",
    "sha256": "c847c701f2c771a11b442d39362abb90f9f126ffae502a82a71de69152f6aa8b"
   },
   "S": {
-   "latest": "20261122-0200_S.tar.zst.gpg",
-   "sha256": "71deae87d2adb23a3f00b4808ad3964de05820ad4def0935cc30f71a744957ee"
+   "latest": "20261123-0200_S.tar.zst.gpg",
+   "sha256": "07cf7ea323eb5840574f77aa29fc0e8a0f29badc29aefd0f1da26a7941fc9cbe"
   },
   "T": {
-   "latest": "20261122-0200_T.tar.zst.gpg",
-   "sha256": "3c2d1e05184f8cc627c2dc806bbc7be831090689fca8a06d29a69ac28bdedb37"
+   "latest": "20261123-0200_T.tar.zst.gpg",
+   "sha256": "276f9e0bfecdc98c11eaabfb1fa63b773c6ea2fff48e047151f0ed8a79d227d9"
   },
   "U": {
-   "latest": "20261116-0200_U.tar.zst.gpg",
-   "sha256": "d06ad5cb57e20ebb804593e205e0c95a1fb3f260d147a5c05ca9aa131f9bdb66"
+   "latest": "20261123-0200_U.tar.zst.gpg",
+   "sha256": "fee77e58f1d0d6a878782c833bfdc4ccdf82c7cc409a5bf946a7cdf3f389b2ee"
   }
  },
  "by": "DESKTOP-OCT2024",
  "distro": "Ubuntu",
  "heads": {
-  "jrtokai-phase12": "main@baaccdf10de8",
-  "jrtokai-phase12-agy": "agy@1073faa12811",
-  "jrtokai-phase12-bkb": "bkb@b1821ea3367d",
+  "jrtokai-phase12": "main@70080ca3d2dd",
+  "jrtokai-phase12-agy": "agy@70080ca3d2dd",
+  "jrtokai-phase12-bkb": "bkb@9ca629f45c4b",
   "jrtokai-phase12-bkb-a263": "bkb-a263@31eba4a906e0",
   "jrtokai-phase12-bkb-llmsel": "bkb-llmsel@cc6f2a0f2dc5",
   "jrtokai-phase12-bkb-r263a": "bkb-r263a@4fce667e821f",
@@ -47,18 +47,21 @@
   "jrtokai-phase12-bkb-r351": "bkb-r351@5e6aaa574ccb",
   "jrtokai-phase12-bkb-r355": "bkb-r355@21dd26b6b87c",
   "jrtokai-phase12-bkb-w1": "bkb-w1@9e49fcc93718",
-  "jrtokai-phase12-ckb": "ckb@b17fc4ca5ef1",
-  "jrtokai-phase12-coord": "coord@baaccdf10de8",
+  "jrtokai-phase12-ckb": "ckb@75caed8371c3",
+  "jrtokai-phase12-coord": "coord@70080ca3d2dd",
   "jrtokai-phase12-coord-readwrap": "coord-readwrap@a785e9c905d5",
-  "jrtokai-phase12-dkb": "dkb@907d305e1325",
-  "jrtokai-phase12-dkb-r2w": "dkb-r2w@c6a4315eb74c",
+  "jrtokai-phase12-dkb": "dkb@0a82e7d422a3",
+  "jrtokai-phase12-dkb-coordtool": "dkb-coordtool-a2@a01387dc2f60",
+  "jrtokai-phase12-dkb-day": "dkb-day@d2d1f5a6d4e3",
+  "jrtokai-phase12-dkb-r2w": "dkb-r2w@536ea2e87abd",
   "jrtokai-phase12-dkb-r351w": "dkb-r351w@45575ecaa2e1",
   "jrtokai-phase12-dkb-r351x": "dkb-r351x@734fa64c564d",
+  "jrtokai-phase12-dkb-r364": "dkb-r364@e3824231e7be",
   "jrtokai-phase12-dkb-reh": "dkb-reh@ad3820b2b317",
   "jrtokai-phase12-dkb-rehb": "dkb-rehb@ad3820b2b317",
   "jrtokai-phase12-dkb-rs5": "dkb-rs5@ade088e9fbaf",
   "jrtokai-phase12-dkbcmp": "dkbcmp@98a5b605f688",
-  "jrtokai-phase12-fed": "fed-r15@87b586a6ac84",
+  "jrtokai-phase12-fed": "fed@30bd311443c1",
   "jrtokai-phase12-fed-btn": "fed-btn@18dbb14ecaa4",
   "jrtokai-phase12-fed-combo284": "fed-combo284@7b2348232061",
   "jrtokai-phase12-fed-dc": "fed-dc@711caf68c2c0",
@@ -71,10 +74,10 @@
   "jrtokai-phase12-fed-tree279": "fed-tree279@c0cded3c390e",
   "jrtokai-phase12-fed-tree284": "fed-tree284@975e537cf4f6",
   "jrtokai-phase12-fed-tree286": "fed-tree286@4efca327159f",
-  "jrtokai-phase12-pla": "pla@4639b801a84e",
-  "jrtokai-phase12-rev": "rev@deaa3d9d221e",
-  "jrtokai-phase12-tkb": "tkb@041a770e2e12",
-  "jrtokai-phase12-tkb-p2": "tkb-p2@fb7eb68b0326"
+  "jrtokai-phase12-pla": "pla@90472886e66f",
+  "jrtokai-phase12-rev": "rev@70080ca3d2dd",
+  "jrtokai-phase12-tkb": "tkb@aafdbb05317c",
+  "jrtokai-phase12-tkb-p2": "tkb-p2@bbdeaf0f0121"
  },
- "updated": "2026-11-22 02:08"
+ "updated": "2026-11-23 02:04"
 }

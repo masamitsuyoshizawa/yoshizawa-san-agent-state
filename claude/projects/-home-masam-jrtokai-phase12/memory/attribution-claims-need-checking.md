@@ -28,3 +28,5 @@ metadata:
 
 関連: [[claim-wider-than-implementation]]・[[criterion-not-tool-output]]・[[verify-filenames-before-citing]]・[[artifact-self-report-not-trusted]]
 追記(2026-10-29・bkb): 設計 改訂 11 §15 に「一覧で保留中として数えられる(fed info 0948・fed の会話の確かめ)」と書いたが、元は coord の条件 (d) で、fed の一覧(GET /jobs)は state_reason を持っていなかった(fed rep 20261029-1000)。**条件(あるべき姿)を、相手の実装の事実として出典を付けて書かない。出典を付ける前に、その出典の文に当該の主張が在るかを grep で確かめる。**
+
+- 2026-11-22(決364): 私の材料 ∩ dkb の d1_both = 300 を、dkb の報告 295 との「食い違い」と coord に書いた。実は dkb の表の別の列(295 = D2b の条件)だった。**相手の数と比べる前に、相手の報告の表の列の定義を読む**。
