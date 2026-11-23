@@ -14,3 +14,4 @@
 - [作業用の台の名は proto のパッケージ名と重ねない](scratch-script-name-shadows-package.md) — diag.py という台が `from diag import` を隠し、再生だけが ImportError になった(2026-11-05)
 - [名前を問う確かめは時間がかかる](naming-questions-are-slow.md) — 記号の正式名を選ぶ問いは 1 問 1〜3.5 分。正誤の問いと分け、分からない物は顧客への問いに回す(2026-11-16 s05)
 - [図の種類ごとに参照する資料を決める](per-drawing-type-references.md) — 図の記号は種類で違う。種類ごとに規格・資料・図の約束の表を束で選べる形を、次の段の軸にする(決155)
+- [直す図と確かめる図を分ける](holdout-check-during-tuning.md) — 1 つの図で直し続けると合わせ込む。確かめる図の数を主な数にし、決定論の照らしを途中の物差しにする(段 5・決167)

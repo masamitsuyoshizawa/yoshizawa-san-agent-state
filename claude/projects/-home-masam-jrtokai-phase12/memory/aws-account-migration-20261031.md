@@ -35,3 +35,7 @@ metadata:
 
 (索引から移した説明・2026-11-20)
 - [AWS アカウント移行(20261031)](aws-account-migration-20261031.md) — 決348 で EC2 2 台を新へ複製済み(切り替えは利用者の指示待ち)・新は Opus 4.7/5.5 が AccessDenied・LLM は sat-sandbox(決345)
+
+追記(2026-11-23 20:15・決365 追補 6・利用者の指示で再実測・profile jrdev): 新アカウント(3833)= **新しい世代は今も全部 AccessDenied**(jp Opus 5.5/4.8/4.7・jp Haiku 5.5・global Fable 5/5.1/5.2・global Opus 5.5/5/4.8/4.7・global Sonnet 5.5/5・global Haiku 5.5)。呼べるのは jp Sonnet 4.6・jp Sonnet 4.5・jp Haiku 4.5・global Opus 4.6/4.5・global Sonnet 4.6/4.5・global Haiku 4.5(東京)。大阪は jp Sonnet 4.6・jp Haiku 4.5 が呼べた。複製の 2 台は 11-03 から動き続けている(docker 29.4.1・本 PJ の機械は空き 40 GB・役割 JrCentralBedrockRole = AmazonBedrockFullAccess だけ)。試験環境(決365)はこの複製を使う。saml2aws は `-p jrdev` で別の名に資格を置ける(既定を書き替えない)。
+
+追記(2026-11-23 20:4x・決365 追補 8): **今のアカウント(4458)の Bedrock を、新アカウント(3833)の試験環境の機械から借りる設定を作った**。4458 に役割 JrTestEnvBedrockBorrow(信頼 = 3833 の JrCentralBedrockRole だけ・権限 BedrockInvokeOnly)・3833 の JrCentralBedrockRole に権限 BorrowBedrockRoleInOldAccount(sts:AssumeRole)。機械のホストの上で assume-role → jp Opus 4.7 が東京・大阪とも呼べた。組織の決まりは止めていない・poweruser で作れた。kg_api の容器の中から使う設定は段 1。手元の資格の名: sandbox = 4458・jrdev = 3833(既定は切れていた)。ssh の名 kb-demo-ec2-3833 = 複製の機械(coord が ~/.ssh/config に足した)。

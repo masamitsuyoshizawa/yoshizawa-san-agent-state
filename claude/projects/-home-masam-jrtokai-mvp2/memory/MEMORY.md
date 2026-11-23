@@ -71,3 +71,4 @@
 - [階層の第 2 版の凍結まで dcr の数を読まない](acc-do-not-read-dcr-hierarchy-counts-before-v2-freeze.md) — 値が在った 4 本を coord と dcr が直している・**coord の知らせまで main を取り込まない**・data/derived/hier_pilot/ も読まない・利用者はまとめの数を見ている(2026-11-22・決195)
 - [「凍結済み」は期待の版と欄の単位](frozen-means-expectation-version-not-document.md) — 本が前の版で凍結済みでも、新しい版が照らす値は書かない・決168 §5 の 3 の誤りを決195 で訂正(2026-11-22・coord)・利用者への報告にも、凍結の前の読みの数は形だけ
 - [配っている間は部品の画面の字を書き換えない](no-ui-edits-while-serving.md) — 部品は問いを開くたびに ui.js・ui.css を読み直していた・8753・8756 に作り途中の 0.9.11 が入り coord が急ぎで戻させた(答え 0)・作り途中は別の worktree・起動の時に読み込む形に直す(2026-11-22・dgr)
+- [揺れる試しは再現してから直す](reproduce-flaky-test-before-claiming-fix.md) — 通った回数で直ったとしない・遅れを入れて再現し落ちた時の値で訳を確かめる・待ちを足す前に画面そのものの欠けを疑う(2026-11-23・dgr・部品 0.9.13)
