@@ -3,7 +3,7 @@
     "USE_BUILTIN_RIPGREP": "0",
     "DISABLE_AUTOUPDATER": "1"
   },
-  "model": "claude-fable-5-2",
+  "model": "opus",
   "language": "日本語",
   "modelSettings": {
     "claude-opus-5-5": {
