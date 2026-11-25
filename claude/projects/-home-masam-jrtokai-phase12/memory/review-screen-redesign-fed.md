@@ -145,3 +145,7 @@ bkb の合わせ(rep 20261114-1301): 8 種とも改訂 0 に載る。設計 改�
 **2026-11-24 13:14(決357 追補 266・267)**: rev 合格 → coord が f16446118 を本体に入れた(本体の venv で 843 合格)。README に配る時の順・issue と serve は同じ作業ツリー・出す行と rc・切り替えの時の回を足した(fed-readme 81ff9f64e・本体に入った)。bkb は古い回 26 を今の道具で閉じた(前の版の回を新しい版で読んで閉じられる事が実の回で確かめられた)。見本の作業ツリー fed-gloss と fed-gloss3 は外した(枝は origin に残す)。残り = dkb の古い回・tkb の見せ方の指紋(gloss.py を DISPLAY_FILES へ)。
 
 **2026-11-24 13:35 tkb の知らせ(info 20261124-1335)**: tkb が tkbbuild の見本の名を替える(改訂 57・tkb-p2 f6eb60277・本体はまだ)。`docs/review_samples/fedterm/make_gloss2_samples.py` の A1・A2 の入力は、tkb の枝が本体に入った後は新しい名(tacit-a1-ba4ee24df90172d4-1of1・tacit-a2-4a490e391fb80888-1of2)に替えないと回らない。登録済みの fedterm の見本と試験には効かない(tkb が確かめた)。回し直す時だけ直す。
+
+## 索引から移した詳細(2026-11-25・MEMORY.md の前の行)
+
+[人の確認画面の作り直し fed(20261112〜13)](review-screen-redesign-fed.md) — review_kit・11-22 に本体へ: rules/check-order・読み直しの直し・改訂 15(範囲をなぞって選ぶ・3 行の枠 dd264ccf9)・「終わった回」も本体に(11-22)・serve の後片付けと取り込み後の直しも本体に(e88b4c126・11-22)・語の説明(甲・配る口 issue)は本体に入った(f16446118・11-24)・選びの ref の位置は未照らし
