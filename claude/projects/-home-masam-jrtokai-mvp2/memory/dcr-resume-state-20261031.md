@@ -61,4 +61,6 @@ metadata:
 - 2026-11-22 18:0x: kgb が確かめた: 戻した書き出しは投入の記録と同じ・API の返せない本 0・正本不変(eb2cdbaa0d1b409c)。I1 は閉じた。
 - 2026-11-24 15:41: 決214/決216 で事例報告の全文の読みと画像の試行に入った(計画承認・rep 1517)。kgb は欄の揺れ 3 つを受け、kgb_input の鍵(立場 confirmed/presumed/investigating/opinion/negated・処置の段 temporary/permanent/recurrence・区画 cover/summary/cause/progress/measures/figure/appendix/other・_meta.x_stance_table・I27)を求めた(設計書 v0.9 3d3678e)。画面 A(mask_20261124-1518)と B(send_20261124-1539・case_image.py)の数えを rep 1540 で出し、coord の知らせを待つ。次: プロンプト 2 本(case_whole_v1・case_image_v1)と言い回しの表の初めの版を dcr の画面で 1 回で諮る → coord が sha 入りの dec → 82d7 の全文と画像を送る。
 - 2026-11-24 16:07: 画面 A・B は答えて取り込んだ(eef4 は M4 合格・82d7 は送りの門 28)。指示文 2 本と言い回しの表 第 1 版を利用者が承認(5b4e9e3・rep 1606)・coord の sha 入りの dec 待ち。次: case_whole.py(送る字・3 回・照らし・表・画面 C・kgb の鍵で書き出し)と case_image.py の送り(llm_vision・3 回・一致)を作り、dec の後に 82d7 を送る。画面 B の説明の字「押すと大きく」は次の回で直す。
+- 2026-11-27 00:36: 送りは AWS の資格情報切れで止まったまま(何も送っていない)。決224(ホールド中)で指示文 第 2 版と表 第 2 版の案を出した(c4abc29・rep 0035・承認まで使わない・resolve 関数)。第 1 版の送りは第 2 版の承認と合わせて諮る。資格情報が戻っても送る前に coord に知らせる。道具: case_whole.py・case_image.py(送り・一致・画面 C・D は作り済み・未実行)。
+- 2026-11-27: 決225 で第 2 版(指示文 d10cb0887de2f032・表 675c1db70ea9175c)を承認。送る時は第 2 版(画像は case_image_v1 のまま)。道具は 7dbb325 で第 2 版に切り替え済み(試し 7/7・送りの門は決225 の dec で通る)。送りは資格情報が戻り利用者の許しの後、送る前に coord に知らせる。画面の配りも許しまで止める。
 

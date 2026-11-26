@@ -7,13 +7,13 @@
   "language": "日本語",
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "low"
+      "effortLevel": "high"
     },
     "claude-fable-5-1": {
       "effortLevel": "xhigh"
     },
     "claude-fable-5-2": {
-      "effortLevel": "high"
+      "effortLevel": "medium"
     }
   },
   "tui": "fullscreen",

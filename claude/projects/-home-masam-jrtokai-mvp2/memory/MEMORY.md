@@ -79,3 +79,4 @@
 - [pkill の型がシェル自身に当たる](pkill-pattern-matches-own-shell.md) — 配りの止めの後の LOCKS とコミットが走らなかった(終了 144)・ポートの番号で止める(2026-11-24・dgr)
 - [重なり 0 の為に文と印を食い違わせない](overlap-zero-must-not-break-text-mark-agreement.md) — 第 5 回を止めた・26 問とも文が言う印が図に無い・印の言い方は描いた物から作る・新しい形は見本と agy(2026-11-24・dgr)
 - [写しは一時の置き場の App で](screenshot-with-temp-store-not-real-app.md) — 配りの make_app で開き、本当の答えの置き場に見た記録を 21 行足した・消さず番号を記す(2026-11-24・dgr)
+- [ui.js を直したら node --check](ui-js-check-syntax-after-edit.md) — 行の途中の // で行の残りが消え、画面が動かず selftest が時間切れ(2026-11-27・dgr)
